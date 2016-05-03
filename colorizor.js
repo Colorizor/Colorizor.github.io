@@ -86,7 +86,7 @@
         $(this).html(str);
       });
       
-      $.each($('pre[number]').find('code'), function(line) {
+      $.each($('pre[number]'), function(line) {
         $(this).find('span[class="coding"]').html(function(index, html) {
           return html.replace(/(^\n|.+)/igm, '<span class="code">$&</span>');
         });
