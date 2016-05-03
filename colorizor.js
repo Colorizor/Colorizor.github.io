@@ -76,6 +76,48 @@
           loadCSS('https://colorizor.github.io/Themes/' + theme.toLowerCase() + '.css');
         }
       });
+      
+      /*//------------------------------------------------------------------------------------------------------------
+      //---------------------------------------------------NUMBERING----------------------------------------------------
+      //------------------------------------------------------------------------------------------------------------
+      $.each($('pre[number]'), function() {
+        var str = $(this).html();
+        str = str.replace(/([\s\S]+)/igm, '<span id="all-number"></span><span id="all-code">$&</span>');
+        $(this).html(str);
+      });
+      
+      $.each($('pre[number]').find('span[id="all-code"]'), function(line) {
+        $(this).html(function(index, html) {
+          return html.replace(/(^\n|.+)/igm, '<span id="code">$&</span>');
+        });
+    
+        line = 0;
+    
+        $.each($(this).find('span[id="code"]'), function() {
+          line++;
+          var str = $($(this).parent().parent().find('span[id="all-number"]')).html();
+          $($(this).parent().parent().find('span[id="all-number"]')).html(str + '<span id="number">' + line + '</span>\n');
+        });
+      });*/
+  
+      //------------------------------------------------------------------------------------------------------------
+      //--------------------------------------------------FEATURES--------------------------------------------------
+      //------------------------------------------------------------------------------------------------------------
+      $('pre').find('code').click(function() {
+        var range, selection;
+
+        if (window.getSelection && document.createRange) {
+          selection = window.getSelection();
+          range = document.createRange();
+          range.selectNodeContents($(this)[0]);
+          selection.removeAllRanges();
+          selection.addRange(range);
+        } else if (document.selection && document.body.createTextRange) {
+          range = document.body.createTextRange();
+          range.moveToElementText($(this)[0]);
+          range.select();
+        }
+      });
     } else {
       window.setTimeout(waitForLoad, 60);
     }
