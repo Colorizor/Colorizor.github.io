@@ -61,7 +61,7 @@
       //----------------------------------------------------------------------------------------------------------
       //-----------------------------------------------Load Language----------------------------------------------
       //----------------------------------------------------------------------------------------------------------
-      $.each($('pre'), function() {
+      $.each($('code'), function() {
         var language = $(this).attr('language');
         loadJS('https://colorizor.github.io/Languages/' + language.toLowerCase() + '.js');
       });
@@ -77,33 +77,33 @@
         }
       });
       
-      /*//------------------------------------------------------------------------------------------------------------
+      //------------------------------------------------------------------------------------------------------------
       //---------------------------------------------------NUMBERING----------------------------------------------------
       //------------------------------------------------------------------------------------------------------------
-      $.each($('pre[number]'), function() {
+      $.each($('pre[number]').find('code'), function() {
         var str = $(this).html();
-        str = str.replace(/([\s\S]+)/igm, '<span id="all-number"></span><span id="all-code">$&</span>');
+        str = str.replace(/([\s\S]+)/igm, '<span numbers></span><span coding>$&</span>');
         $(this).html(str);
       });
       
-      $.each($('pre[number]').find('span[id="all-code"]'), function(line) {
-        $(this).html(function(index, html) {
-          return html.replace(/(^\n|.+)/igm, '<span id="code">$&</span>');
+      $.each($('pre[number]').find('code'), function(line) {
+        $(this).find('span[coding]').html(function(index, html) {
+          return html.replace(/(^\n|.+)/igm, '<span code>$&</span>');
         });
     
         line = 0;
     
-        $.each($(this).find('span[id="code"]'), function() {
+        $.each($(this).find('span[code]'), function() {
           line++;
-          var str = $($(this).parent().parent().find('span[id="all-number"]')).html();
-          $($(this).parent().parent().find('span[id="all-number"]')).html(str + '<span id="number">' + line + '</span>\n');
+          var str = $($(this).parent().parent().find('span[numbers]')).html();
+          $($(this).parent().parent().find('span[numbers]')).html(str + '<span number>' + line + '</span>\n');
         });
-      });*/
+      });
   
       //------------------------------------------------------------------------------------------------------------
       //--------------------------------------------------FEATURES--------------------------------------------------
       //------------------------------------------------------------------------------------------------------------
-      $('pre').find('code').click(function() {
+      $('code').find('span[coding]').click(function() {
         var range, selection;
 
         if (window.getSelection && document.createRange) {
