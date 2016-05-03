@@ -61,8 +61,8 @@
       //----------------------------------------------------------------------------------------------------------
       //-----------------------------------------------Load Language----------------------------------------------
       //----------------------------------------------------------------------------------------------------------
-      $.each($('code'), function() {
-        var language = $(this).attr('language');
+      $.each($('pre[lang], code[lang]'), function() {
+        var language = $(this).attr('lang');
         loadJS('https://colorizor.github.io/Languages/' + language.toLowerCase() + '.js');
       });
       //----------------------------------------------------------------------------------------------------------
@@ -82,28 +82,28 @@
       //------------------------------------------------------------------------------------------------------------
       $.each($('pre[number]').find('code'), function() {
         var str = $(this).html();
-        str = str.replace(/([\s\S]+)/igm, '<span numbers></span><span coding>$&</span>');
+        str = str.replace(/([\s\S]+)/igm, '<span class="numbers"></span><span class="coding">$&</span>');
         $(this).html(str);
       });
       
       $.each($('pre[number]').find('code'), function(line) {
-        $(this).find('span[coding]').html(function(index, html) {
-          return html.replace(/(^\n|.+)/igm, '<span code>$&</span>');
+        $(this).find('span[class="coding"]').html(function(index, html) {
+          return html.replace(/(^\n|.+)/igm, '<span class="code">$&</span>');
         });
     
         line = 0;
     
-        $.each($(this).find('span[code]'), function() {
+        $.each($(this).find('span[class="code"]'), function() {
           line++;
-          var str = $($(this).parent().parent().find('span[numbers]')).html();
-          $($(this).parent().parent().find('span[numbers]')).html(str + '<span number>' + line + '</span>\n');
+          var str = $($(this).parent().parent().find('span[class="numbers"]')).html();
+          $($(this).parent().parent().find('span[class="numbers"]')).html(str + '<span class="number">' + line + '</span>\n');
         });
       });
   
       //------------------------------------------------------------------------------------------------------------
       //--------------------------------------------------FEATURES--------------------------------------------------
       //------------------------------------------------------------------------------------------------------------
-      $('code').find('span[coding]').click(function() {
+      ($('code').find('span[class="coding"]') || $('code')).click(function() {
         var range, selection;
 
         if (window.getSelection && document.createRange) {
