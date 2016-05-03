@@ -6,12 +6,12 @@ span[coding]{display:inline-block;float:top;margin-left:8px;text-align:left;}
 span[code]{float:top;}
 span[number]{color:rgb(255, 246, 229);float:top;padding-right:4px;}
 #link{color:rgb(150, 150, 150);font-style:underline;}
-#regx{color:rgb(150, 150, 150);}
-#comment{color:rgb(159, 253, 193);font-style:italic;}
-#selector{color:rgb(255, 127, 102);}
-#attribute{color:rgb(201, 154, 151);}
-#reserved{color:rgb(33, 133, 197);}
-#value{color:rgb(126, 206, 253);}
-#parameter{color:rgb(147, 141, 241);}
-#digit{color:rgb(143, 206, 242);}
-#character{color:rgb(255, 251, 174);}
+span[regx]{color:rgb(150, 150, 150);}
+span[comment]{color:rgb(159, 253, 193);font-style:italic;}
+span[selector]{color:rgb(255, 127, 102);}
+span[attribute]{color:rgb(201, 154, 151);}
+span[reserved]{color:rgb(33, 133, 197);}
+span[value]{color:rgb(126, 206, 253);}
+span[parameter]{color:rgb(147, 141, 241);}
+span[digit]{color:rgb(143, 206, 242);}
+span[character]{color:rgb(255, 251, 174);}
