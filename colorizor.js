@@ -82,28 +82,28 @@
       //------------------------------------------------------------------------------------------------------------
       $.each($('pre[number]').find('code'), function() {
         var str = $(this).html();
-        str = str.replace(/([\s\S]+)/igm, '<span data-numbers></span><span data-coding>$&</span>');
+        str = str.replace(/([\s\S]+)/igm, '<span numbers></span><span coding>$&</span>');
         $(this).html(str);
       });
       
       $.each($('pre[number]').find('code'), function(line) {
-        $(this).find('span[data-coding]').html(function(index, html) {
-          return html.replace(/(^\n|.+)/igm, '<span data-code>$&</span>');
+        $(this).find('span[coding]').html(function(index, html) {
+          return html.replace(/(^\n|.+)/igm, '<span code>$&</span>');
         });
     
         line = 0;
     
-        $.each($(this).find('span[data-code]'), function() {
+        $.each($(this).find('span[code]'), function() {
           line++;
-          var str = $($(this).parent().parent().find('span[data-numbers]')).html();
-          $($(this).parent().parent().find('span[data-numbers]')).html(str + '<span data-number>' + line + '</span>\n');
+          var str = $($(this).parent().parent().find('span[numbers]')).html();
+          $($(this).parent().parent().find('span[numbers]')).html(str + '<span number>' + line + '</span>\n');
         });
       });
   
       //------------------------------------------------------------------------------------------------------------
       //--------------------------------------------------FEATURES--------------------------------------------------
       //------------------------------------------------------------------------------------------------------------
-      $('code').find('span[data-coding]').click(function() {
+      $('code').find('span[coding]').click(function() {
         var range, selection;
 
         if (window.getSelection && document.createRange) {
