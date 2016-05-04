@@ -6,7 +6,7 @@
     ['<span class="comment">$&</span>', /\/\*([\s\S]*?)\*\//igm],
     ['<span class="value">$&</span>', /(\'|\")([\s\S]*?)(\'|\")/igm],
     ['<span class="reserved">$&</span>', /([\w\d\.\#].+)(?=\{)/igm],
-    ['<span class="selector">$&</span>', /([\w\d\-\[\]\(\)]+)(?!.*?(\{))(?=\:)/igm],
+    ['<span class="selector">$&</span>', /([\#\.\w\-]+)(?:((?!.*?[\;\}])|(?=.*?[\{])))/igm],
     ['<span class="attribute">$&</span>', /(?:[^\:\W\d])([\w]+)(?=(\;|\,))/igm],
     ['<span class="digit">$&</span>', /([\d\.]+)(em|ex|\%|px|cm|mm|in|pt|pc|ch|rem|vh|vw|vmin|vmax)/igm],
     ['<a class="link" href="$&" target="_blank">$&</a>', /(ftp|http|https)\:\/\/([\w\d\W]*?)(?=[\s\'\"\(\)\{\}\[\]])/igm],
