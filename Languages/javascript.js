@@ -9,7 +9,7 @@
     ['<span class="parameter">$&</span>', /\b(Array|Date|eval|function|hasOwnProperty|Infinity|isFinite|isNaN|isPrototypeOf|length|Math|NaN|name|Number|Object|prototype|String|toString|undefined|valueOf)\b/igm],
     ['<span class="parameter">$&</span>', /\b(onblur|onclick|onerror|onfocus|onkeydown|onkeypress|onkeyup|onmouseover|onload|onmouseup|onmousedown|onsubmit)\b/igm],
     ['<span class="selector">$&</span>', /(?:(?=.*?[\;]))([\w]+)(?=[\(])/igm],
-    ['<span class="comment">$&</span>', /\/\/.+/igm],
+    ['<span class="comment">$&</span>', /(?:(?!.*?[\'\"]))\/\/.+/igm],
     ['<span class="unit">$&</span>', /([\d]|\-[\d]|\.\d)+/igm],
     ['', /(?:(?!.*?\/\/))(\<span(.*?)\>|\<\/span\>)(?=(.*?)\<\/span\>$)/igm]
   ];
