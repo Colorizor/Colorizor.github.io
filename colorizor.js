@@ -80,7 +80,7 @@
       //------------------------------------------------------------------------------------------------------------
       //--------------------------------------------------FEATURES--------------------------------------------------
       //------------------------------------------------------------------------------------------------------------
-      $('code').click(function() {
+      /*$('code').click(function() {
         var range, selection;
 
         if (window.getSelection && document.createRange) {
@@ -93,6 +93,22 @@
           range = document.body.createTextRange();
           range.moveToElementText($(this)[0]);
           range.select();
+        }
+      });*/
+      
+      $('code').click(function() {
+        if (document.selection) {
+          var code = document.body.createTextRange();
+          
+          code.moveToElementText($(this));
+          code.select();
+        } else {
+          var code = document.createRange();
+          
+          code.setStartBefore($(this));
+          code.setEndAfter($(this));
+          
+          window.getSelection().addRange(code);
         }
       });
     } else {
