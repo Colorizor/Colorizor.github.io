@@ -80,40 +80,21 @@
       //------------------------------------------------------------------------------------------------------------
       //--------------------------------------------------FEATURES--------------------------------------------------
       //------------------------------------------------------------------------------------------------------------
-      /*$('code').click(function() {
-        var range, selection;
-
-        if (window.getSelection && document.createRange) {
-          selection = window.getSelection();
-          range = document.createRange();
-          range.selectNodeContents($(this)[0]);
-          selection.removeAllRanges();
-          selection.addRange(range);
-        } else if (document.selection && document.body.createTextRange) {
-          range = document.body.createTextRange();
-          range.moveToElementText($(this)[0]);
-          range.select();
-        }
-      });*/
-      
       $('code').click(function() {
         if (document.selection) {
           var code = document.body.createTextRange();
-          
           code.moveToElementText($(this)[0]);
           code.select();
         } else {
           var code = document.createRange();
-          
           code.setStartBefore($(this)[0]);
           code.setEndAfter($(this)[0]);
-          
           window.getSelection().addRange(code);
         }
       });
     } else {
-      window.setTimeout(waitForLoad, 60);
+      window.setTimeout(waitForLoad, 1);
     }
   };
-  window.setTimeout(waitForLoad, 60);
+  window.setTimeout(waitForLoad, 1);
 })();
