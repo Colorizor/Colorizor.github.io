@@ -5,7 +5,7 @@
   var regex = [
     //Problem Characters
     ['\\$&\/', /[\'\"]/igm],
-    [':\/<span>\/', /\:\/\//igm],
+    [':\/\\\/', /\:\/\//igm],
     //Syntax
     ['<span class="value">$&</span>', /\\(\'|\")\/([\s\S]*?)\\(\'|\")\//igm],
     ['<span class="reserved">$&</span>', /\b(abstract|arguments|boolean|break|byte|case|catch|char|const|continue|debugger|default|delete|do|double|else|enum|eval|export|extends|false|final|finally|float|for|function|goto|if|implements|import|in|instanceof|int|interface|let|long|native|new|null|package|private|protected|public|return|short|static|super|switch|synchronized|this|throw|throws|transient|true|try|typeof|var|void|volatile|while|with|yield)\b/igm],
@@ -21,7 +21,7 @@
     //Fix Characters
     ['\'', /\\\'\//igm],
     ['\"', /\\\"\//igm],
-    ['\:\/\/', /\:\/\<span\>\//igm]
+    ['\:\/\/', /\:\/\\\//igm]
   ];
   
   //------------------------------------------------------------------------------------------------------------
