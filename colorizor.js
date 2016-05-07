@@ -100,13 +100,13 @@
         if (document.selection) {
           var code = document.body.createTextRange();
           
-          code.moveToElementText($(this));
+          code.moveToElementText($(this)[0]);
           code.select();
         } else {
           var code = document.createRange();
           
-          code.setStartBefore($(this));
-          code.setEndAfter($(this));
+          code.setStartBefore($(this)[0]);
+          code.setEndAfter($(this)[0]);
           
           window.getSelection().addRange(code);
         }
