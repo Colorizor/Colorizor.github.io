@@ -72,6 +72,25 @@ pre {
     -moz-text-size-adjust: none;
     -ms-text-size-adjust: none;
 }</code></pre></p>
+          <p>JavaScript</p>
+          <p><pre><code language="javascript">//========================================
+//===============JavaScript===============
+//========================================
+$.each($('code[language="javascript"]'), function() {
+  //--------------------------------------------------SIZING
+  $(this).css({
+    'height': 'auto',
+    'left': '0px',
+    'right': '0px',
+    'width': 'auto'
+  });
+  //--------------------------------------------------FIND
+  for (a = 0; a < regex.length; a++) {
+    var str = $(this).html();
+    str = str.replace(regex[a][1], regex[a][0]);
+    $(this).html(str);
+  }
+});</code></pre></p>
         </div>
         <div id="section">
           <h2>
