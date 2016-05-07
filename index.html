@@ -76,21 +76,17 @@ pre {
           <p><pre><code language="javascript">//========================================
 //===============JavaScript===============
 //========================================
-$.each($('code[language="javascript"]'), function() {
-  //--------------------------------------------------SIZING
-  $(this).css({
-    'height': 'auto',
-    'left': '0px',
-    'right': '0px',
-    'width': 'auto'
-  });
-  //--------------------------------------------------FIND
-  for (a = 0; a < regex.length; a++) {
-    var str = $(this).html();
-    str = str.replace(regex[a][1], regex[a][0]);
-    $(this).html(str);
+(function(position, opacity, header) {
+  if (screen.width < 480) {
+    header = 150;
+  } else if (screen.width >= 480 && screen.width < 720) {
+    header = 250;
+  } else if (screen.width >= 720 && screen.width < 1024) {
+    header = 250;
+  } else {
+    header = 400;
   }
-});</code></pre></p>
+)();</code></pre></p>
         </div>
         <div id="section">
           <h2>
