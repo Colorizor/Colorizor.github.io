@@ -6,7 +6,7 @@
     //Problem Characters
     ['\\$&', /[\'\"]/igm],
     //Syntax
-    ['<span class="value">$&</span>', /(?:(?!.*?[\]]))(\\(\'|\")([\s\S]*?)\\(\'|\"))/igm],
+    ['<span class="value">$&</span>', /(?:(?!.*?[\]]))((\'|\")([\s\S]*?)(\'|\"))/igm],
     ['<span class="selector">$&</span>', /([\#\.\w\-]+)(?:((?!.*?(\/\*|[\;\}]))|(?=.*?[\{])))/igm],
     ['<span class="reserved">$&</span>', /(?:(?!.*?[\{]))([\w\-]+)(?=[\:])/igm],
     ['<span class="attribute">$&</span>', /(([^\w\:]|[\w])+)(?=[\;])/igm],
