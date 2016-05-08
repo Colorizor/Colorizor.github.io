@@ -6,18 +6,303 @@
   </head>
   <body>
     <main>
-<pre><code language="accesslog"></code></pre>
-<pre><code language="actionscript"></code></pre>
-<pre><code language="apache"></code></pre>
-<pre><code language="applescript"></code></pre>
-<pre><code language="arduino"></code></pre>
-<pre><code language="armasm"></code></pre>
-<pre><code language="asciidoc"></code></pre>
-<pre><code language="aspectj"></code></pre>
-<pre><code language="autohotkey"></code></pre>
-<pre><code language="autoit"></code></pre>
-<pre><code language="avrasm"></code></pre>
-<pre><code language="axapta"></code></pre>
+<pre><code language="accesslog">20.164.151.111 - - [20/Aug/2015:22:20:18 -0400] "GET /mywebpage/index.php HTTP/1.1" 403 772 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.220 Safari/535.1"</code></pre>
+<pre><code language="actionscript">package org.example.dummy {
+    import org.dummy.*;
+
+    /*define package inline interface*/
+    public interface IFooBarzable {
+        public function foo(... pairs):Array;
+    }
+
+    public class FooBar implements IFooBarzable {
+        static private var cnt:uint = 0;
+        private var bar:String;
+
+        //constructor
+        public function TestBar(bar:String):void {
+            bar = bar;
+            ++cnt;
+        }
+
+        public function foo(... pairs):Array {
+            pairs.push(bar);
+            return pairs;
+        }
+    }
+}</code></pre>
+<pre><code language="apache"># rewrite`s rules for wordpress pretty url
+LoadModule rewrite_module  modules/mod_rewrite.so
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [NC,L]
+
+ExpiresActive On
+ExpiresByType application/x-javascript  "access plus 1 days"
+
+Order Deny,Allow
+Allow from All
+
+<Location /maps/>
+  RewriteMap map txt:map.txt
+  RewriteMap lower int:tolower
+  RewriteCond %{REQUEST_URI} ^/([^/.]+)\.html$ [NC]
+  RewriteCond ${map:${lower:%1}|NOT_FOUND} !NOT_FOUND
+  RewriteRule .? /index.php?q=${map:${lower:%1}} [NC,L]
+</Location></code></pre>
+<pre><code language="applescript">repeat 5 times
+    if foo is greater than bar then
+        display dialog "Hello there"
+    else
+        beep
+    end if
+end repeat
+
+(* comment (*nested comment*) *)
+on do_something(s, y)
+    return {s + pi, y mod 4}
+end do_something
+
+do shell script "/bin/echo 'hello'"</code></pre>
+<pre><code language="arduino">/*
+  Blink
+  Turns on an LED on for one second, then off for one second, repeatedly.
+ 
+  This example code is in the public domain.
+ */
+ 
+// Pin 13 has an LED connected on most Arduino boards.
+// give it a name:
+int led = 13;
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // initialize the digital pin as an output.
+  pinMode(led, OUTPUT);     
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);               // wait for a second
+  digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);               // wait for a second
+}</code></pre>
+<pre><code language="armasm">.text
+
+.global connect
+connect:
+    mov     r3, #2              ; s->sin_family = AF_INET
+    strh    r3, [sp]
+    ldr     r3, =server_port    ; s->sin_port = server_port
+    ldr     r3, [r3]
+    strh    r3, [sp, #2]
+    ldr     r3, =server_addr    ; s->sin_addr = server_addr
+    ldr     r3, [r3]
+    str     r3, [sp, #4]
+    mov     r3, #0              ; bzero(&s->sin_zero)
+    str     r3, [sp, #8]
+    str     r3, [sp, #12]
+    mov     r1, sp      ; const struct sockaddr *addr = sp
+
+    ldr     r7, =connect_call
+    ldr     r7, [r7]
+    swi     #0
+
+    add     sp, sp, #16
+    pop     {r0}        ; pop sockfd
+
+    pop     {r7}
+    pop     {fp, ip, lr}
+    mov     sp, ip
+    bx      lr
+
+.data
+socket_call:   .long 281
+connect_call:  .long 283
+
+/* all addresses are network byte-order (big-endian) */
+server_addr:            .long 0x0100007f ; localhost
+server_port:            .hword 0x0b1a</code></pre>
+<pre><code language="asciidoc">Hello, World!
+============
+Author Name, <author@domain.foo>
+
+you can write text http://example.com[with links], optionally
+using an explicit link:http://example.com[link prefix].
+
+* single quotes around a phrase place 'emphasis'
+** alternatively, you can put underlines around a phrase to add _emphasis_
+* astericks around a phrase make the text *bold*
+* pluses around a phrase make it +monospaced+
+* `smart' quotes using a leading backtick and trailing single quote
+** use two of each for double ``smart'' quotes
+
+- escape characters are supported
+- you can escape a quote inside emphasized text like 'here\'s johnny!'
+
+term:: definition
+ another term:: another definition
+
+// this is just a comment
+
+Let's make a break.
+
+'''
+
+////
+we'll be right with you
+
+after this brief interruption.
+////
+
+== We're back!
+
+Want to see a image::images/tiger.png[Tiger]?
+
+.Nested highlighting
+++++
+<this_is inline="xml"></this_is>
+++++
+
+____
+asciidoc is so powerful.
+____
+
+another quote:
+
+[quote, Sir Arthur Conan Doyle, The Adventures of Sherlock Holmes]
+____
+When you have eliminated all which is impossible, then whatever remains, however improbable, must be the truth.
+____
+
+Getting Literal
+---------------
+
+ want to get literal? prefix a line with a space.
+
+....
+I'll join that party, too.
+....
+
+. one thing (yeah!)
+. two thing `i can write code`, and `more` wipee!
+
+NOTE: AsciiDoc is quite cool, you should try it.</code></pre>
+<pre><code language="aspectj">package com.aspectj.syntax;
+import org.aspectj.lang.annotation.AdviceName;
+
+privileged public aspect LoggingAspect percflowbelow(ajia.services.*){
+  private pointcut getResult() : call(* *(..) throws SQLException) && args(Account, .., int);
+  @AdviceName("CheckValidEmail")
+  before (Customer hu) : getResult(hu){		
+    System.out.println("Your mail address is valid!");
+  }
+  Object around() throws InsufficientBalanceException: getResult() && call(Customer.new(String,String,int,int,int)){
+    return	proceed();
+  }
+  public Cache getCache() {
+    return this.cache;
+  }
+  pointcut beanPropertyChange(BeanSupport bean, Object newValue): execution(void BeanSupport+.set*(*)) && args(newValue) && this(bean);
+  declare parents: banking.entities.* implements BeanSupport;
+  declare warning : call(void TestSoftening.perform()): "Please ensure you are not calling this from an AWT thread";
+  private String Identifiable.id;
+  public void Identifiable.setId(String id) {
+    this.id = id;
+  }
+}</code></pre>
+<pre><code language="autohotkey">; hotkeys and hotstrings
+#a::WinSet, AlwaysOnTop, Toggle, A
+#Space::
+  MsgBox, Percent sign (`%) need to be escaped.
+  Run "C:\Program Files\some\program.exe"
+  Gosub, label1
+return
+::btw::by the way
+; volume
+#Numpad8::Send {Volume_Up}
+#Numpad5::Send {Volume_Mute}
+#Numpad2::Send {Volume_Down}
+
+label1:
+  if (Clipboard = "")
+  {
+    MsgBox, , Clipboard, Empty!
+  }
+  else
+  {
+    StringReplace, temp, Clipboard, old, new, All
+    MsgBox, , Clipboard, %temp%
+  }
+return</code></pre>
+<pre><code language="autoit">#NoTrayIcon
+#AutoIt3Wrapper_Run_Tidy=Y
+#include <Misc.au3>
+
+_Singleton(@ScriptName) ; Allow only one instance
+example(0, 10)
+
+Func example($min, $max)
+	For $i = $min To $max
+		If Mod($i, 2) == 0 Then
+			MsgBox(64, "Message", $i & ' is even number!')
+		Else
+			MsgBox(64, "Message", $i & ' is odd number!')
+		EndIf
+	Next
+EndFunc   ;==>example</code></pre>
+<pre><code language="avrasm">;* Title:       Block Copy Routines
+;* Version:     1.1
+
+.include "8515def.inc"
+
+        rjmp    RESET       ;reset handle
+
+.def    flashsize=r16       ;size of block to be copied
+
+flash2ram:
+        lpm                 ;get constant
+        st      Y+,r0       ;store in SRAM and increment Y-pointer
+        adiw    ZL,1        ;increment Z-pointer
+        dec     flashsize
+        brne    flash2ram   ;if not end of table, loop more
+        ret
+
+.def    ramtemp =r1         ;temporary storage register
+.def    ramsize =r16        ;size of block to be copied</code></pre>
+<pre><code language="axapta">class ExchRateLoadBatch extends RunBaseBatch {
+  ExchRateLoad rbc;
+  container currencies;
+  boolean actual;
+  boolean overwrite;
+  date beg;
+  date end;
+
+  #define.CurrentVersion(5)
+
+  #localmacro.CurrentList
+    currencies,
+    actual,
+    beg,
+    end
+  #endmacro
+}
+
+public boolean unpack(container packedClass) {
+  container       base;
+  boolean         ret;
+  Integer         version    = runbase::getVersion(packedClass);
+
+  switch (version) {
+    case #CurrentVersion:
+      [version, #CurrentList] = packedClass;
+      return true;
+    default:
+      return false;
+  }
+  return ret;
+}</code></pre>
 <pre><code language="bash"></code></pre>
 <pre><code language="basic"></code></pre>
 <pre><code language="bnf"></code></pre>
