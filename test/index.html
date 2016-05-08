@@ -6,378 +6,159 @@
   </head>
   <body>
     <main>
-      <pre><code language="css">/*----------------------------------------Dark----------------------------------------*/
-pre {
-  background-color:rgb(88, 88, 88);
-  color:rgb(232, 200, 178);
-  font-family:"Lucida Console", Monaco, monospace;
-  font-size:14px;
-  font-style:bold;
-  height:auto;margin:5px;
-  overflow:auto; padding:10px;
-  text-align:left;
-  -webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;
-}
-
-sdfsdf http://colorizor.github.io/colorizor.js rger
-
-#text{background-color:rgb(255, 248, 207);color:rgb(232, 200, 178);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;width:auto;z-index:100;}
-#all-number{border-right:1px solid rgb(232, 200, 178);display:inline-block;float:left;margin-right:8px;text-align:right;}
-
-#all-code[sdsd="sdsd"],
-.sdds,
-sdds {
-  display: inline-block;
-  float: top;
-  margin-left: 8px;
-  text-align: left;
-}
-
-#number{color:rgb(232, 200, 178);float:top;padding-right:4px;}
-#code{float:top;}
-#link{color:rgb(150, 150, 150);font-style:underline;}
-#regx{color:rgb(150, 150, 150);}
-#units{color:rgb(150, 150, 150);}
-#comment{color:rgb(205, 255, 214);font-style:italic;}
-#selector{color:rgb(255, 248, 207);}
-#attribute{color:rgb(173, 176, 232);}
-#value{color:rgb(193, 222, 255);}
-#parameter{color:rgb(232, 200, 178);}</code></pre>
-<br /><br />
-<pre><code language="javascript">(function() {
-  //----------------------------------------------------------------------------------------------------------
-  //--------------------------------------------------LoadJS--------------------------------------------------
-  //----------------------------------------------------------------------------------------------------------
-  function loadJS(src, cb) {
-    var ref = window.document.getElementsByTagName('script')[0];
-    var script = window.document.createElement('script');
-    script.src = src;
-    script.async = true;
-    ref.parentNode.insertBefore(script, ref);
-    if (cb && typeof(cb) === 'function') {
-      script.onload = cb;
-    }
-    return script;
-  }
-  //----------------------------------------------------------------------------------------------------------
-  //--------------------------------------------------LoadCSS-------------------------------------------------
-  //----------------------------------------------------------------------------------------------------------
-  function loadCSS(href, before, media, callback) {
-    var ss = window.document.createElement('link');
-    var ref = before || window.document.getElementsByTagName('script')[0];
-    var sheets = window.document.styleSheets;
-    ss.rel = 'stylesheet';
-    ss.href = href;
-    ss.media = 'only x';
-    if (callback) {
-      ss.onload = callback;
-    }
-    ref.parentNode.insertBefore(ss, ref);
-    ss.onloadcssdefined = function(cb) {
-      var defined;
-      for (var i = 0; i &lt; sheets.length; i++) {
-        if (sheets[i].href && sheets[i].href.indexOf(href) &gt; -1) {
-          defined = true;
-        }
-      }
-      if (defined) {
-        cb();
-      } else {
-        setTimeout(function() {
-          ss.onloadcssdefined(cb);
-        });
-      }
-    };
-    ss.onloadcssdefined(function() {
-      ss.media = media || 'all';
-    });
-    return ss;
-  }
-  //----------------------------------------------------------------------------------------------------------
-  //-----------------------------------------Load jQuery If Not Present---------------------------------------
-  //----------------------------------------------------------------------------------------------------------
-  if (typeof jQuery == 'undefined') {
-    loadJS('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
-  }
-  //----------------------------------------------------------------------------------------------------------
-  //----------------------------------------------Wait For jQuery---------------------------------------------
-  //----------------------------------------------------------------------------------------------------------
-  var waitForLoad = function() {
-    if (typeof jQuery != 'undefined') {
-      //----------------------------------------------------------------------------------------------------------
-      //-----------------------------------------------Load Language----------------------------------------------
-      //----------------------------------------------------------------------------------------------------------
-      $.each($('pre'), function() {
-        var language = $(this).attr('language');
-        loadJS('https://colorizor.github.io/Languages/' + language.toLowerCase() + '.js');
-      });
-      //----------------------------------------------------------------------------------------------------------
-      //------------------------------------------Checking URL Parameters-----------------------------------------
-      //----------------------------------------------------------------------------------------------------------
-      $.each($('script'), function() {
-        var url = $(this).attr('src');
-        var path = /\/colorizor\.js\?theme\=/igm;
-        if (path.test(url)) {
-          var theme = url.split('theme=')[1];
-          loadCSS('https://colorizor.github.io/Themes/' + theme.toLowerCase() + '.css');
-        }
-      });
-    } else {
-      window.setTimeout(waitForLoad, 60);
-    }
-  };
-  window.setTimeout(waitForLoad, 60);
-})();</code></pre>
-<br /><br />
-<pre><code language="swift">/*
-
-Copyright Reserved For HovyTech
-
-
-
-The code may be modified, but when referred to in any form please acknowledge that it was originally created by HovyTech.
-
-
-
-Hope you find it useful
-
-*/
-
-import Foundation
-import QuartzCore
-
-//==============================================================================================
-//========================================Delegate Setup========================================
-//==============================================================================================
-@objc protocol HTFTPStuffDelegate {
-
-    optional func HTOpening(isDownload: Bool)
-    optional func HTOpen(isDownload: Bool)
-    optional func HTDownload(bytesRead: Int, totalBytesRead: Int, totalBytesExpectedToRead: Int)
-    optional func HTUpload(bytesWritten: Int, totalBytesWritten: Int, totalBytesExpectedToWrite: Int)
-    optional func HTClose(isDownload: Bool)
-    optional func HTComplete(isDownload: Bool)
-    optional func HTError(isDownload: Bool, error: NSStreamEvent)
-    optional func HTUnknown(isDownload: Bool, event: NSStreamEvent)
-
-}
-
-class HTFTPStuff: NSObject, NSStreamDelegate {
-
-    //==============================================================================================
-    //===========================================Variables==========================================
-    //==============================================================================================
-    var delegate: HTFTPStuffDelegate!
-
-    private var downloadURL: NSURL
-    private var uploadURL: NSURL
-    private var data: NSData
-
-    private var username: String
-    private var password: String
-
-    private var totalBytesRead: Int
-    private var totalBytesWritten: Int
-
-    private var currentStream: NSStream?
-    private var isDownload: Bool?
-
-    //==============================================================================================
-    //==========================================Initiation==========================================
-    //==============================================================================================
-    init(downloadPath: String) {
-        self.downloadURL = NSURL(string: downloadPath)!
-        self.uploadURL = NSURL()
-        self.data = NSData()
-
-        self.username = ""
-        self.password = ""
-
-        self.totalBytesRead = 0
-        self.totalBytesWritten = 0
-        super.init()
-    }
-
-    init(uploadPath: String, data: NSData) {
-        self.downloadURL = NSURL()
-        self.uploadURL = NSURL(string: uploadPath)!
-        self.data = data
-
-        self.username = ""
-        self.password = ""
-
-        self.totalBytesRead = 0
-        self.totalBytesWritten = 0
-        super.init()
-    }
-
-    init(downloadPath: String, uploadPath: String, data: NSData) {
-        self.downloadURL = NSURL(string: downloadPath)!
-        self.uploadURL = NSURL(string: uploadPath)!
-        self.data = data
-
-        self.username = ""
-        self.password = ""
-
-        self.totalBytesRead = 0
-        self.totalBytesWritten = 0
-        super.init()
-    }
-
-    init(username: String, password: String, downloadPath: String, uploadPath: String, data: NSData) {
-        self.downloadURL = NSURL(string: downloadPath)!
-        self.uploadURL = NSURL(string: uploadPath)!
-        self.data = data
-
-        self.username = username
-        self.password = password
-
-        self.totalBytesRead = 0
-        self.totalBytesWritten = 0
-        super.init()
-    }
-
-    //==============================================================================================
-    //===========================================Download===========================================
-    //==============================================================================================
-    func startDownload() {
-        self.isDownload = true
-        self.delegate.HTOpening?(self.isDownload!)
-
-        let readStream = CFReadStreamCreateWithFTPURL(nil, self.downloadURL)
-        CFReadStreamScheduleWithRunLoop(readStream.takeUnretainedValue(), CFRunLoopGetMain(), kCFRunLoopDefaultMode)
-        let stream: NSInputStream = readStream.takeRetainedValue()
-        self.OpenStream(stream)
-    }
-
-    func stopDownload() {
-        self.delegate.HTClose?(self.isDownload!)
-        self.CloseStream()
-    }
-
-    //==============================================================================================
-    //=============================================Upload===========================================
-    //==============================================================================================
-    func startUpload() {
-        self.isDownload = false
-        self.delegate.HTOpening?(self.isDownload!)
-
-        let writeStream = CFWriteStreamCreateWithFTPURL(nil, self.uploadURL)
-        CFWriteStreamScheduleWithRunLoop(writeStream.takeUnretainedValue(), CFRunLoopGetMain(), kCFRunLoopDefaultMode)
-        let stream: NSOutputStream = writeStream.takeRetainedValue()
-        self.OpenStream(stream)
-    }
-
-    func stopUpload() {
-        self.delegate.HTClose?(self.isDownload!)
-        self.CloseStream()
-    }
-
-    //==============================================================================================
-    //===================================NSStreamDelegate Methods===================================
-    //==============================================================================================
-    func stream(aStream: NSStream, handleEvent eventCode: NSStreamEvent) {
-        switch (eventCode) {
-        case NSStreamEvent.OpenCompleted:
-            self.OpenCompleted(self.isDownload!)
-            break
-        case NSStreamEvent.HasBytesAvailable:
-            self.HasBytesAvailable(aStream)
-            break
-        case NSStreamEvent.HasSpaceAvailable:
-            self.HasSpaceAvailable(aStream)
-            break
-        case NSStreamEvent.ErrorOccurred:
-            self.ErrorOccurred(self.isDownload!, error: NSStreamEvent.ErrorOccurred)
-            break
-        case NSStreamEvent.EndEncountered:
-            self.EndEncountered(self.isDownload!)
-            break
-        case NSStreamEvent.None:
-            self.None(self.isDownload!, event: NSStreamEvent.None)
-            break
-        default:
-            self.None(self.isDownload!, event: NSStreamEvent.None)
-            break
-        }
-    }
-
-    //==============================================================================================
-    //======================================Streaming Operations====================================
-    //==============================================================================================
-    private func ConfigureStream(stream: NSStream) {
-        stream.setProperty(true, forKey: kCFStreamPropertyShouldCloseNativeSocket as String)
-        stream.setProperty(true, forKey: kCFStreamPropertyFTPFetchResourceInfo as String)
-        stream.setProperty(true, forKey: kCFStreamPropertyFTPUsePassiveMode as String)
-
-        if (self.username != "" || self.password != "") {
-            stream.setProperty(self.username, forKey: kCFStreamPropertyFTPUserName as String)
-            stream.setProperty(self.password, forKey: kCFStreamPropertyFTPPassword as String)
-        }
-
-        stream.delegate = self
-    }
-
-    private func OpenStream(stream: NSStream) {
-        self.currentStream = stream
-        self.ConfigureStream(self.currentStream!)
-        self.currentStream!.scheduleInRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
-        self.currentStream!.open()
-    }
-
-    private func CloseStream() {
-        self.currentStream?.close()
-        self.currentStream!.removeFromRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
-        self.currentStream = nil
-        self.Clean()
-    }
-
-    //==============================================================================================
-    //========================================Streaming Events======================================
-    //==============================================================================================
-    private func OpenCompleted(isDownload: Bool) {
-        self.delegate.HTOpen?(isDownload)
-    }
-
-    private func HasBytesAvailable(stream: NSStream) {
-        if let inputStream = stream as? NSInputStream {
-            let bytesRead = inputStream.read(UnsafeMutablePointer<UInt8>(self.data.bytes), maxLength: self.data.length)
-            self.totalBytesRead += bytesRead
-            self.delegate.HTDownload?(bytesRead, totalBytesRead: self.totalBytesRead, totalBytesExpectedToRead: self.data.length)
-        }
-    }
-
-    private func HasSpaceAvailable(stream: NSStream) {
-        if let outputStream = stream as? NSOutputStream {
-            let bytesWritten = outputStream.write(UnsafePointer<UInt8>(self.data.bytes), maxLength: self.data.length)
-            self.totalBytesWritten += bytesWritten
-            self.delegate.HTUpload?(bytesWritten, totalBytesWritten: self.totalBytesWritten, totalBytesExpectedToWrite: self.data.length)
-        }
-    }
-
-    private func ErrorOccurred(isDownload: Bool, error: NSStreamEvent) {
-        self.delegate.HTError?(isDownload, error: error)
-        self.CloseStream()
-    }
-
-    private func EndEncountered(isDownload: Bool) {
-        self.delegate.HTComplete?(isDownload)
-        self.CloseStream()
-    }
-
-    private func None(isDownload: Bool, event: NSStreamEvent) {
-        self.delegate.HTUnknown?(isDownload, event: event)
-    }
-
-    //==============================================================================================
-    //=============================================Clean============================================
-    //==============================================================================================
-    private func Clean() {
-        self.totalBytesRead = 0
-        self.totalBytesWritten = 0
-    }
-    
-}</code></pre>
+<pre><code language="accesslog"></code></pre>
+<pre><code language="actionscript"></code></pre>
+<pre><code language="apache"></code></pre>
+<pre><code language="applescript"></code></pre>
+<pre><code language="arduino"></code></pre>
+<pre><code language="armasm"></code></pre>
+<pre><code language="asciidoc"></code></pre>
+<pre><code language="aspectj"></code></pre>
+<pre><code language="autohotkey"></code></pre>
+<pre><code language="autoit"></code></pre>
+<pre><code language="avrasm"></code></pre>
+<pre><code language="axapta"></code></pre>
+<pre><code language="bash"></code></pre>
+<pre><code language="basic"></code></pre>
+<pre><code language="bnf"></code></pre>
+<pre><code language="brainfuck"></code></pre>
+<pre><code language="cal"></code></pre>
+<pre><code language="capnproto"></code></pre>
+<pre><code language="ceylon"></code></pre>
+<pre><code language="closjure-repl"></code></pre>
+<pre><code language="clojure"></code></pre>
+<pre><code language="cmake"></code></pre>
+<pre><code language="coffeescript"></code></pre>
+<pre><code language="cos"></code></pre>
+<pre><code language="cpp"></code></pre>
+<pre><code language="crmsh"></code></pre>
+<pre><code language="crystal"></code></pre>
+<pre><code language="cs"></code></pre>
+<pre><code language="csp"></code></pre>
+<pre><code language="css"></code></pre>
+<pre><code language="d"></code></pre>
+<pre><code language="dart"></code></pre>
+<pre><code language="delphi"></code></pre>
+<pre><code language="diff"></code></pre>
+<pre><code language="django"></code></pre>
+<pre><code language="dns"></code></pre>
+<pre><code language="dockerfile"></code></pre>
+<pre><code language="dos"></code></pre>
+<pre><code language="dts"></code></pre>
+<pre><code language="dust"></code></pre>
+<pre><code language="elixir"></code></pre>
+<pre><code language="elm"></code></pre>
+<pre><code language="erb"></code></pre>
+<pre><code language="erlang-repl"></code></pre>
+<pre><code language="erlang"></code></pre>
+<pre><code language="fix"></code></pre>
+<pre><code language="fortran"></code></pre>
+<pre><code language="fsharp"></code></pre>
+<pre><code language="gams"></code></pre>
+<pre><code language="gauss"></code></pre>
+<pre><code language="gcode"></code></pre>
+<pre><code language="gherkin"></code></pre>
+<pre><code language="glsl"></code></pre>
+<pre><code language="go"></code></pre>
+<pre><code language="golo"></code></pre>
+<pre><code language="gradly"></code></pre>
+<pre><code language="groovy"></code></pre>
+<pre><code language="haml"></code></pre>
+<pre><code language="handlebars"></code></pre>
+<pre><code language="haskell"></code></pre>
+<pre><code language="haxe"></code></pre>
+<pre><code language="hsp"></code></pre>
+<pre><code language="htmlbars"></code></pre>
+<pre><code language="http"></code></pre>
+<pre><code language="inform7"></code></pre>
+<pre><code language="ini"></code></pre>
+<pre><code language="irpf90"></code></pre>
+<pre><code language="java"></code></pre>
+<pre><code language="javascript"></code></pre>
+<pre><code language="json"></code></pre>
+<pre><code language="julia"></code></pre>
+<pre><code language="kotlin"></code></pre>
+<pre><code language="lasso"></code></pre>
+<pre><code language="less"></code></pre>
+<pre><code language="lisp"></code></pre>
+<pre><code language="livecodeserver"></code></pre>
+<pre><code language="livescript"></code></pre>
+<pre><code language="lua"></code></pre>
+<pre><code language="makefile"></code></pre>
+<pre><code language="markdown"></code></pre>
+<pre><code language="mathematica"></code></pre>
+<pre><code language="matlab"></code></pre>
+<pre><code language="maxima"></code></pre>
+<pre><code language="mel"></code></pre>
+<pre><code language="mercury"></code></pre>
+<pre><code language="mipsasm"></code></pre>
+<pre><code language="mizar"></code></pre>
+<pre><code language="mojolicious"></code></pre>
+<pre><code language="monkey"></code></pre>
+<pre><code language="moonscript"></code></pre>
+<pre><code language="nginx"></code></pre>
+<pre><code language="nimrod"></code></pre>
+<pre><code language="nix"></code></pre>
+<pre><code language="nsis"></code></pre>
+<pre><code language="objectivec"></code></pre>
+<pre><code language="ocaml"></code></pre>
+<pre><code language="openscad"></code></pre>
+<pre><code language="oxygene"></code></pre>
+<pre><code language="parser3"></code></pre>
+<pre><code language="perl"></code></pre>
+<pre><code language="pf"></code></pre>
+<pre><code language="php"></code></pre>
+<pre><code language="powershell"></code></pre>
+<pre><code language="processing"></code></pre>
+<pre><code language="profile"></code></pre>
+<pre><code language="prolog"></code></pre>
+<pre><code language="protobuf"></code></pre>
+<pre><code language="puppet"></code></pre>
+<pre><code language="purebasic"></code></pre>
+<pre><code language="python"></code></pre>
+<pre><code language="q"></code></pre>
+<pre><code language="qml"></code></pre>
+<pre><code language="r"></code></pre>
+<pre><code language="rib"></code></pre>
+<pre><code language="roboconf"></code></pre>
+<pre><code language="rsl"></code></pre>
+<pre><code language="ruby"></code></pre>
+<pre><code language="ruleslanguage"></code></pre>
+<pre><code language="rust"></code></pre>
+<pre><code language="scala"></code></pre>
+<pre><code language="scheme"></code></pre>
+<pre><code language="scilab"></code></pre>
+<pre><code language="scss"></code></pre>
+<pre><code language="smali"></code></pre>
+<pre><code language="smalltalk"></code></pre>
+<pre><code language="sml"></code></pre>
+<pre><code language="sqf"></code></pre>
+<pre><code language="sql"></code></pre>
+<pre><code language="stan"></code></pre>
+<pre><code language="stata"></code></pre>
+<pre><code language="step21"></code></pre>
+<pre><code language="stylus"></code></pre>
+<pre><code language="swift"></code></pre>
+<pre><code language="taggerscript"></code></pre>
+<pre><code language="tcl"></code></pre>
+<pre><code language="tex"></code></pre>
+<pre><code language="thrift"></code></pre>
+<pre><code language="tp"></code></pre>
+<pre><code language="twig"></code></pre>
+<pre><code language="typescript"></code></pre>
+<pre><code language="vala"></code></pre>
+<pre><code language="vbnet"></code></pre>
+<pre><code language="vbscript-html"></code></pre>
+<pre><code language="vbscript"></code></pre>
+<pre><code language="verilog"></code></pre>
+<pre><code language="vhdl"></code></pre>
+<pre><code language="vim"></code></pre>
+<pre><code language="x86asm"></code></pre>
+<pre><code language="xl"></code></pre>
+<pre><code language="xml"></code></pre>
+<pre><code language="xquery"></code></pre>
+<pre><code language="yaml"></code></pre>
+<pre><code language="zephir"></code></pre>
     </main>
   </body>
 </html>
