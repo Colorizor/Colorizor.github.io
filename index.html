@@ -87,6 +87,23 @@ function HeaderHeight(header) {
     header = 400;
   }
 }</code></pre></p>
+          <p>Swift</p>
+          <p><pre><code language="swift">
+/*========================================
+  =================Swift==================*/
+//========================================
+@objc protocol HTFTPStuffDelegate {
+
+  optional func HTOpening(isDownload: Bool)
+  optional func HTOpen(isDownload: Bool)
+  optional func HTDownload(bytesRead: Int, totalBytesRead: Int, totalBytesExpectedToRead: Int)
+  optional func HTUpload(bytesWritten: Int, totalBytesWritten: Int, totalBytesExpectedToWrite: Int)
+  optional func HTClose(isDownload: Bool)
+  optional func HTComplete(isDownload: Bool)
+  optional func HTError(isDownload: Bool, error: NSStreamEvent)
+  optional func HTUnknown(isDownload: Bool, event: NSStreamEvent)
+  
+}</code></pre></p>
         </div>
         <div id="section">
           <h2>
