@@ -5,16 +5,16 @@
   var regex = [
     //Problem Characters
     ['\\$&\/', /[\'\"]/igm],
-    [':\/\\\/', /\:\/\//igm],
+    ['\:\/\\\/', /\:\/\//igm],
     //Syntax
     ['<span class="value">$&</span>', /(?:(?!.*?[\]]))(\\(\'|\")\/([\s\S]*?)\\(\'|\")\/)/igm],
     ['<span class="selector">$&</span>', /([\#\.\w\-]+)(?:((?!.*?(\/\*|[\*\;\}]))|(?=.*?[\{])))/igm],
     ['<span class="reserved">$&</span>', /(?:(?!.*?[\{]))([\w\-]+)(?=[\:])/igm],
     ['<span class="attribute">$&</span>', /(([^\w\:]|[\w])+)(?=[\;])/igm],
-    ['<span class="comment">$&</span>', /\/\*([\s\S]*?)\*\//igm],
+    ['<span class="comment">$&</span>', /\/\*([\s\S]+)\*\//igm],
     ['<span class="unit">$&</span>', /([\d\.]+)(em|ex|\%|px|cm|mm|in|pt|pc|ch|rem|vh|vw|vmin|vmax)/igm],
     //Clean
-    ['', /(?:(?!.*?\/\*))(\<span(.*?)\>|\<\/span\>)(?=.([\s\S]*?)\*\/)/igm],
+    ['', /(?:(?!([\s\S]+)\/\*))(\<span(.*?)\>|\<\/span\>)(?=([\s\S]*?)\*\/)/igm],
     ['', /(?:(?!.*?[\[]))(\<span(.*?)\>|\<\/span\>)(?=.*?[\]])/igm],
     ['', /(?:(?!.*?\\[\'\"]\/.+[\'\"]\/))(\<span(.*?)\>|\<\/span\>)(?=.*?\\[\'\"]\/)/igm],
     //Fix Characters
