@@ -128,6 +128,256 @@ sdds {
   };
   window.setTimeout(waitForLoad, 60);
 })();</code></pre>
+<br /><br />
+<pre><code language="swift">/*
+
+Copyright Reserved For HovyTech
+
+
+
+The code may be modified, but when referred to in any form please acknowledge that it was originally created by HovyTech.
+
+
+
+Hope you find it useful
+
+*/
+
+import Foundation
+import QuartzCore
+
+//==============================================================================================
+//========================================Delegate Setup========================================
+//==============================================================================================
+@objc protocol HTFTPStuffDelegate {
+
+    optional func HTOpening(isDownload: Bool)
+    optional func HTOpen(isDownload: Bool)
+    optional func HTDownload(bytesRead: Int, totalBytesRead: Int, totalBytesExpectedToRead: Int)
+    optional func HTUpload(bytesWritten: Int, totalBytesWritten: Int, totalBytesExpectedToWrite: Int)
+    optional func HTClose(isDownload: Bool)
+    optional func HTComplete(isDownload: Bool)
+    optional func HTError(isDownload: Bool, error: NSStreamEvent)
+    optional func HTUnknown(isDownload: Bool, event: NSStreamEvent)
+
+}
+
+class HTFTPStuff: NSObject, NSStreamDelegate {
+
+    //==============================================================================================
+    //===========================================Variables==========================================
+    //==============================================================================================
+    var delegate: HTFTPStuffDelegate!
+
+    private var downloadURL: NSURL
+    private var uploadURL: NSURL
+    private var data: NSData
+
+    private var username: String
+    private var password: String
+
+    private var totalBytesRead: Int
+    private var totalBytesWritten: Int
+
+    private var currentStream: NSStream?
+    private var isDownload: Bool?
+
+    //==============================================================================================
+    //==========================================Initiation==========================================
+    //==============================================================================================
+    init(downloadPath: String) {
+        self.downloadURL = NSURL(string: downloadPath)!
+        self.uploadURL = NSURL()
+        self.data = NSData()
+
+        self.username = ""
+        self.password = ""
+
+        self.totalBytesRead = 0
+        self.totalBytesWritten = 0
+        super.init()
+    }
+
+    init(uploadPath: String, data: NSData) {
+        self.downloadURL = NSURL()
+        self.uploadURL = NSURL(string: uploadPath)!
+        self.data = data
+
+        self.username = ""
+        self.password = ""
+
+        self.totalBytesRead = 0
+        self.totalBytesWritten = 0
+        super.init()
+    }
+
+    init(downloadPath: String, uploadPath: String, data: NSData) {
+        self.downloadURL = NSURL(string: downloadPath)!
+        self.uploadURL = NSURL(string: uploadPath)!
+        self.data = data
+
+        self.username = ""
+        self.password = ""
+
+        self.totalBytesRead = 0
+        self.totalBytesWritten = 0
+        super.init()
+    }
+
+    init(username: String, password: String, downloadPath: String, uploadPath: String, data: NSData) {
+        self.downloadURL = NSURL(string: downloadPath)!
+        self.uploadURL = NSURL(string: uploadPath)!
+        self.data = data
+
+        self.username = username
+        self.password = password
+
+        self.totalBytesRead = 0
+        self.totalBytesWritten = 0
+        super.init()
+    }
+
+    //==============================================================================================
+    //===========================================Download===========================================
+    //==============================================================================================
+    func startDownload() {
+        self.isDownload = true
+        self.delegate.HTOpening?(self.isDownload!)
+
+        let readStream = CFReadStreamCreateWithFTPURL(nil, self.downloadURL)
+        CFReadStreamScheduleWithRunLoop(readStream.takeUnretainedValue(), CFRunLoopGetMain(), kCFRunLoopDefaultMode)
+        let stream: NSInputStream = readStream.takeRetainedValue()
+        self.OpenStream(stream)
+    }
+
+    func stopDownload() {
+        self.delegate.HTClose?(self.isDownload!)
+        self.CloseStream()
+    }
+
+    //==============================================================================================
+    //=============================================Upload===========================================
+    //==============================================================================================
+    func startUpload() {
+        self.isDownload = false
+        self.delegate.HTOpening?(self.isDownload!)
+
+        let writeStream = CFWriteStreamCreateWithFTPURL(nil, self.uploadURL)
+        CFWriteStreamScheduleWithRunLoop(writeStream.takeUnretainedValue(), CFRunLoopGetMain(), kCFRunLoopDefaultMode)
+        let stream: NSOutputStream = writeStream.takeRetainedValue()
+        self.OpenStream(stream)
+    }
+
+    func stopUpload() {
+        self.delegate.HTClose?(self.isDownload!)
+        self.CloseStream()
+    }
+
+    //==============================================================================================
+    //===================================NSStreamDelegate Methods===================================
+    //==============================================================================================
+    func stream(aStream: NSStream, handleEvent eventCode: NSStreamEvent) {
+        switch (eventCode) {
+        case NSStreamEvent.OpenCompleted:
+            self.OpenCompleted(self.isDownload!)
+            break
+        case NSStreamEvent.HasBytesAvailable:
+            self.HasBytesAvailable(aStream)
+            break
+        case NSStreamEvent.HasSpaceAvailable:
+            self.HasSpaceAvailable(aStream)
+            break
+        case NSStreamEvent.ErrorOccurred:
+            self.ErrorOccurred(self.isDownload!, error: NSStreamEvent.ErrorOccurred)
+            break
+        case NSStreamEvent.EndEncountered:
+            self.EndEncountered(self.isDownload!)
+            break
+        case NSStreamEvent.None:
+            self.None(self.isDownload!, event: NSStreamEvent.None)
+            break
+        default:
+            self.None(self.isDownload!, event: NSStreamEvent.None)
+            break
+        }
+    }
+
+    //==============================================================================================
+    //======================================Streaming Operations====================================
+    //==============================================================================================
+    private func ConfigureStream(stream: NSStream) {
+        stream.setProperty(true, forKey: kCFStreamPropertyShouldCloseNativeSocket as String)
+        stream.setProperty(true, forKey: kCFStreamPropertyFTPFetchResourceInfo as String)
+        stream.setProperty(true, forKey: kCFStreamPropertyFTPUsePassiveMode as String)
+
+        if (self.username != "" || self.password != "") {
+            stream.setProperty(self.username, forKey: kCFStreamPropertyFTPUserName as String)
+            stream.setProperty(self.password, forKey: kCFStreamPropertyFTPPassword as String)
+        }
+
+        stream.delegate = self
+    }
+
+    private func OpenStream(stream: NSStream) {
+        self.currentStream = stream
+        self.ConfigureStream(self.currentStream!)
+        self.currentStream!.scheduleInRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
+        self.currentStream!.open()
+    }
+
+    private func CloseStream() {
+        self.currentStream?.close()
+        self.currentStream!.removeFromRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
+        self.currentStream = nil
+        self.Clean()
+    }
+
+    //==============================================================================================
+    //========================================Streaming Events======================================
+    //==============================================================================================
+    private func OpenCompleted(isDownload: Bool) {
+        self.delegate.HTOpen?(isDownload)
+    }
+
+    private func HasBytesAvailable(stream: NSStream) {
+        if let inputStream = stream as? NSInputStream {
+            let bytesRead = inputStream.read(UnsafeMutablePointer<UInt8>(self.data.bytes), maxLength: self.data.length)
+            self.totalBytesRead += bytesRead
+            self.delegate.HTDownload?(bytesRead, totalBytesRead: self.totalBytesRead, totalBytesExpectedToRead: self.data.length)
+        }
+    }
+
+    private func HasSpaceAvailable(stream: NSStream) {
+        if let outputStream = stream as? NSOutputStream {
+            let bytesWritten = outputStream.write(UnsafePointer<UInt8>(self.data.bytes), maxLength: self.data.length)
+            self.totalBytesWritten += bytesWritten
+            self.delegate.HTUpload?(bytesWritten, totalBytesWritten: self.totalBytesWritten, totalBytesExpectedToWrite: self.data.length)
+        }
+    }
+
+    private func ErrorOccurred(isDownload: Bool, error: NSStreamEvent) {
+        self.delegate.HTError?(isDownload, error: error)
+        self.CloseStream()
+    }
+
+    private func EndEncountered(isDownload: Bool) {
+        self.delegate.HTComplete?(isDownload)
+        self.CloseStream()
+    }
+
+    private func None(isDownload: Bool, event: NSStreamEvent) {
+        self.delegate.HTUnknown?(isDownload, event: event)
+    }
+
+    //==============================================================================================
+    //=============================================Clean============================================
+    //==============================================================================================
+    private func Clean() {
+        self.totalBytesRead = 0
+        self.totalBytesWritten = 0
+    }
+    
+}</code></pre>
     </main>
   </body>
 </html>
