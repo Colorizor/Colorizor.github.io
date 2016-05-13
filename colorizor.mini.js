@@ -117,6 +117,16 @@ var clz = (function() {
   //==============================Function
   //Exclude: Begin & End
   function BeginEnd(begin, end, pattern) {
+    //Setup
+    var pat = begin + '([\\s\\S]*?)' + end;
+    var reg = new RegExp(pat, 'igm');
+    var result;
+    //Colorize
+    while ((result = reg.exec(code)) !== null) {
+      //Setup
+      var start = result.index;
+      var finish = result[0].length;
+    }
   }
   //Exclude: Begin & Not End
   function BeginNotEnd(begin, end, pattern) {
@@ -126,6 +136,16 @@ var clz = (function() {
   }
   //Exclude: Not Begin & Not End
   function NotBeginNotEnd(begin, end, pattern) {
+    //Setup
+    var pat = begin + '([\\s\\S]*?)' + end;
+    var reg = new RegExp(pat, 'igm');
+    var result;
+    //Colorize
+    while ((result = reg.exec(code)) !== null) {
+      //Setup
+      var start = result[0].indexOf();
+      var finish = result[1].length;
+    }
   }
   //==============================Feature
   function Feature() {
