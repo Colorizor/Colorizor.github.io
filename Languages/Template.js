@@ -15,14 +15,14 @@
       {
         name: '',
         begin: {
-          pat: //igm,
+          pat: '',
           exclude: true
         },
         end: {
-          pat: //igm,
+          pat: '',
           exclude: true
         },
-        pattern: //igm
+        pattern: ''
       }
     ],
     finalise: [
