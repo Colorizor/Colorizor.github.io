@@ -79,7 +79,7 @@ var clz = (function() {
     $(object).html(code);
   }
   //==============================Core
-  function Prepare(object) {
+  function Prepare() {
     //Escape
     $.each(regexp, function() {
       code = code.replace(this.pat, this.rep);
@@ -89,11 +89,44 @@ var clz = (function() {
       code = code.replace(this.pat, this.rep);
     });
   }
-  function Execute(object) {
+  function Execute() {
+    $.each(execute, function() {
+      //Setup
+      var begin = this.begin.pat;
+      var excludeBegin = this.begin.exclude;
+      var end = this.end.pat;
+      var excludeEnd = this.end.exclude;
+      var pattern = this.pattern;
+      //Configuration
+      if (excludeBegin && excludeEnd) {
+        BeginEnd(begin, end, pattern);
+      } else if (excludeBegin && !excludeEnd) {
+        BeginNotEnd(begin, end, pattern);
+      } else if (!excludeBegin && excludeEnd) {
+        NotBeginEnd(begin, end, pattern);
+      } else {
+        NotBeginNotEnd(begin, end, pattern);
+      }
+    });
   }
-  function Finalise(object) {
+  function Finalise() {
+    $.each(finalise, function() {
+      code = code.replace(this.pat, this.rep);
+    });
   }
   //==============================Function
+  //Exclude: Begin & End
+  function BeginEnd(begin, end, pattern) {
+  }
+  //Exclude: Begin & Not End
+  function BeginNotEnd(begin, end, pattern) {
+  }
+  //Exclude: Not Begin & End
+  function NotBeginEnd(begin, end, pattern) {
+  }
+  //Exclude: Not Begin & Not End
+  function NotBeginNotEnd(begin, end, pattern) {
+  }
   //==============================Feature
   function Feature() {
     //Language
@@ -157,9 +190,9 @@ var clz = (function() {
         });
         //Core
         Fetch($(this));
-        Prepare($(this));
-        Execute($(this));
-        Finalise($(this));
+        Prepare();
+        Execute();
+        Finalise();
         Save($(this));
       });
     }
