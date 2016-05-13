@@ -1,0 +1,1 @@
+var Structure = new Initialize();
