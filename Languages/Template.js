@@ -22,7 +22,7 @@
           pat: '',
           exclude: true
         },
-        pat: '',
+        pat: //igm,
         rep: ''
       }
     ],
