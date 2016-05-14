@@ -96,16 +96,17 @@ var clz = (function() {
       var excludeBegin = this.begin.exclude;
       var end = this.end.pat;
       var excludeEnd = this.end.exclude;
-      var pattern = this.pattern;
+      var pat = this.pat;
+      var rep = this.rep;
       //Configuration
       if (excludeBegin && excludeEnd) {
-        BeginEnd(begin, end, pattern);
+        BeginEnd(begin, end, pat, rep);
       } else if (excludeBegin && !excludeEnd) {
-        BeginNotEnd(begin, end, pattern);
+        BeginNotEnd(begin, end, pat, rep);
       } else if (!excludeBegin && excludeEnd) {
-        NotBeginEnd(begin, end, pattern);
+        NotBeginEnd(begin, end, pat, rep);
       } else {
-        NotBeginNotEnd(begin, end, pattern);
+        NotBeginNotEnd(begin, end, pat, rep);
       }
     });
   }
@@ -116,36 +117,64 @@ var clz = (function() {
   }
   //==============================Function
   //Exclude: Begin & End
-  function BeginEnd(begin, end, pattern) {
+  function BeginEnd(begin, end, pat, rep) {
     //Setup
-    var pat = begin + '([\\s\\S]*?)' + end;
-    var reg = new RegExp(pat, 'igm');
-    var result;
+    var pattern = begin + '([\\s\\S]*?)' + end;
+    var reg = new RegExp(pattern, 'igm');
+    var result,
+        fullCode = '';
     //Colorize
     while ((result = reg.exec(code)) !== null) {
-      //Setup
-      var start = result.index;
-      var finish = result[0].length;
+      var temp = result[1].replace(pat, rep);
+      fullCode = code.replace(result[1], temp);
     }
+    code = fullCode;
   }
   //Exclude: Begin & Not End
-  function BeginNotEnd(begin, end, pattern) {
-  }
-  //Exclude: Not Begin & End
-  function NotBeginEnd(begin, end, pattern) {
-  }
-  //Exclude: Not Begin & Not End
-  function NotBeginNotEnd(begin, end, pattern) {
+  function BeginNotEnd(begin, end, pat, rep) {
     //Setup
-    var pat = begin + '([\\s\\S]*?)' + end;
-    var reg = new RegExp(pat, 'igm');
-    var result;
+    var pattern = begin + '([\\s\\S]*?)' + end;
+    var reg = new RegExp(pattern, 'igm');
+    var regCut = new RegExp(end, 'igm');
+    var result,
+        fullCode = '';
     //Colorize
     while ((result = reg.exec(code)) !== null) {
-      //Setup
-      var start = result[0].indexOf();
-      var finish = result[1].length;
+      var cut = result[0].replace(regCut, '');;
+      var temp = cut.replace(pat, rep);
+      fullCode = code.replace(cut, temp);
     }
+    code = fullCode;
+  }
+  //Exclude: Not Begin & End
+  function NotBeginEnd(begin, end, pat, rep) {
+    //Setup
+    var pattern = begin + '([\\s\\S]*?)' + end;
+    var reg = new RegExp(pattern, 'igm');
+    var regCut = new RegExp(begin, 'igm');
+    var result,
+        fullCode = '';
+    //Colorize
+    while ((result = reg.exec(code)) !== null) {
+      var cut = result[0].replace(regCut, '');;
+      var temp = cut.replace(pat, rep);
+      fullCode = code.replace(cut, temp);
+    }
+    code = fullCode;
+  }
+  //Exclude: Not Begin & Not End
+  function NotBeginNotEnd(begin, end, pat, rep) {
+    //Setup
+    var pattern = begin + '([\\s\\S]*?)' + end;
+    var reg = new RegExp(pattern, 'igm');
+    var result,
+        fullCode = '';
+    //Colorize
+    while ((result = reg.exec(code)) !== null) {
+      var temp = result[0].replace(pat, rep);
+      fullCode = code.replace(result[0], temp);
+    }
+    code = fullCode;
   }
   //==============================Feature
   function Feature() {
