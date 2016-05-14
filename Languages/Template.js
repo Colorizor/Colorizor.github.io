@@ -23,7 +23,7 @@
           exclude: true
         },
         pat: //igm,
-        rep: ''
+        rep: '<span id="">$&</span>'
       }
     ],
     finalise: [
