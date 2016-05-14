@@ -22,7 +22,8 @@
           pat: '',
           exclude: true
         },
-        pattern: ''
+        pat: '',
+        rep: ''
       }
     ],
     finalise: [
