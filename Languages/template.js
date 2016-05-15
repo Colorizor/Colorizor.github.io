@@ -51,7 +51,7 @@
       {
         custom: /(\<span(.*?)value(.*?)\>\'(.*?)\'\<\/span\>|\<span(.*?)value(.*?)\>\"(.*?)\"\<\/span\>)/igm,
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
-        rep: '<span id="unit">$&</span>'
+        rep: ''
       },
       {
         begin: {pat: '\\<span(.*?)comment(.*?)\\>', exclude: true},
