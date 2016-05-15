@@ -2,10 +2,10 @@
   const data = {
     language: 'template',
     prepare: [
-      {
+      /*{
         pat: /[\'\"]/igm,
         rep: '\\$&\/'
-      },
+      },*/
       {
         pat: /\:\/\//igm,
         rep: '\:\/\\\/'
@@ -26,11 +26,11 @@
       },
       {
         begin: {
-          pat: '\\\[\']\\/',
+          pat: '[\\\']',
           exclude: false
         },
         end: {
-          pat: '\\\[\']\\/',
+          pat: '[\\\']',
           exclude: false
         },
         pat: /.+/igm,
@@ -38,11 +38,11 @@
       },
       {
         begin: {
-          pat: '\\\[\"]\\/',
+          pat: '[\\\"]',
           exclude: false
         },
         end: {
-          pat: '\\\[\"]\\/',
+          pat: '[\\\"]',
           exclude: false
         },
         pat: /.+/igm,
@@ -50,14 +50,14 @@
       }
     ],
     finalise: [
-      {
+      /*{
         pat: /\\\'\//igm,
         rep: '\''
       },
       {
         pat: /\\\"\//igm,
         rep: '\"'
-      },
+      },*/
       {
         pat: /\:\/\\\//igm,
         rep: '\:\/\/'
