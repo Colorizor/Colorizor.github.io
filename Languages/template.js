@@ -19,13 +19,12 @@
         rep: '<span id="comment">$&</span>'
       },
       {
-        begin: {pat: '\\[', exclude: true},
-        end: {pat: '\\]', exclude: false},
-        pat: /.+/igm,
-        rep: '<span id="parameter">$&</span>'
+        custom: /(\'(.*?)\'|\"(.*?)\")/igm,
+        pat: /(\<span(.*?)\>|\<\/span\>)/igm,
+        rep: ''
       },
       {
-        custom: /(\'(.*?)\'|\"(.*?)\")/igm,
+        custom: /\/\/.+/igm,
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
         rep: ''
       }
