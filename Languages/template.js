@@ -49,7 +49,8 @@
         rep: '<span id="unit">$&</span>'
       },
       {
-        custom: /(\'(.*?)\'|\"(.*?)\")/igm,
+        begin: {pat: '<span(.*?)value(.*?)>', exclude: true},
+        end: {pat: '</span>', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
         rep: ''
       },
