@@ -2,10 +2,6 @@
   const data = {
     language: 'template',
     prepare: [
-      /*{
-        pat: /[\'\"]/igm,
-        rep: '\\$&\/'
-      },*/
       {
         pat: /\:\/\//igm,
         rep: '\:\/\\\/'
@@ -47,17 +43,33 @@
         },
         pat: /.+/igm,
         rep: '<span id="comment">$&</span>'
+      },
+      {
+        begin: {
+          pat: '[\\\']',
+          exclude: true
+        },
+        end: {
+          pat: '[\\\']',
+          exclude: true
+        },
+        pat: /(\<span(.*?)\>|\<\/span\>)/igm,
+        rep: ''
+      },
+      {
+        begin: {
+          pat: '[\\\"]',
+          exclude: true
+        },
+        end: {
+          pat: '[\\\"]',
+          exclude: true
+        },
+        pat: /(\<span(.*?)\>|\<\/span\>)/igm,
+        rep: ''
       }
     ],
     finalise: [
-      /*{
-        pat: /\\\'\//igm,
-        rep: '\''
-      },
-      {
-        pat: /\\\"\//igm,
-        rep: '\"'
-      },*/
       {
         pat: /\:\/\\\//igm,
         rep: '\:\/\/'
