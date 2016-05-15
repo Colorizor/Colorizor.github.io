@@ -49,14 +49,14 @@
         rep: '<span id="unit">$&</span>'
       },
       {
-        begin: {pat: '\\<span(.*?)value(.*?)\\>\\\'', exclude: true},
-        end: {pat: '\\\'\\<\\/span\\>', exclude: true},
+        begin: {pat: '[\<]span(.*?)value(.*?)[\>][\']', exclude: true},
+        end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
         rep: ''
       },
       {
-        begin: {pat: '\\<span(.*?)value(.*?)\\>\\\"', exclude: true},
-        end: {pat: '\\\"\\<\\/span\\>', exclude: true},
+        begin: {pat: '[\<]span(.*?)value(.*?)[\>][\"]', exclude: true},
+        end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
         rep: ''
       },
