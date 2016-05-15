@@ -23,18 +23,6 @@
         rep: '<span id="unit">$&</span>'
       },
       {
-        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
-        end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
-        rep: ''
-      },
-      {
-        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\"]', exclude: true},
-        end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
-        rep: ''
-      },
-      {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\[]', exclude: true},
         end: {pat: '[\]][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
