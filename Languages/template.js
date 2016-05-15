@@ -15,11 +15,11 @@
       {
         begin: {
           pat: '\\/\\/',
-          exclude: true
+          exclude: false
         },
         end: {
           pat: '$',
-          exclude: true
+          exclude: false
         },
         pat: /.+/igm,
         rep: '<span id="comment">$&</span>'
