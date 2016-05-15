@@ -46,25 +46,25 @@
         rep: '<span id="unit">$&</span>'
       },
       {
-        begin: {pat: '[\<]span(.*?)value(.*?)[\>][\']', exclude: true},
+        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
         end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
       {
-        begin: {pat: '[\<]span(.*?)value(.*?)[\>][\"]', exclude: true},
+        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\"]', exclude: true},
         end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
       {
-        begin: {pat: '[\<]span(.*?)comment(.*?)[\>][\/][\/]', exclude: true},
+        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\/]', exclude: true},
         end: {pat: '[\<][\/]span[\>]$', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
       {
-        begin: {pat: '[\<]span(.*?)comment(.*?)[\>][\/][\*]', exclude: true},
+        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\*]', exclude: true},
         end: {pat: '[\*][\/][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
