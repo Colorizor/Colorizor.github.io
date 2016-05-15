@@ -24,7 +24,7 @@
         rep: ''
       },
       {
-        begin: {'\\<span(.*?)\\>', exclude: true},
+        begin: {'\\<span(.*?)comment(.*?)\\>', exclude: true},
         end: {'\\<\\/span\\>', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
         rep: ''
