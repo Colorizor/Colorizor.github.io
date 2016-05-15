@@ -37,12 +37,12 @@
         custom: /\/\/.+/igm,
         pat: /.+/igm,
         rep: '<span id="comment">$&</span>'
-      },/*
+      },
       {
         custom: /([\w]+)(?=[\(])/igm,
         pat: /.+/igm,
         rep: '<span id="selector">$&</span>'
-      },*/
+      },
       {
         custom: /([\d]|\-[\d]|\.\d)+/igm,
         pat: /.+/igm,
