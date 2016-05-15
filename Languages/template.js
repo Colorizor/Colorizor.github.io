@@ -25,7 +25,7 @@
       },
       {
         begin: {pat: '\\<span(.*?)comment(.*?)\\>', exclude: true},
-        end: {pat: '\\<\\/span\\>', exclude: false},
+        end: {pat: '\\<\\/span\\>', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
         rep: ''
       }
