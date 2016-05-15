@@ -45,7 +45,7 @@
         rep: '<span id="comment">$&</span>'
       },
       {
-        custom: '([\d]|[\-][\d]|[\.][\d])+',
+        custom: '(\\d|[\-]\\d|[\.]\\d)+',
         pat: /.+/igm,
         rep: '<span id="unit">$&</span>'
       },
