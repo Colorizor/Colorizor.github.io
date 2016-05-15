@@ -14,7 +14,7 @@
         rep: '<span id="value">$&</span>'
       },
       {
-        begin: {pat: '\\/\\/', exclude: false},
+        begin: {pat: '\\/\\/', exclude: true},
         end: {pat: '.+', exclude: false},
         pat: /.+/igm,
         rep: '<span id="comment">$&</span>'
