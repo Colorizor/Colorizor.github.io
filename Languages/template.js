@@ -1,6 +1,6 @@
 (function() {
   const data = {
-    language: '',
+    language: 'template',
     prepare: [
       {
         pat: /[\'\"]/igm,
