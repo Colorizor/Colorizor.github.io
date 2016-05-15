@@ -37,19 +37,26 @@
         custom: /\/\/.+/igm,
         pat: /.+/igm,
         rep: '<span id="comment">$&</span>'
-      }/*,
+      },/*
       {
         custom: /([\w]+)(?=[\(])/igm,
         pat: /.+/igm,
         rep: '<span id="selector">$&</span>'
-      },
+      },*/
       {
         custom: /([\d]|\-[\d]|\.\d)+/igm,
         pat: /.+/igm,
         rep: '<span id="unit">$&</span>'
       },
       {
-        custom: /(\<span(.*?)value(.*?)\>\'(.*?)\'\<\/span\>|\<span(.*?)value(.*?)\>\"(.*?)\"\<\/span\>)/igm,
+        begin: {pat: '\\<span(.*?)value(.*?)\\>\\\'', exclude: true},
+        end: {pat: '\\\'\\<\\/span\\>', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/igm,
+        rep: ''
+      },
+      {
+        begin: {pat: '\\<span(.*?)value(.*?)\\>\\\"', exclude: true},
+        end: {pat: '\\\"\\<\\/span\\>', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
         rep: ''
       },
@@ -58,7 +65,7 @@
         end: {pat: '\\<\\/span\\>$', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
         rep: ''
-      }*/
+      }
     ],
     finalise: [
       {
