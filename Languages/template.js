@@ -39,9 +39,10 @@
         rep: '<span id="comment">$&</span>'
       },
       {
-        custom: /([\w]+)(?=[\(])/igm,
+        begin: {pat: '[\/][\*]', exclude: false},
+        end: {pat: '[\*][\/]', exclude: false},
         pat: /.+/igm,
-        rep: '<span id="selector">$&</span>'
+        rep: '<span id="comment">$&</span>'
       },
       {
         custom: /([\d]|\-[\d]|\.\d)+/igm,
@@ -61,8 +62,14 @@
         rep: ''
       },
       {
-        begin: {pat: '[\<]span(.*?)comment(.*?)[\>]', exclude: true},
+        begin: {pat: '[\<]span(.*?)comment(.*?)[\>][\/][\/]', exclude: true},
         end: {pat: '[\<][\/]span[\>]$', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/igm,
+        rep: ''
+      },
+      {
+        begin: {pat: '[\<]span(.*?)comment(.*?)[\>][\/][\*]', exclude: true},
+        end: {pat: '[\*][\/][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
         rep: ''
       }
