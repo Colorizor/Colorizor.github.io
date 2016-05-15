@@ -14,7 +14,7 @@
         rep: '<span id="value">$&</span>'
       },
       {
-        custom: /\/\//igm,
+        custom: /\/\/.+/igm,
         pat: /.+/igm,
         rep: '<span id="comment">$&</span>'
       },
