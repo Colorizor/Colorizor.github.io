@@ -1,6 +1,6 @@
 (function() {
   const data = {
-    language: 'javascript',
+    language: 'actionscript',
     prepare: [
       {
         pat: /\:\/\//gm,
