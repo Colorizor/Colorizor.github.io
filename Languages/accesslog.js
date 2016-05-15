@@ -1,39 +1,52 @@
 (function() {
-  //------------------------------------------------------------------------------------------------------------
-  //---------------------------------------------------RegEx----------------------------------------------------
-  //------------------------------------------------------------------------------------------------------------
-  var regex = [
-    //Problem Characters
-    ['\\$&\/', /[\'\"\<\>]/igm],
-    //Syntax
-    ['<span id="value">$&</span>', /(\\\'\/(.*?)\\\'\/|\\\"\/(.*?)\\\"\/|\[(.*?)\])/igm],
-    ['<span id="selector">$&</span>', /(GET|POST|HEAD|PUT|DELETE|CONNECT|OPTIONS|PATCH|TRACE)/igm],
-    ['<span id="unit">$&</span>', /([\d]|\-[\d]|\.\d)+/igm],
-    //Clean
-    ['', /(?:(?!.*?\[))(\<span(.*?)\>|\<\/span\>)(?=.*?\])/igm],
-    //Fix Characters
-    ['\'', /\\\'\//igm],
-    ['\"', /\\\"\//igm],
-    ['&lt;', /\\\<\//igm],
-    ['&gt;', /\\\>\//igm]
-  ];
-  
-  //------------------------------------------------------------------------------------------------------------
-  //-------------------------------------------------COLORIZING-------------------------------------------------
-  //------------------------------------------------------------------------------------------------------------
-  $.each($('code[language="accesslog"]'), function() {
-    //--------------------------------------------------SIZING
-    $(this).css({
-      'height': 'auto',
-      'left': '0px',
-      'right': '0px',
-      'width': 'auto'
-    });
-    //--------------------------------------------------FIND
-    for (a = 0; a < regex.length; a++) {
-      var str = $(this).html();
-      str = str.replace(regex[a][1], regex[a][0]);
-      $(this).html(str);
-    }
-  });
+  const data = {
+    language: 'accesslog',
+    prepare: [
+      {
+        pat: /\:\/\//gm,
+        rep: '\:\/\\\/'
+      }
+    ],
+    execute: [
+      {
+        custom: '([\'](.*?)[\']|[\"](.*?)[\"]|[\[](.*?)[\]])',
+        pat: /.+/gm,
+        rep: '<span id="value">$&</span>'
+      },
+      {
+        keyword: /\b(GET|POST|HEAD|PUT|DELETE|CONNECT|OPTIONS|PATCH|TRACE)\b/gm,
+        rep: '<span id="selector">$&</span>'
+      },
+      {
+        custom: '(\\d|[\-]\\d|[\.]\\d)+',
+        pat: /.+/gm,
+        rep: '<span id="unit">$&</span>'
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
+        end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\"]', exclude: true},
+        end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\[]', exclude: true},
+        end: {pat: '[\]][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      }
+    ],
+    finalise: [
+      {
+        pat: /\:\/\\\//gm,
+        rep: '\:\/\/'
+      }
+    ]
+  };
+  clz.Colorize(data);
 })();
