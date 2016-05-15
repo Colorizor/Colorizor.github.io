@@ -13,17 +13,16 @@
     ],
     execute: [
       {
-        name: '',
         begin: {
-          pat: '',
+          pat: '\\/\\/',
           exclude: true
         },
         end: {
-          pat: '',
+          pat: '$',
           exclude: true
         },
-        pat: //igm,
-        rep: '<span id="">$&</span>'
+        pat: /.+/igm,
+        rep: '<span id="comment">$&</span>'
       }
     ],
     finalise: [
