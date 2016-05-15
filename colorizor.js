@@ -237,7 +237,7 @@ var clz = (function() {
     //Theme
     $.each($('script'), function() {
       var url = $(this).attr('src');
-      var pat = /\/colorizor(|\.min)\.js\?theme\=/igm;
+      var pat = /\/colorizor(|\.min|\.dev)\.js\?theme\=/igm;
       if (pat.test(url)) {
         var theme = url.split('theme=')[1];
         loadCSS('https://colorizor.github.io/Themes/' + theme.toLowerCase() + '.css');
