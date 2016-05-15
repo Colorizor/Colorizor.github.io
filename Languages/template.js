@@ -24,7 +24,8 @@
         rep: ''
       },
       {
-        custom: /\/\/.+/igm,
+        begin: {'\\<span(.*?)\\>', exclude: true},
+        end: {'\\<\\/span\\>', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
         rep: ''
       }
