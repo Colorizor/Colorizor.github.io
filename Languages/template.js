@@ -37,7 +37,7 @@
         custom: /\/\/.+/igm,
         pat: /.+/igm,
         rep: '<span id="comment">$&</span>'
-      },
+      }/*,
       {
         custom: /([\w]+)(?=[\(])/igm,
         pat: /.+/igm,
@@ -47,7 +47,7 @@
         custom: /([\d]|\-[\d]|\.\d)+/igm,
         pat: /.+/igm,
         rep: '<span id="unit">$&</span>'
-      }/*,
+      },
       {
         custom: /(\<span(.*?)value(.*?)\>\'(.*?)\'\<\/span\>|\<span(.*?)value(.*?)\>\"(.*?)\"\<\/span\>)/igm,
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
