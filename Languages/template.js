@@ -47,7 +47,7 @@
         custom: /([\d]|\-[\d]|\.\d)+/igm,
         pat: /.+/igm,
         rep: '<span id="unit">$&</span>'
-      },
+      }/*,
       {
         custom: /(\<span(.*?)value(.*?)\>\'(.*?)\'\<\/span\>|\<span(.*?)value(.*?)\>\"(.*?)\"\<\/span\>)/igm,
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
@@ -58,7 +58,7 @@
         end: {pat: '\\<\\/span\\>$', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
         rep: ''
-      }
+      }*/
     ],
     finalise: [
       {
