@@ -1,48 +1,87 @@
 (function() {
-  //------------------------------------------------------------------------------------------------------------
-  //---------------------------------------------------RegEx----------------------------------------------------
-  //------------------------------------------------------------------------------------------------------------
-  var regex = [
-    //Problem Characters
-    ['\\$&\/', /[\'\"\<\>]/igm],
-    ['\:\/\\\/', /\:\/\//igm],
-    //Syntax
-    ['<span id="value">$&</span>', /(\\\'\/(.*?)\\\'\/|\\\"\/(.*?)\\\"\/)/igm],
-    ['<span id="attribute">$&</span>', /\b(abstract|arguments|boolean|break|byte|case|catch|char|class|const|continue|debugger|default|delete|do|double|else|enum|eval|export|extends|false|final|finally|float|for|function|goto|if|implements|import|in|instanceof|int|interface|let|long|native|new|null|package|private|protected|public|return|short|static|super|switch|synchronized|this|throw|throws|transient|true|try|typeof|var|void|volatile|while|with|yield)\b/igm],
-    ['<span id="reserved">$&</span>', /\b(alert|all|anchor|anchors|area|assign|blur|button|checkbox|clearInterval|clearTimeout|clientInformation|close|closed|confirm|constructor|crypto|decodeURI|decodeURIComponent|defaultStatus|document|element|elements|embed|embeds|encodeURI|encodeURIComponent|escape|event|fileUpload|focus|form|forms|frame|height|innerHeight|innerWidth|layer|layers|link|location|mimeTypes|navigate|navigator|frames|frameRate|hidden|history|image|images|offscreenBuffering|open|opener|option|outerHeight|outerWidth|packages|pageXOffset|pageYOffset|parent|parseFloat|parseInt|password|plugin|prompt|propertyIsEnum|radio|reset|screen|screenX|screenY|scroll|secure|select|self|setInterval|setTimeout|status|submit|taint|text|textarea|top|unescape|untaint|width|window)\b/igm],
-    ['<span id="parameter">$&</span>', /\b(Array|Date|eval|function|hasOwnProperty|Infinity|isFinite|isNaN|isPrototypeOf|length|Math|NaN|name|Number|Object|prototype|String|toString|undefined|valueOf)\b/igm],
-    ['<span id="parameter">$&</span>', /\b(onblur|onclick|onerror|onfocus|onkeydown|onkeypress|onkeyup|onmouseover|onload|onmouseup|onmousedown|onsubmit)\b/igm],
-    ['<span id="selector">$&</span>', /([\w]+)(?=[\(])/igm],
-    ['<span id="comment">$&</span>', /\/\/.+/igm],
-    ['<span id="unit">$&</span>', /([\d]|\-[\d]|\.\d)+/igm],
-    //Clean
-    ['', /(?:(?!.*?\/\/))(\<span(.*?)\>|\<\/span\>)(?=(.*?)\<\/span\>$)/igm],
-    ['', /(?:(?!.*?\\\'\/.+\'\/))(\<span(.*?)\>|\<\/span\>)(?=.*?\\\'\/)/igm],
-    ['', /(?:(?!.*?\\\"\/.+\"\/))(\<span(.*?)\>|\<\/span\>)(?=.*?\\\"\/)/igm],
-    //Fix Characters
-    ['\'', /\\\'\//igm],
-    ['\"', /\\\"\//igm],
-    ['&lt;', /\\\<\//igm],
-    ['&gt;', /\\\>\//igm],
-    ['\:\/\/', /\:\/\\\//igm]
-  ];
-  
-  //------------------------------------------------------------------------------------------------------------
-  //-------------------------------------------------COLORIZING-------------------------------------------------
-  //------------------------------------------------------------------------------------------------------------
-  $.each($('code[language="javascript"]'), function() {
-    //--------------------------------------------------SIZING
-    $(this).css({
-      'height': 'auto',
-      'left': '0px',
-      'right': '0px',
-      'width': 'auto'
-    });
-    //--------------------------------------------------FIND
-    for (a = 0; a < regex.length; a++) {
-      var str = $(this).html();
-      str = str.replace(regex[a][1], regex[a][0]);
-      $(this).html(str);
-    }
-  });
+  const data = {
+    language: 'javascript',
+    prepare: [
+      {
+        pat: /\:\/\//gm,
+        rep: '\:\/\\\/'
+      }
+    ],
+    execute: [
+      {
+        custom: '([\'](.*?)[\']|[\"](.*?)[\"])',
+        pat: /.+/gm,
+        rep: '<span id="value">$&</span>'
+      },
+      {
+        keyword: /\b(abstract|arguments|boolean|break|byte|case|catch|char|class|const|continue|debugger|default|delete|do|double|else|enum|eval|export|extends|false|final|finally|float|for|function|goto|if|implements|import|in|instanceof|int|interface|let|long|native|new|null|package|private|protected|public|return|short|static|super|switch|synchronized|this|throw|throws|transient|true|try|typeof|var|void|volatile|while|with|yield)\b/gm,
+        rep: '<span id="attribute">$&</span>'
+      },
+      {
+        keyword: /\b(alert|all|anchor|anchors|area|assign|blur|button|checkbox|clearInterval|clearTimeout|clientInformation|close|closed|confirm|constructor|crypto|decodeURI|decodeURIComponent|defaultStatus|document|element|elements|embed|embeds|encodeURI|encodeURIComponent|escape|event|fileUpload|focus|form|forms|frame|height|innerHeight|innerWidth|layer|layers|link|location|mimeTypes|navigate|navigator|frames|frameRate|hidden|history|image|images|offscreenBuffering|open|opener|option|outerHeight|outerWidth|packages|pageXOffset|pageYOffset|parent|parseFloat|parseInt|password|plugin|prompt|propertyIsEnum|radio|reset|screen|screenX|screenY|scroll|secure|select|self|setInterval|setTimeout|status|submit|taint|text|textarea|top|unescape|untaint|width|window)\b/gm,
+        rep: '<span id="reserved">$&</span>'
+      },
+      {
+        keyword: /\b(Array|Date|eval|function|hasOwnProperty|Infinity|isFinite|isNaN|isPrototypeOf|length|Math|NaN|name|Number|Object|prototype|String|toString|undefined|valueOf)\b/gm,
+        rep: '<span id="reserved">$&</span>'
+      },
+      {
+        keyword: /\b(onblur|onclick|onerror|onfocus|onkeydown|onkeypress|onkeyup|onmouseover|onload|onmouseup|onmousedown|onsubmit)\b/gm,
+        rep: '<span id="parameter">$&</span>'
+      },
+      {
+        custom: '[\/][\/].+',
+        pat: /.+/gm,
+        rep: '<span id="comment">$&</span>'
+      },
+      {
+        begin: {pat: '[\/][\*]', exclude: false},
+        end: {pat: '[\*][\/]', exclude: false},
+        pat: /.+/gm,
+        rep: '<span id="comment">$&</span>'
+      },
+      {
+        custom: '(\\d|[\-]\\d|[\.]\\d)+',
+        pat: /.+/gm,
+        rep: '<span id="unit">$&</span>'
+      },
+      {
+        begin: {pat: '[\.](?=([\\w]+)((.?)[\=]|[\(]))', exclude: true},
+        end: {pat: '([\=]|[\(])', exclude: true},
+        pat: /([\w]+)/gm,
+        rep: '<span id="selector">$&</span>'
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
+        end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\"]', exclude: true},
+        end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\/]', exclude: true},
+        end: {pat: '[\<][\/]span[\>]$', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\*]', exclude: true},
+        end: {pat: '[\*][\/][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      }
+    ],
+    finalise: [
+      {
+        pat: /\:\/\\\//gm,
+        rep: '\:\/\/'
+      }
+    ]
+  };
+  clz.Colorize(data);
 })();
