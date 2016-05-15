@@ -18,7 +18,7 @@
           exclude: false
         },
         end: {
-          pat: '$',
+          pat: '.+',
           exclude: false
         },
         pat: /.+/igm,
