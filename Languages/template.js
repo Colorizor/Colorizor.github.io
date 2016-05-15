@@ -49,14 +49,13 @@
         rep: '<span id="unit">$&</span>'
       },
       {
-        begin: {pat: '<span(.*?)value(.*?)>', exclude: true},
-        end: {pat: '</span>', exclude: true},
+        custom: /(\<span(.*?)value(.*?)\>\'(.*?)\'\<\/span\>|\<span(.*?)value(.*?)\>\"(.*?)\"\<\/span\>)/igm,
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
-        rep: ''
+        rep: '<span id="unit">$&</span>'
       },
       {
-        begin: {pat: '<span(.*?)comment(.*?)>', exclude: true},
-        end: {pat: '</span>$', exclude: true},
+        begin: {pat: '\\<span(.*?)comment(.*?)\\>', exclude: true},
+        end: {pat: '\\<\\/span\\>$', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/igm,
         rep: ''
       }
