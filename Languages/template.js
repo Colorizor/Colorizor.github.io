@@ -26,11 +26,11 @@
       },
       {
         begin: {
-          pat: '\\\'\\/',
+          pat: '\\\\\'\\/',
           exclude: false
         },
         end: {
-          pat: '\\\'\\/',
+          pat: '\\\\\'\\/',
           exclude: false
         },
         pat: /.+/igm,
@@ -38,11 +38,11 @@
       },
       {
         begin: {
-          pat: '\\\"\\/',
+          pat: '\\\\\"\\/',
           exclude: false
         },
         end: {
-          pat: '\\\"\\/',
+          pat: '\\\\\"\\/',
           exclude: false
         },
         pat: /.+/igm,
