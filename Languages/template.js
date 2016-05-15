@@ -46,7 +46,7 @@
         rep: '<span id="unit">$&</span>'
       },
       {
-        begin: {pat: '[\.](?=([\\w]+)((.*?)[\=]|[\(]))', exclude: true},
+        begin: {pat: '[\.](?=([\\w]+)((.?)[\=]|[\(]))', exclude: true},
         end: {pat: '([\=]|[\(])', exclude: true},
         pat: /([\w]+)/gm,
         rep: '<span id="selector">$&</span>'
