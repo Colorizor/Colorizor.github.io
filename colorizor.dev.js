@@ -18,7 +18,32 @@ var clz = (function() {
     The code will be the variable that will hold each coding block's code in. The code will also be edited from it.
     The language will be used for identifing which pre tag it should colorize for.
     The theme will be determined by the ?theme=... parameter in the CDN (Content Delivery Network) url.
-    The prepare
+    The prepare will contain all the regular expressions that are needed to prepare the main regex from finding the incorrect values.
+    For example in JavaScript you can comment with //, but a url contains // after the :. so it will see it as comment.
+    Execute contains the main regular expressions. It contains groups of parameters.
+      Group 1:
+        Begin ->
+          Pattern = String
+          Exclude = Bool
+        End ->
+          Pattern = String
+          Exclude = Bool
+        Pattern -> 
+          Pattern = RegEx
+        Replace -> 
+          Replace = String
+      Group 2:
+        Custom ->
+          Pattern = RegEx
+        Pattern -> 
+          Pattern = RegEx
+        Replace -> 
+          Replace = String
+      Group 3:
+        Keyword -> 
+          Pattern = RegEx
+        Replace -> 
+          Replace = String
   */
   var code = '',
       language = '',
