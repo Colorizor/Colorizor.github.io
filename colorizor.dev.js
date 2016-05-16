@@ -8,6 +8,7 @@ var clz = (function() {
     The \t will be replaced by 4x\s (white-space) to even the spacing between all code blocks.
   */
   const regexp = [
+    {pat: /\<br(.*?)(|\/)\>/gm, rep: '\n'},
     {pat: /[\<]/gm, rep: '&lt;'},
     {pat: /[\>]/gm, rep: '&gt;'},
     {pat: /[\t]/gm, rep: '\s\s\s\s'}
