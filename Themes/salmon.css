@@ -5,11 +5,11 @@ span#none{background-color:rgb(255, 127, 102);border-radius:2px;color:rgb(255, 2
 span#comment{color:rgb(159, 253, 193);font-style:italic;}
 span#selector{color:rgb(255, 127, 102);}
 span#attribute{color:rgb(201, 154, 151);}
-span#reserved{color:rgb(33, 133, 197);}
+span#reserved{color:rgb(49, 152, 197);}
 span#value{color:rgb(126, 206, 253);}
 span#parameter{color:rgb(147, 141, 241);}
 span#unit{color:rgb(255, 216, 150);}
-span#regex{color:rgb(255, 183, 178);}
+span#regex{color:rgb(78, 30, 17);}
 /*----------------------------------------Plugin----------------------------------------*/
 span#numbers{border-right:1px solid rgb(255, 246, 229);display:inline-block;float:left;margin-right:8px;text-align:right;}
 span#coding{display:inline-block;float:top;margin-left:8px;text-align:left;}
