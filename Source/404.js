@@ -17,43 +17,4 @@
   $('#title-parent').css({
     'height': header + 'px'
   });
-
-  $(window).scrollTop(0);
-
-  $(window).scroll(function() {
-    //Parallax Image
-    position = ($(window).scrollTop() / 3) * -1;
-    
-    $('#parallax').css({
-      'background-position': 'center ' + position + 'px'
-    });
-    
-    $('#title-parent').css({
-      'top': position + 'px'
-    });
-    
-    //Title Opacity
-    opacity = $(window).scrollTop() / (header - (header / 4));
-    
-    if ($(window).scrollTop() < (header - (header / 4))) {
-      $('#title-child').css({
-        'opacity': (1 - opacity)
-      });
-    } else {
-      $('#title-child').css({
-        'opacity': '0'
-      });
-    }
-      
-    //Hide Image
-    if ($(window).scrollTop() > header + 100) {
-      $('header').css({
-        'visibility': 'hidden'
-      });
-    } else {
-      $('header').css({
-        'visibility': 'visible'
-      });
-    }
-  });
 })();
