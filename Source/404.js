@@ -1,5 +1,5 @@
 //--------------------------------------------------LOADING MAIN
-(function(position, opacity, header) {
+(function(header) {
   if (screen.width < 480) {
     header = 150;
   } else if (screen.width >= 480 && screen.width < 720) {
@@ -16,5 +16,10 @@
   
   $('#title-parent').css({
     'height': header + 'px'
+  });
+  
+  $('footer').css({
+    'height': (screen.height - header) + 'px',
+    'top': header + 'px'
   });
 })();
