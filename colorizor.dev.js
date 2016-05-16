@@ -406,7 +406,7 @@ var clz = (function() {
     //Correct
     $.each($('pre'), function() {
       var object = $(this).find('code');
-      if (object.length !> 0) {
+      if (object.length >! 0) {
         var lang = $(this).attr('language');
         var string = $(this).html();
         string = string.replace(/([\s\S]+)/igm, '<code language="' + lang + '">$&</code>');
