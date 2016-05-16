@@ -426,7 +426,7 @@ var clz = (function() {
       }
     });
     //Selection
-    $('code').click(function() {
+    $('code:not(span[id*="number"]), code span#coding').click(function() {
       if (document.selection) {
         var block = document.body.createTextRange();
         block.moveToElementText($(this)[0]);
@@ -471,7 +471,7 @@ var clz = (function() {
       //Initialize
       Initialize(data);
       //Procedure
-      $.each($('code[language="' + language + '"]'), function() {
+      $.each($('pre[language="' + language + '"], code[language="' + language + '"]'), function() {
         //Sizing
         $(this).css({
           'height': 'auto', 'left': '0px', 'right': '0px', 'width': 'auto'
