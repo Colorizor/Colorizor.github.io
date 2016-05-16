@@ -3,7 +3,7 @@
 //================================================================================
 $.each($('pre:not([nonumber])').find('code'), function() {
   var string = $(this).html();
-  string = string.replace(/([\s\S]+)/igm, '<span id="numbers"></span><span id="coding">$&</span>');
+  string = string.replace(/([\s\S]+)/igm, '<span id="numbers"></span>$&');
   $(this).html(string);
 });
 
