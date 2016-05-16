@@ -403,20 +403,6 @@ var clz = (function() {
     The selection feature that will select all the code in the selected code block
   */
   function Feature() {
-    //Correct
-    $.each($('pre'), function() {
-      var object = $(this).find('code');
-      if (object.length > 0) {
-        var string = $(this).find('code').html();
-        string = string.replace(/([\s\S]+)/igm, '<span id="coding">$&</span>');
-        $(this).find('code').html(string);
-      } else {
-        var lang = $(this).attr('language');
-        var string = $(this).html();
-        string = string.replace(/([\s\S]+)/igm, '<code language="' + lang + '"><span id="coding">$&</span></code>');
-        $(this).html(string);
-      }
-    });
     //Language
     $.each($('pre[language], code[language]'), function() {
       var lang = $(this).attr('language');
@@ -439,7 +425,7 @@ var clz = (function() {
       }
     });
     //Selection
-    $('span[id="coding"]').click(function() {
+    $('code').click(function() {
       if (document.selection) {
         var block = document.body.createTextRange();
         block.moveToElementText($(this)[0]);
@@ -484,9 +470,9 @@ var clz = (function() {
       //Initialize
       Initialize(data);
       //Procedure
-      $.each($('pre[language="' + language + '"], code[language="' + language + '"]').find('span[id="coding"]'), function() {
+      $.each($('pre[language="' + language + '"], code[language="' + language + '"]'), function() {
         //Sizing
-        $(this).parent().css({
+        $(this).css({
           'height': 'auto', 'left': '0px', 'right': '0px', 'width': 'auto'
         });
         //Core
