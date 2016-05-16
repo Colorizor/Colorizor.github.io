@@ -18,4 +18,3 @@ span#unit{color:rgb(255, 216, 150);}
 span#numbers{border-right:1px solid rgb(255, 246, 229);display:inline-block;float:left;margin-right:8px;text-align:right;}
 span#coding{display:inline-block;float:top;margin-left:8px;text-align:left;}
 span#number{color:rgb(255, 246, 229);float:top;padding-right:4px;}
-span#code{float:top;}
