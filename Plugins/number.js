@@ -10,7 +10,7 @@ $.each($('pre:not([nonumber])').find('code'), function() {
 $.each($('pre:not([nonumber])'), function() {
   var lines = $(this).find('code').html().split('\n');
   
-  for (var a = 0; a < lines.length + 1; a++) {
+  for (var a = 0; a < lines.length; a++) {
     var string = $(this).find('span[id="numbers"]').html();
     $(this).find('span[id="numbers"]').html(string + '<span id="number">' + (a + 1) + '</span>\n');
   }
