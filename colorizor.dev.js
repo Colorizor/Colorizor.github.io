@@ -411,7 +411,7 @@ var clz = (function() {
     //Theme & Plugin
     $.each($('script'), function() {
       var url = $(this).attr('src');
-      var pattern = /\/colorizor(|\.min|\.dev)\.js/igm;
+      var pattern = /\/colorizor(|\.min)\.js/igm;
       if (pattern.test(url)) {
         var data = Parameter(url);
         theme = data.theme;
