@@ -262,22 +262,33 @@ var clz = (function() {
     var regCutBegin = new RegExp(begin, 'gm');
     var regCutEnd = new RegExp(end, 'gm');
     //Colorize
+    //Setting the code variable to the new code results
     code = code.replace(reg, function(match) {
+      //Cutting off the begin- and end instances
       var cut = match.replace(regCutBegin, '').replace(regCutEnd, '');
+      //Creating a temparary replace result variable that will be used to replace the original result
       var temp = cut.replace(pat, rep);
+      //Replacing the original search pattern with the colorized one and returning it
       return match.replace(cut, temp);
     });
   }
   //Exclude: Begin & Not End
   function BeginNotEnd(begin, end, pat, rep) {
     //Setup
+    //Creating a string based regex
     var pattern = begin + '([\\s\\S]*?)' + end;
+    //Converting the string based regex to regex
     var reg = new RegExp(pattern, 'gm');
+    //Creating the regex to cut of the begin pattern
     var regCut = new RegExp(begin, 'gm');
     //Colorize
+    //Replacing the old code with the new code
     code = code.replace(reg, function(match) {
+      //This is the pattern with the cut off begin pattern
       var cut = match.replace(regCut, '');
+      //Temp variable that has the colorized result
       var temp = cut.replace(pat, rep);
+      //Returning the match by replacing the cut off result with the colorized result
       return match.replace(cut, temp);
     });
   }
