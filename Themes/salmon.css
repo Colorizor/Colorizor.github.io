@@ -10,6 +10,7 @@ span#reserved{color:rgb(33, 133, 197);}
 span#value{color:rgb(126, 206, 253);}
 span#parameter{color:rgb(147, 141, 241);}
 span#unit{color:rgb(255, 216, 150);}
+span#regex{color:rgb(255, 183, 178);}
 /*----------------------------------------Plugin----------------------------------------*/
 span#numbers{border-right:1px solid rgb(255, 246, 229);display:inline-block;float:left;margin-right:8px;text-align:right;}
 span#coding{display:inline-block;float:top;margin-left:8px;text-align:left;}
