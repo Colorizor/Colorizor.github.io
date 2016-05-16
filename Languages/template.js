@@ -1,6 +1,6 @@
 (function() {
   const data = {
-    language: 'template',
+    language: 'javascript',
     prepare: [
       {
         pat: /\:\/\//gm,
@@ -41,7 +41,7 @@
         rep: '<span id="comment">$&</span>'
       },
       {
-        custom: '(\\d|[\-]\\d|[\.]\\d)+',
+        custom: '((\\d|[\-]\\d|[\.]\\d)+)([\%]|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?',
         pat: /.+/gm,
         rep: '<span id="unit">$&</span>'
       },
@@ -50,6 +50,16 @@
         end: {pat: '([\=]|[\(])', exclude: true},
         pat: /([\w]+)/gm,
         rep: '<span id="selector">$&</span>'
+      },
+      {
+        custom: '[\/](?![\*])(.*?)(?![\*])[\/]([igmuy]+|)',
+        pat: /.+/gm,
+        rep: '<span id="regex">$&</span>'
+      },
+      {
+        custom: '[\/](?![\*])(.*?)(?![\*])[\/]([igmuy]+|)',
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
