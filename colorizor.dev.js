@@ -413,7 +413,7 @@ var clz = (function() {
       } else {
         var lang = $(this).attr('language');
         var string = $(this).html();
-        string = string.replace(/([\s\S]+)/igm, '<code language="' + lang + '">$&</code>');
+        string = string.replace(/([\s\S]+)/igm, '<code language="' + lang + '"><span id="coding">$&</span></code>');
         $(this).html(string);
       }
     });
@@ -439,7 +439,7 @@ var clz = (function() {
       }
     });
     //Selection
-    $('code > span[id="coding"]').click(function() {
+    $('code#coding').click(function() {
       if (document.selection) {
         var block = document.body.createTextRange();
         block.moveToElementText($(this)[0]);
