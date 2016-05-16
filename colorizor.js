@@ -4,6 +4,7 @@ var clz = (function() {
   //================================================================================
   //==============================Constant
   const regexp = [
+    {pat: /\<br(.*?)(|\/)\>/gm, rep: '\n'},
     {pat: /[\<]/gm, rep: '&lt;'},
     {pat: /[\>]/gm, rep: '&gt;'},
     {pat: /[\t]/gm, rep: '\s\s\s\s'}
@@ -12,6 +13,7 @@ var clz = (function() {
   var code = '',
       language = '',
       theme = '',
+      plugin = [],
       prepare = [],
       execute = [],
       finalise = [];
@@ -227,6 +229,43 @@ var clz = (function() {
   function Escape(value) {
     return value.replace(/[\-\/\\\^\$\*\+\?\.\(\)\|\[\]\{\}]/gm, '\\$&');
   }
+  //URL Parameters
+  function Parameter(url) {
+    //Setup
+    var option1 = /\/colorizor(|\.min|\.dev)\.js\?(theme|plugin)\=(?=(.*?)\&(theme|plugin)\=)/igm;
+    var option2 = /\/colorizor(|\.min|\.dev)\.js\?theme\=(?!(.*?)\&plugin\=)/igm;
+    var option3 = /\/colorizor(|\.min|\.dev)\.js\?plugin\=(?!(.*?)\&theme\=)/igm;
+    var option4 = /\/colorizor(|\.min|\.dev)\.js(?!\?(theme|plugin)\=)/igm;
+    //Configure
+    if (option1.test(url)) {
+      var tail = url.split('\?')[1];
+      var style = tail.split('\&')[0];
+      var extraTemp = tail.split('\&')[1];
+      style = style.split('\=')[1];
+      var extra = [],
+          temp = extraTemp.split('\=')[1];
+      if ((temp || '').split('\,').length > 1) {
+        extra = temp.split('\,');
+      } else {
+        extra.push(temp);
+      }
+      return {theme: style, plugin: extra};
+    } else if (option2.test(url)) {
+      var style = url.split('\=')[1];
+      return {theme: style, plugin: []};
+    } else if (option3.test(url)) {
+      var extra = [],
+          temp = url.split('\=')[1];
+      if ((temp || '').split('\,').length > 1) {
+        extra = temp.split('\,');
+      } else {
+        extra.push(temp);
+      }
+      return {theme: 'salmon', plugin: extra};
+    } else if (option4.test(url)) {
+      return {theme: 'salmon', plugin: []};
+    }
+  }
   //==============================Feature
   function Feature() {
     //Language
@@ -234,26 +273,20 @@ var clz = (function() {
       var lang = $(this).attr('language');
       loadJS('https://colorizor.github.io/Languages/' + lang.toLowerCase() + '.js');
     });
-    //Theme
+    //Theme & Plugin
     $.each($('script'), function() {
       var url = $(this).attr('src');
-      var pat = /\/colorizor(|\.min|\.dev)\.js\?theme\=/igm;
-      if (pat.test(url)) {
-        var theme = url.split('theme=')[1];
+      var pattern = /\/colorizor(|\.min)\.js/igm;
+      if (pattern.test(url)) {
+        var data = Parameter(url);
+        theme = data.theme;
+        plugin = data.plugin;
+        //Theme
         loadCSS('https://colorizor.github.io/Themes/' + theme.toLowerCase() + '.css');
-      }
-    });
-    //Selection
-    $('code').click(function() {
-      if (document.selection) {
-        var block = document.body.createTextRange();
-        block.moveToElementText($(this)[0]);
-        block.select();
-      } else {
-        var block = document.createRange();
-        block.setStartBefore($(this)[0]);
-        block.setEndAfter($(this)[0]);
-        window.getSelection().addRange(block);
+        //Plugin
+        $.each(plugin, function() {
+          loadJS('https://colorizor.github.io/Plugins/' + this.toLowerCase() + '.js');
+        });
       }
     });
   }
@@ -283,7 +316,7 @@ var clz = (function() {
       //Initialize
       Initialize(data);
       //Procedure
-      $.each($('code[language="' + language + '"]'), function() {
+      $.each($('pre[language="' + language + '"], code[language="' + language + '"]'), function() {
         //Sizing
         $(this).css({
           'height': 'auto', 'left': '0px', 'right': '0px', 'width': 'auto'
