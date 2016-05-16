@@ -87,19 +87,27 @@ var clz = (function() {
   }
   //==============================LoadCSS
   /*
-    
+    This will be used to load the theme script async into the website.
+    It creates a link tag dynamically that will be added before the first script tag.
+    This will minimize the loading time by allowing it to load the style first without it having to wait for the script tags to finish.
   */
   function loadCSS(href, before, media, callback) {
+    //Creating the link tag dynamically
     var ss = window.document.createElement('link');
+    //Getting the first script tag
     var ref = before || window.document.getElementsByTagName('script')[0];
+    //Setting the properties for the link tag
     var sheets = window.document.styleSheets;
     ss.rel = 'stylesheet';
     ss.href = href;
     ss.media = 'only x';
+    //If the url has a callback it will set it to the onload
     if (callback) {
       ss.onload = callback;
     }
+    //Setting it to be inserted before the first script tag
     ref.parentNode.insertBefore(ss, ref);
+    //Built 
     ss.onloadcssdefined = function(cb) {
       var defined;
       for (var i = 0; i < sheets.length; i++) {
