@@ -52,12 +52,12 @@
         rep: '<span id="selector">$&</span>'
       },
       {
-        custom: '[\/](?!([\*]|span))(.*?)(?![\*])[\/]([igmuy]+|)',
+        custom: '[\/](?!([\*]|span))(.*?)(?![\*])[\/](?!span)([igmuy]+|)',
         pat: /.+/gm,
         rep: '<span id="regex">$&</span>'
       },
       {
-        custom: '[\/](?!([\*]|span))(.*?)(?![\*])[\/]([igmuy]+|)',
+        custom: '[\/](?!([\*]|span))(.*?)(?![\*])[\/](?!span)([igmuy]+|)',
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
