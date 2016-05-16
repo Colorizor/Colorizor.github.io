@@ -3,12 +3,23 @@ var clz = (function() {
   //=====================================Object=====================================
   //================================================================================
   //==============================Constant
+  /*
+    This will remove the characters that wouldn't normally show in the <pre></pre> tag.
+    The \t will be replaced by 4x\s (white-space) to even the spacing between all code blocks.
+  */
   const regexp = [
     {pat: /[\<]/gm, rep: '&lt;'},
     {pat: /[\>]/gm, rep: '&gt;'},
     {pat: /[\t]/gm, rep: '\s\s\s\s'}
   ];
   //==============================Variable
+  /*
+    Declaired the global variables here.
+    The code will be the variable that will hold each coding block's code in. The code will also be edited from it.
+    The language will be used for identifing which pre tag it should colorize for.
+    The theme will be determined by the ?theme=... parameter in the CDN (Content Delivery Network) url.
+    The prepare
+  */
   var code = '',
       language = '',
       theme = '',
