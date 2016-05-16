@@ -9,10 +9,10 @@ span#reserved{color:rgb(49, 152, 197);}
 span#value{color:rgb(126, 206, 253);}
 span#parameter{color:rgb(147, 141, 241);}
 span#unit{color:rgb(255, 216, 150);}
-span#regex{color:rgb(158, 18, 0);}
+span#regex{color:rgb(158, 83, 74);}
 /*----------------------------------------Plugin----------------------------------------*/
-span#numbers{border-right:1px solid rgb(150, 167, 184);display:inline-block;float:left;margin-right:8px;text-align:right;}
-span#number{color:rgb(150, 167, 184);float:top;padding-right:4px;}
+span#numbers{border-right:1px solid rgb(129, 144, 158);display:inline-block;float:left;margin-right:8px;text-align:right;}
+span#number{color:rgb(129, 144, 158);float:top;padding-right:4px;}
 span#coding{display:inline-block;float:top;margin-left:8px;text-align:left;}
 code::-moz-selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
 code::selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
