@@ -1,6 +1,6 @@
 (function() {
   const data = {
-    language: 'javascript',
+    language: '',
     prepare: [
       {
         pat: /\:\/\//gm,
@@ -52,12 +52,12 @@
         rep: '<span id="selector">$&</span>'
       },
       {
-        custom: '[\/](?![\*])(.*?)(?![\*])[\/]([igmuy]+|)',
+        custom: '[\/](?!([\*]|span))(.*?)(?![\*])[\/]([igmuy]+|)',
         pat: /.+/gm,
         rep: '<span id="regex">$&</span>'
       },
       {
-        custom: '[\/](?![\*])(.*?)(?![\*])[\/]([igmuy]+|)',
+        custom: '[\/](?!([\*]|span))(.*?)(?![\*])[\/]([igmuy]+|)',
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
