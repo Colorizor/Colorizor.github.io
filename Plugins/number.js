@@ -3,20 +3,20 @@
       //------------------------------------------------------------------------------------------------------------
       $.each($('pre[number]').find('code'), function() {
         var str = $(this).html();
-        str = str.replace(/([\s\S]+)/igm, '<span class="numbers"></span><span class="coding">$&</span>');
+        str = str.replace(/([\s\S]+)/igm, '<span id="numbers"></span><span id="coding">$&</span>');
         $(this).html(str);
       });
       
-      $.each($('pre[number]').find('span[class="coding"]'), function(line) {
+      $.each($('pre[number]').find('span[id="coding"]'), function(line) {
         $(this).html(function(index, html) {
-          return html.replace(/(^\n|.+)/igm, '<span class="code">$&</span>');
+          return html.replace(/(^\n|.+)/igm, '<span id="code">$&</span>');
         });
     
         line = 0;
     
-        $.each($(this).find('span[class="code"]'), function() {
+        $.each($(this).find('span[id="code"]'), function() {
           line++;
-          var str = $($(this).parent().parent().find('span[class="numbers"]')).html();
-          $($(this).parent().parent().find('span[class="numbers"]')).html(str + '<span class="number">' + line + '</span>\n');
+          var str = $($(this).parent().parent().find('span[id="numbers"]')).html();
+          $($(this).parent().parent().find('span[id="numbers"]')).html(str + '<span id="number">' + line + '</span>\n');
         });
       });
