@@ -16,10 +16,13 @@ var clz = (function() {
   /*
     Declaired the global variables here.
     The code will be the variable that will hold each coding block's code in. The code will also be edited from it.
+    
     The language will be used for identifing which pre tag it should colorize for.
     The theme will be determined by the ?theme=... parameter in the CDN (Content Delivery Network) url.
+    
     The prepare will contain all the regular expressions that are needed to prepare the main regex from finding the incorrect values.
     For example in JavaScript you can comment with //, but a url contains // after the :. so it will see it as comment.
+    
     Execute contains the main regular expressions. It contains groups of parameters.
       Group 1:
         Begin ->
@@ -44,6 +47,8 @@ var clz = (function() {
           Pattern = RegEx
         Replace -> 
           Replace = String
+    
+    Finalise would contain regex that will do the finishing touches and clean up if needed
   */
   var code = '',
       language = '',
@@ -56,6 +61,9 @@ var clz = (function() {
   //=====================================Private====================================
   //================================================================================
   //==============================LoadJS
+  /*
+    
+  */
   function loadJS(src, cb) {
     var ref = window.document.getElementsByTagName('script')[0];
     var script = window.document.createElement('script');
@@ -68,6 +76,9 @@ var clz = (function() {
     return script;
   }
   //==============================LoadCSS
+  /*
+    
+  */
   function loadCSS(href, before, media, callback) {
     var ss = window.document.createElement('link');
     var ref = before || window.document.getElementsByTagName('script')[0];
@@ -100,6 +111,9 @@ var clz = (function() {
     return ss;
   }
   //==============================Initialize
+  /*
+    
+  */
   function Initialize(data) {
     //Language
     if (Exist(data.language)) {
@@ -127,6 +141,9 @@ var clz = (function() {
     }
   }
   //==============================Process
+  /*
+    
+  */
   function Fetch(object) {
     code = $(object).html();
   }
@@ -134,6 +151,9 @@ var clz = (function() {
     $(object).html(code);
   }
   //==============================Core
+  /*
+    
+  */
   function Prepare() {
     //Escape
     $.each(regexp, function() {
@@ -187,6 +207,9 @@ var clz = (function() {
     });
   }
   //==============================Function
+  /*
+    
+  */
   //Exclude: Begin & End
   function BeginEnd(begin, end, pat, rep) {
     //Setup
@@ -264,6 +287,9 @@ var clz = (function() {
     return value.replace(/[\-\/\\\^\$\*\+\?\.\(\)\|\[\]\{\}]/gm, '\\$&');
   }
   //==============================Feature
+  /*
+    
+  */
   function Feature() {
     //Language
     $.each($('pre[language], code[language]'), function() {
@@ -299,6 +325,9 @@ var clz = (function() {
   //================================================================================
   return {
     //==============================Configure
+    /*
+      
+    */
     Configure: function() {
       //Checking
       if (typeof jQuery == 'undefined') {
@@ -315,6 +344,9 @@ var clz = (function() {
       window.setTimeout(waitForLoad, 1);
     },
     //==============================Colorize
+    /*
+      
+    */
     Colorize: function(data) {
       //Initialize
       Initialize(data);
