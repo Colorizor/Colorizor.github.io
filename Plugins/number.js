@@ -2,6 +2,26 @@
 //=====================================Number=====================================
 //================================================================================
 $.each($('pre:not([nonumber])').find('code'), function() {
+  var string = $(this).html();
+  string = string.replace(/([\s\S]+)/igm, '<span id="numbers"></span>$&');
+  $(this).html(string);
+});
+
+$.each($('pre:not([nonumber])'), function() {
+  var lines = $(this).find('code').html().split('\n');
+  
+  for (var a = 0; a < lines.length; a++) {
+    var string = $(this).find('span[id="numbers"]').html();
+    $(this).find('span[id="numbers"]').html(string + '<span id="number">' + a + '</span>\n');
+  }
+});
+
+
+/*
+//================================================================================
+//=====================================Number=====================================
+//================================================================================
+$.each($('pre:not([nonumber])').find('code'), function() {
   var str = $(this).html();
   str = str.replace(/([\s\S]+)/igm, '<span id="numbers"></span><span id="coding">$&</span>');
   $(this).html(str);
@@ -20,3 +40,4 @@ $.each($('pre:not([nonumber])').find('span[id="coding"]'), function(line) {
     $($(this).parent().parent().find('span[id="numbers"]')).html(str + '<span id="number">' + line + '</span>\n');
   });
 });
+*/
