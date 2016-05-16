@@ -24,23 +24,13 @@
     //Parallax Image
     position = ($(window).scrollTop() / 3) * -1;
     
-    if ($(window).scrollTop() > 0) {
-      $('#parallax').css({
-        'background-position': 'center ' + position + 'px'
-      });
-      
-      $('#title-parent').css({
-        'top': position + 'px'
-      });
-    } else {
-      $('#parallax').css({
-        'background-position': 'center 0px'
-      });
-      
-      $('#title-parent').css({
-        'top': '0px'
-      });
-    }
+    $('#parallax').css({
+      'background-position': 'center ' + position + 'px'
+    });
+    
+    $('#title-parent').css({
+      'top': position + 'px'
+    });
     
     //Title Opacity
     opacity = $(window).scrollTop() / (header - (header / 4));
