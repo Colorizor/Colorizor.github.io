@@ -295,38 +295,53 @@ var clz = (function() {
   //Exclude: Not Begin & End
   function NotBeginEnd(begin, end, pat, rep) {
     //Setup
+    //Creating a string based regex
     var pattern = begin + '([\\s\\S]*?)' + end;
+    //Converting the string based regex to regex
     var reg = new RegExp(pattern, 'gm');
+    //Creating the regex to cut of the end pattern
     var regCut = new RegExp(end, 'gm');
     //Colorize
+    //Replacing the old code with the new code
     code = code.replace(reg, function(match) {
+      //This is the pattern with the cut off end pattern
       var cut = match.replace(regCut, '');
+      //Temp variable that has the colorized result
       var temp = cut.replace(pat, rep);
+      //Returning the match by replacing the cut off result with the colorized result
       return match.replace(cut, temp);
     });
   }
   //Exclude: Not Begin & Not End
   function NotBeginNotEnd(begin, end, pat, rep) {
     //Setup
+    //Creating a string based regex
     var pattern = begin + '([\\s\\S]*?)' + end;
+    //Converting the string based regex to regex
     var reg = new RegExp(pattern, 'gm');
     //Colorize
+    //Replacing the old code with the new code
     code = code.replace(reg, function(match) {
+      //Returning the match by replacing the cut off result with the colorized result
       return match.replace(pat, rep);
     });
   }
   //Custom
   function Custom(pattern, pat, rep) {
     //Setup
+    //Converting the string based regex to regex
     var reg = new RegExp(pattern, 'gm');
     //Colorize
+    //Replacing the old code with the new code
     code = code.replace(reg, function(match) {
+      //Returning the match by replacing the cut off result with the colorized result
       return match.replace(pat, rep);
     });
   }
   //Keyword
   function Keyword(keyword, rep) {
     //Colorize
+    //Returning the match by replacing the cut off result with the colorized result
     code = code.replace(keyword, rep);
   }
   //Exist
