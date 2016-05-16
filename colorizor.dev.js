@@ -62,17 +62,27 @@ var clz = (function() {
   //================================================================================
   //==============================LoadJS
   /*
-    
+    This will load the language scripts async into the website.
+    It dynamically creates a script tag and sets it to load async.
+    It will insert the newly created script tag right at the top so that it loads it first.
   */
   function loadJS(src, cb) {
+    //Getting first script tag
     var ref = window.document.getElementsByTagName('script')[0];
+    //Creating the new script tag
     var script = window.document.createElement('script');
+    //Setting its source
     script.src = src;
+    //Making sure it's async
     script.async = true;
+    //Adding the script tag before the first script tag
     ref.parentNode.insertBefore(script, ref);
+    //Checking if the calling method is valid and if it is in the form of a function
     if (cb && typeof(cb) === 'function') {
+      //Making sure the function is called when it loads
       script.onload = cb;
     }
+    //Adding the script to the head tag
     return script;
   }
   //==============================LoadCSS
