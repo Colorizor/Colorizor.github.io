@@ -403,8 +403,21 @@ var clz = (function() {
     The selection feature that will select all the code in the selected code block
   */
   function Feature() {
+    //Prepare
+    $.each($('pre'), function() {
+      var object = $(this).find('code');
+      if (object.length > 0) {
+        var string = $(this).find('code').html();
+        string = string.replace(/([\s\S]+)/igm, '<span id="coding">$&</span>');
+        $(this).html(string);
+      } else {
+        var lang = $(this).attr('language');
+        var string = $(this).html();
+        string = string.replace(/([\s\S]+)/igm, '<code language="' + lang + '">$&</code>');
+        $(this).html(string);
+      }
+    });
     //Language
-    //
     $.each($('pre[language], code[language]'), function() {
       var lang = $(this).attr('language');
       loadJS('https://colorizor.github.io/Languages/' + lang.toLowerCase() + '.js');
@@ -426,7 +439,7 @@ var clz = (function() {
       }
     });
     //Selection
-    $('span[id="coding"]').click(function() {
+    $('code > span[id="coding"]').click(function() {
       if (document.selection) {
         var block = document.body.createTextRange();
         block.moveToElementText($(this)[0]);
