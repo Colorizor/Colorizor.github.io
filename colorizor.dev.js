@@ -107,14 +107,17 @@ var clz = (function() {
     }
     //Setting it to be inserted before the first script tag
     ref.parentNode.insertBefore(ss, ref);
-    //Built 
+    //Built-in function that will be called when the ccs file is being defined
     ss.onloadcssdefined = function(cb) {
       var defined;
+      //Loop through each stylesheet and check if the requisted one has loaded
       for (var i = 0; i < sheets.length; i++) {
+        //It will return a value higher that -1 if it exists
         if (sheets[i].href && sheets[i].href.indexOf(href) > -1) {
           defined = true;
         }
       }
+      //If defined is true call function else wait a bit and check again
       if (defined) {
         cb();
       } else {
@@ -126,11 +129,15 @@ var clz = (function() {
     ss.onloadcssdefined(function() {
       ss.media = media || 'all';
     });
+    //Adding the configured link tag to the head tag
     return ss;
   }
   //==============================Initialize
   /*
-    
+    This will be called once the language scripts have been loaded into the website
+    It has a data parameter which is the iterated dictionary of each language script.
+    These dictionaries contain the language configurations, prepare-, execute- and finalise configurations.
+    It will test if the dictionary keys exist and will process the given return result.
   */
   function Initialize(data) {
     //Language
@@ -160,7 +167,7 @@ var clz = (function() {
   }
   //==============================Process
   /*
-    
+    Here is were the fetching and saving of the iterated code blocks happens
   */
   function Fetch(object) {
     code = $(object).html();
@@ -170,7 +177,21 @@ var clz = (function() {
   }
   //==============================Core
   /*
+    The main processing and work gets done here.
+    The Core section is broken up into prepare, execute and finalise.
+    The replacement of the regex solutions get replaced straight away in the prepare and finalise.
+    Because there aren't really complicated search patterns.
     
+    Prepare:
+      Here the current iterated code block sorts out the escape charactes. These characters would sometimes not appear in the pre tag.
+      e.g. < and >.
+      
+    Execute:
+      It will check if certain keys exist in the dicrionary and call a function that falls under it criteria of keys.
+      The three groups
+      
+    Finalise:
+      Just cleaning up if needed.
   */
   function Prepare() {
     //Escape
@@ -226,13 +247,18 @@ var clz = (function() {
   }
   //==============================Function
   /*
-    
+    This category in the code contains the functions that are divided in the execute initialize division.
+    It allows for the different features in the service.
+    e.g. Like searching for an instance between two characters and then excluding the two characters used to search it.
   */
   //Exclude: Begin & End
   function BeginEnd(begin, end, pat, rep) {
     //Setup
+    //Creating a string based regex
     var pattern = begin + '([\\s\\S]*?)' + end;
+    //Converting the string based regex to regex
     var reg = new RegExp(pattern, 'gm');
+    //The regex that will be used to cut off the begin- and end instance
     var regCutBegin = new RegExp(begin, 'gm');
     var regCutEnd = new RegExp(end, 'gm');
     //Colorize
