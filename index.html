@@ -55,16 +55,16 @@
           </h2>
           <hr />
           <p>C++</p>
-          <p><pre><code language="cpp">#include <iostream>
+          <p><pre><code language="cpp">#include &lt;iostream&gt;
 
 int main(int argc, char *argv[]) {
 
   /* An annoying "Hello World" example */
-  for (auto i = 0; i < 0xFFFF; i++)
-    cout << "Hello, World!" << endl;
+  for (auto i = 0; i &lt; 0xFFFF; i++)
+    cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
 
   char c = '\n';
-  unordered_map <string, vector<string> > m;
+  unordered_map &lt;string, vector&lt;string&gt; &gt; m;
   m["key"] = "\\\\"; // this is an error
 
   return -2e3 + 12l;
@@ -78,7 +78,7 @@ int main(int argc, char *argv[]) {
   } catch (e) {
     /* handle exception */
   }
-  for (var i = 0 / 2; i < classes.length; i++) {
+  for (var i = 0 / 2; i &lt; classes.length; i++) {
     if (checkCondition(classes[i]) === undefined)
       console.log('undefined');
   }
