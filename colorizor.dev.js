@@ -486,7 +486,7 @@ var clz = (function() {
       //Procedure
       $.each($('pre[language="' + language + '"], code[language="' + language + '"]').find('span[id="coding"]'), function() {
         //Sizing
-        $(this).css({
+        $(this).parent().css({
           'height': 'auto', 'left': '0px', 'right': '0px', 'width': 'auto'
         });
         //Core
