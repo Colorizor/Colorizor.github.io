@@ -406,10 +406,14 @@ var clz = (function() {
     //Correct
     $.each($('pre'), function() {
       var object = $(this).find('code');
-      if (object.length >! 0) {
+      if (object.length > 0) {
+        var string = $(this).find('code').html();
+        string = string.replace(/([\s\S]+)/igm, '<span id="coding">$&</span>');
+        $(this).find('code').html(string);
+      } else {
         var lang = $(this).attr('language');
         var string = $(this).html();
-        string = string.replace(/([\s\S]+)/igm, '<code language="' + lang + '">$&</code>');
+        string = string.replace(/([\s\S]+)/igm, '<code language="' + lang + '"><span id="coding">$&</span></code>');
         $(this).html(string);
       }
     });
@@ -417,12 +421,6 @@ var clz = (function() {
     $.each($('pre[language], code[language]'), function() {
       var lang = $(this).attr('language');
       loadJS('https://colorizor.github.io/Languages/' + lang.toLowerCase() + '.js');
-    });
-    //Clean
-    $.each($('pre').find('code'), function() {
-      var string = $(this).html();
-      string = string.replace(/([\s\S]+)/igm, '<span id="coding">$&</span>');
-      $(this).html(string);
     });
     //Theme & Plugin
     $.each($('script'), function() {
@@ -441,7 +439,7 @@ var clz = (function() {
       }
     });
     //Selection
-    $('code#coding').click(function() {
+    $('span[id="coding"]').click(function() {
       if (document.selection) {
         var block = document.body.createTextRange();
         block.moveToElementText($(this)[0]);
@@ -486,7 +484,7 @@ var clz = (function() {
       //Initialize
       Initialize(data);
       //Procedure
-      $.each($('pre[language="' + language + '"], code[language="' + language + '"]'), function() {
+      $.each($('pre[language="' + language + '"], code[language="' + language + '"]').find('span[id="coding"]'), function() {
         //Sizing
         $(this).css({
           'height': 'auto', 'left': '0px', 'right': '0px', 'width': 'auto'
