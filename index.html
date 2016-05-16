@@ -55,55 +55,48 @@
           </h2>
           <hr />
           <p>CSS</p>
-          <p><pre><code language="css">/*========================================
-  ===================CSS==================
-  ========================================*/
-pre {
-    background-color: rgb(62, 69, 76);
-    color: rgb(255, 246, 229);
-    font-family: "Lucida Console", Monaco, monospace;
-    font-size: 14px;
-    height: auto;
-    margin: 5px;
-    overflow: auto;
-    padding: 10px;
-    text-align: left;
-    -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
-    -ms-text-size-adjust: none;
+          <p><pre><code language="cpp">#include <iostream>
+
+int main(int argc, char *argv[]) {
+
+  /* An annoying "Hello World" example */
+  for (auto i = 0; i < 0xFFFF; i++)
+    cout << "Hello, World!" << endl;
+
+  char c = '\n';
+  unordered_map <string, vector<string> > m;
+  m["key"] = "\\\\"; // this is an error
+
+  return -2e3 + 12l;
 }</code></pre></p>
           <p>JavaScript</p>
-          <p><pre><code language="javascript">//========================================
-//===============JavaScript===============
-//========================================
-function HeaderHeight(header) {
-  if (screen.width < 480) {
-    header = 150;
-  } else if (screen.width >= 480 && screen.width < 720) {
-    header = 250;
-  } else if (screen.width >= 720 && screen.width < 1024) {
-    header = 250;
-  } else {
-    header = 400;
+          <p><pre><code language="javascript">function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\bno\-highlight\b/) != -1)
+      return process(block, true, 0x0F) +
+             ` class="${cls}"`;
+  } catch (e) {
+    /* handle exception */
   }
-}</code></pre></p>
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+}
+
+export  $initHighlight;</code></pre></p>
           <p>Swift</p>
-          <p><pre><code language="swift">
-/*========================================
-  ==================Swift=================*/
-//========================================
-@objc protocol HTFTPStuffDelegate {
+          <p><pre><code language="powershell">$initialDate = [datetime]'2013/1/8'
 
-  optional func HTOpening(isDownload: Bool)
-  optional func HTOpen(isDownload: Bool)
-  optional func HTDownload(bytesRead: Int, totalBytesRead: Int, totalBytesExpectedToRead: Int)
-  optional func HTUpload(bytesWritten: Int, totalBytesWritten: Int, totalBytesExpectedToWrite: Int)
-  optional func HTClose(isDownload: Bool)
-  optional func HTComplete(isDownload: Bool)
-  optional func HTError(isDownload: Bool, error: NSStreamEvent)
-  optional func HTUnknown(isDownload: Bool, event: NSStreamEvent)
+$rollingDate = $initialDate
 
-}</code></pre></p>
+do {
+    $client = New-Object System.Net.WebClient
+    $results = $client.DownloadString("http://not.a.real.url")
+    Write-Host "$rollingDate.ToShortDateString() - $results"
+    $rollingDate = $rollingDate.AddDays(21)
+    $username = [System.Environment]::UserName
+} until ($rollingDate -ge [datetime]'2013/12/31')</code></pre></p>
         </div>
         <div id="section">
           <h2>
