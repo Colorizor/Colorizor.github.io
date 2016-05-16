@@ -56,7 +56,7 @@
     }
       
     //Hide Image
-    if ($(window).scrollTop() > header) {
+    if ($(window).scrollTop() > header + 100) {
       $('header').css({
         'visibility': 'hidden'
       });
