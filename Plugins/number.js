@@ -8,7 +8,7 @@ $.each($('pre:not([nonumber])').find('code'), function() {
 });
 
 $.each($('pre:not([nonumber])'), function() {
-  var lines = $(this).find('code').html().split('\n');
+  var lines = $(this).find('span[id="coding"]').find('code').html().split('\n');
   
   for (var a = 0; a < lines.length; a++) {
     var string = $(this).find('span[id="numbers"]').html();
