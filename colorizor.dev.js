@@ -426,7 +426,7 @@ var clz = (function() {
       }
     });
     //Selection
-    $('code:not(:has(span[id*="number"])), code > span[id="coding"]').click(function() {
+    $('code > span:not([id*="number"]), span[id="coding"]').click(function() {
       if (document.selection) {
         var block = document.body.createTextRange();
         block.moveToElementText($(this)[0]);
