@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Colorizor - Syntax Highlighter</title>
+    <title>Colorizor - Languages Support</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="expires" content="0" />
-    <meta name="description" content="One of the best syntax highlighters that provides lightning fast colorizing skills. It is light weight and has multiple languages (150+), themes and plugins. It is customizable and easy to build your own languages. Its main focus is to look beautiful and generate great results." />
+    <meta name="description" content="Support: Guides and Previews on how to use the Language scripts for the Syntax Highlighter, Colorizor." />
     <meta name="robots" content="index, follow" />
     <meta name="revisit-after" content="1 days" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
@@ -15,7 +15,7 @@
     <meta name="author" content="Alexander Hovy" />
     <link rel="shortcut icon" href="https://colorizor.github.io/Images/favicon.ico" />
     <link rel="apple-touch-icon" href="https://colorizor.github.io/Images/apple-touch-icon.png" />
-    <noscript><link rel="stylesheet" type="text/css" href="https://colorizor.github.io/Source/index.css" /></noscript>
+    <noscript><link rel="stylesheet" type="text/css" href="https://colorizor.github.io/Source/support.css" /></noscript>
     <script type="text/javascript" src="https://colorizor.github.io/colorizor.min.js?theme=Salmon&plugin=number,select,url" async></script>
     <script type="text/javascript">
       //--------------------------------------------------LOAD GOOGLE ANALYTICS
@@ -23,7 +23,7 @@
       //--------------------------------------------------LOAD JS
       function loadJS(e,t){"use strict";var n=window.document.getElementsByTagName("script")[0],o=window.document.createElement("script");return o.src=e,o.async=!0,n.parentNode.insertBefore(o,n),t&&"function"==typeof t&&(o.onload=t),o}
       loadJS("https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js");
-      loadJS("https://colorizor.github.io/Source/index.js");
+      loadJS("https://colorizor.github.io/Source/support.js");
       //--------------------------------------------------LOAD CSS
       function loadCSS(e,n,o,t){"use strict";var d=window.document.createElement("link"),i=n||window.document.getElementsByTagName("script")[0],s=window.document.styleSheets;return d.rel="stylesheet",d.href=e,d.media="only x",t&&(d.onload=t),i.parentNode.insertBefore(d,i),d.onloadcssdefined=function(n){for(var o,t=0;t<s.length;t++)s[t].href&&s[t].href.indexOf(e)>-1&&(o=!0);o?n():setTimeout(function(){d.onloadcssdefined(n)})},d.onloadcssdefined(function(){d.media=o||"all"}),d}
       loadCSS("https://colorizor.github.io/Source/support.css");
@@ -35,7 +35,7 @@
       <table id="title-parent">
         <th id="title-child">
           <h1>
-            <b>Colorizor</b>
+            <b>Languages Support</b>
           </h1>
         </th>
       </table>
@@ -51,422 +51,24 @@
       <div id="paragraph">
         <div id="section">
           <h2>
-            <b>Samples</b>
+            <b>Number</b>
           </h2>
           <hr />
-          <p>C++</p>
-          <p><pre nonumber><code language="cpp">#include &lt;iostream&gt;
-
-int main(int argc, char *argv[]) {
-
-  /* An annoying "Hello World" example */
-  for (auto i = 0; i &lt; 0xFFFF; i++)
-    cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
-
-  char c = '\n';
-  unordered_map &lt;string, vector&lt;string&gt; &gt; m;
-  m["key"] = "\\\\"; // this is an error
-
-  return -2e3 + 12l;
-}</code></pre></p>
-          <p>JavaScript</p>
-          <p><pre noselect><code language="javascript">function $initHighlight(block, cls) {
-  try {
-    if (cls.search(/\bno\-highlight\b/) != -1)
-      return process(block, true, 0x0F) +
-             ` class="${cls}"`;
-  } catch (e) {
-    /* handle exception [Colorizor URL Support][https://colorizor.github.io/Plugins] */
-  }
-  for (var i = 0 / 2; i &lt; classes.length; i++) {
-    if (checkCondition(classes[i]) === undefined)
-      console.log('undefined');
-  }
-}
-
-export  $initHighlight;</code></pre></p>
-          <p>PowerShell</p>
-          <p><pre nonumber nourl><code language="powershell">$initialDate = [datetime]'2013/1/8'
-
-$rollingDate = $initialDate
-
-do {
-    $client = New-Object System.Net.WebClient
-    $results = $client.DownloadString("[Not a Real URL][http://not.a.real.url]")
-    Write-Host "$rollingDate.ToShortDateString() - $results"
-    $rollingDate = $rollingDate.AddDays(21)
-    $username = [System.Environment]::UserName
-} until ($rollingDate -ge [datetime]'2013/12/31')</code></pre></p>
+          <p></p>
         </div>
         <div id="section">
           <h2>
-            <b>Features</b>
+            <b>Select</b>
           </h2>
           <hr />
-          <p>
-            - Auto Language Detection<br />
-            - Auto Theme Detection<br />
-            - Auto Code Selection<br />
-            - Inline Block Code<br />
-            - <span id="none">In-Text Code</span>
-          </p>
-          <p>
-            <i>There are many features that aren't listed. Features such as code blocks without any style and telling the code block not to have any background color.</i>
-          </p>
+          <p></p>
         </div>
         <div id="section">
           <h2>
-            <b>Usage</b>
+            <b>URL</b>
           </h2>
           <hr />
-          <p>
-            <b>URL:</b><br />
-            <span id="none">https://colorizor.github.io/colorizor</span> <span id="none">.min</span> <span id="none">.js</span> <span id="none">?theme=...</span> <span id="none">&plugin=...</span>
-          </p>
-          <p>
-            <b>Example:</b><br />
-            <span id="none">&lt;script type="text/javascript" src="https://colorizor.github.io/colorizor.min.js?theme=Salmon&plugin=number,select" async&gt;&lt;/script&gt;</span>
-          </p>
-          <br />
-          <p>
-            <b>Define Language:</b><br />
-            <span id="none">&lt;code language="..."&gt;...&lt;/code&gt;</span>
-          </p>
-          <p>
-            <b>Example:</b><br />
-            <span id="none">&lt;pre&gt;&lt;code language="cpp"&gt;...&lt;/code&gt;&lt;/pre&gt;</span>
-          </p>
-          <br />
-          <p>
-            <b>No Language:</b><br />
-            <span id="none">&lt;code language="none"&gt;...&lt;/code&gt;</span>
-          </p>
-          <p>
-            <b>Example:</b><br />
-            <span id="none">&lt;pre&gt;&lt;code language="none"&gt;...&lt;/code&gt;&lt;/pre&gt;</span>
-          </p>
-          <br />
-          <p>
-            <b>Block Plugin:</b><br />
-            <i>Add no(Plugin Name) to pre tags</i><br />
-            <span id="none">&lt;pre no...&gt;...&lt;/pre&gt;</span>
-          </p>
-          <p>
-            <b>In-Text Code:</b><br />
-            <span id="none">&lt;span id="none"&gt;...&lt;/span&gt;</span>
-          </p>
-          <p>
-            <b>Background:</b><br />
-            <i>With</i><br />
-            <span id="none">&lt;pre&gt;...&lt;/pre&gt;</span><br />
-            <i>Without</i><br />
-            <span id="none">&lt;pre nobackground&gt;...&lt;/span&gt;</span>
-          </p>
-        </div>
-        <div id="section">
-          <h2>
-            <b>Languages, Themes & Plugins</b>
-          </h2>
-          <hr />
-          <table id="article">
-            <tr>
-              <th colspan="4">Languages</th>
-            </tr>
-            <tr>
-              <td><span id="none">accesslog</span></td>
-              <td><span id="none">actionscript</span></td>
-              <td><span id="none">apache</span></td>
-              <td><span id="none">applescript</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">arduino</span></td>
-              <td><span id="none">armasm</span></td>
-              <td><span id="none">asciidoc</span></td>
-              <td><span id="none">aspectj</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">autohotkey</span></td>
-              <td><span id="none">autoit</span></td>
-              <td><span id="none">avrasm</span></td>
-              <td><span id="none">axapta</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">bash</span></td>
-              <td><span id="none">basic</span></td>
-              <td><span id="none">bnf</span></td>
-              <td><span id="none">brainfuck</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">cal</span></td>
-              <td><span id="none">capnproto</span></td>
-              <td><span id="none">ceylon</span></td>
-              <td><span id="none">closjure-repl</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">clojure</span></td>
-              <td><span id="none">cmake</span></td>
-              <td><span id="none">coffeescript</span></td>
-              <td><span id="none">cos</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">cpp</span></td>
-              <td><span id="none">crmsh</span></td>
-              <td><span id="none">crystal</span></td>
-              <td><span id="none">cs</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">csp</span></td>
-              <td><span id="none">css</span></td>
-              <td><span id="none">d</span></td>
-              <td><span id="none">dart</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">delphi</span></td>
-              <td><span id="none">diff</span></td>
-              <td><span id="none">django</span></td>
-              <td><span id="none">dns</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">dockerfile</span></td>
-              <td><span id="none">dos</span></td>
-              <td><span id="none">dts</span></td>
-              <td><span id="none">dust</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">elixir</span></td>
-              <td><span id="none">elm</span></td>
-              <td><span id="none">erb</span></td>
-              <td><span id="none">erlang-repl</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">erlang</span></td>
-              <td><span id="none">fix</span></td>
-              <td><span id="none">fortran</span></td>
-              <td><span id="none">fsharp</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">gams</span></td>
-              <td><span id="none">gauss</span></td>
-              <td><span id="none">gcode</span></td>
-              <td><span id="none">gherkin</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">glsl</span></td>
-              <td><span id="none">go</span></td>
-              <td><span id="none">golo</span></td>
-              <td><span id="none">gradly</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">groovy</span></td>
-              <td><span id="none">haml</span></td>
-              <td><span id="none">handlebars</span></td>
-              <td><span id="none">haskell</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">haxe</span></td>
-              <td><span id="none">hsp</span></td>
-              <td><span id="none">htmlbars</span></td>
-              <td><span id="none">http</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">inform7</span></td>
-              <td><span id="none">ini</span></td>
-              <td><span id="none">irpf90</span></td>
-              <td><span id="none">java</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">javascript</span></td>
-              <td><span id="none">json</span></td>
-              <td><span id="none">julia</span></td>
-              <td><span id="none">kotlin</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">lasso</span></td>
-              <td><span id="none">less</span></td>
-              <td><span id="none">lisp</span></td>
-              <td><span id="none">livecodeserver</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">livescript</span></td>
-              <td><span id="none">lua</span></td>
-              <td><span id="none">makefile</span></td>
-              <td><span id="none">markdown</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">mathematica</span></td>
-              <td><span id="none">matlab</span></td>
-              <td><span id="none">maxima</span></td>
-              <td><span id="none">mel</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">mercury</span></td>
-              <td><span id="none">mipsasm</span></td>
-              <td><span id="none">mizar</span></td>
-              <td><span id="none">mojolicious</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">monkey</span></td>
-              <td><span id="none">moonscript</span></td>
-              <td><span id="none">nginx</span></td>
-              <td><span id="none">nimrod</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">nix</span></td>
-              <td><span id="none">nsis</span></td>
-              <td><span id="none">objectivec</span></td>
-              <td><span id="none">ocaml</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">openscad</span></td>
-              <td><span id="none">oxygene</span></td>
-              <td><span id="none">parser3</span></td>
-              <td><span id="none">perl</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">pf</span></td>
-              <td><span id="none">php</span></td>
-              <td><span id="none">powershell</span></td>
-              <td><span id="none">processing</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">profile</span></td>
-              <td><span id="none">prolog</span></td>
-              <td><span id="none">protobuf</span></td>
-              <td><span id="none">puppet</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">purebasic</span></td>
-              <td><span id="none">python</span></td>
-              <td><span id="none">q</span></td>
-              <td><span id="none">qml</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">r</span></td>
-              <td><span id="none">rib</span></td>
-              <td><span id="none">roboconf</span></td>
-              <td><span id="none">rsl</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">ruby</span></td>
-              <td><span id="none">ruleslanguage</span></td>
-              <td><span id="none">rust</span></td>
-              <td><span id="none">scala</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">scheme</span></td>
-              <td><span id="none">scilab</span></td>
-              <td><span id="none">scss</span></td>
-              <td><span id="none">smali</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">smalltalk</span></td>
-              <td><span id="none">sml</span></td>
-              <td><span id="none">sqf</span></td>
-              <td><span id="none">sql</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">stan</span></td>
-              <td><span id="none">stata</span></td>
-              <td><span id="none">step21</span></td>
-              <td><span id="none">stylus</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">swift</span></td>
-              <td><span id="none">taggerscript</span></td>
-              <td><span id="none">tcl</span></td>
-              <td><span id="none">tex</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">thrift</span></td>
-              <td><span id="none">tp</span></td>
-              <td><span id="none">twig</span></td>
-              <td><span id="none">typescript</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">vala</span></td>
-              <td><span id="none">vbnet</span></td>
-              <td><span id="none">vbscript-html</span></td>
-              <td><span id="none">vbscript</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">verilog</span></td>
-              <td><span id="none">vhdl</span></td>
-              <td><span id="none">vim</span></td>
-              <td><span id="none">x86asm</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">xl</span></td>
-              <td><span id="none">xml</span></td>
-              <td><span id="none">xquery</span></td>
-              <td><span id="none">yaml</span></td>
-            </tr>
-            <tr>
-              <td><span id="none">zephir</span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-            </tr>
-          </table>
-          <br /><br />
-          <table id="article">
-            <tr>
-              <th colspan="4">Themes</th>
-            </tr>
-            <tr>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-            </tr>
-            <tr>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-            </tr>
-            <tr>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-            </tr>
-            <tr>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-            </tr>
-          </table>
-          <br /><br />
-          <table id="article">
-            <tr>
-              <th colspan="4">Plugins</th>
-            </tr>
-            <tr>
-              <td><span id="none">Number</span></td>
-              <td><span id="none">Select</span></td>
-              <td><span id="none">url</span></td>
-              <td><span id="none"></span></td>
-            </tr>
-            <tr>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-            </tr>
-            <tr>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-            </tr>
-            <tr>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-              <td><span id="none"></span></td>
-            </tr>
-          </table>
+          <p></p>
         </div>
       </div>
     </main>
@@ -499,7 +101,7 @@ do {
         <br /><br />
         <tr>
           <td id="copyright" colspan="5">
-            © 2016 by Alexander Hovy for <a id="copyright" href="http://colorizor.github.io">Colorizor</a>
+            © 2016 by Alexander Hovy for <a id="copyright" href="https://colorizor.github.io">Colorizor</a>
           </td>
         </tr>
       </table>
