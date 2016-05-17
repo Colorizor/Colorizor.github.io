@@ -70,13 +70,13 @@ int main(int argc, char *argv[]) {
   return -2e3 + 12l;
 }</code></pre></p>
           <p>JavaScript</p>
-          <p><pre nonumber><code language="javascript">function $initHighlight(block, cls) {
+          <p><pre noselect><code language="javascript">function $initHighlight(block, cls) {
   try {
     if (cls.search(/\bno\-highlight\b/) != -1)
       return process(block, true, 0x0F) +
              ` class="${cls}"`;
   } catch (e) {
-    /* handle exception */
+    /* handle exception [Colorizor URL Support][https://colorizor.github.io/Plugins] */
   }
   for (var i = 0 / 2; i &lt; classes.length; i++) {
     if (checkCondition(classes[i]) === undefined)
@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
 
 export  $initHighlight;</code></pre></p>
           <p>PowerShell</p>
-          <p><pre><code language="powershell">$initialDate = [datetime]'2013/1/8'
+          <p><pre nonumber nourl><code language="powershell">$initialDate = [datetime]'2013/1/8'
 
 $rollingDate = $initialDate
 
