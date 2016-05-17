@@ -15,8 +15,8 @@ div{display:inline-block;height:auto;position:relative;top:0px;}
 #socialise{height:100%;left:0px;position:relative;text-align:center;top:0px;width:100%;z-index:22;}
 #other{bottom:0px;height:auto;left:0px;position:fixed;text-align:center;width:100%;z-index:22;}
 
-img#facebook{z-index:23;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
-img#facebook:hover{z-index:23;-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
+div#facebook{background-image:url("https://colorizor.github.io/Images/Facebook.png");background-position:center 0px;background-repeat:no-repeat;background-size:100% 100%;z-index:23;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
+div#facebook:hover{z-index:23;-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
 img#twitter{z-index:23;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
 img#twitter:hover{z-index:23;-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
 img#googleplus{z-index:23;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
