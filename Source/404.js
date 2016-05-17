@@ -33,16 +33,6 @@
       }
     });
   }
-  function getTwitter() {
-    $.getJSON('https://cdn.api.twitter.com/1/urls/count.json?url=https://colorizor.github.io&callback=?', function(data) {
-      var count = data.count;
-      if (count != '') {
-        $('span#twitter').text(count);
-      } else {
-        $('span#twitter').text('Share');
-      }
-    });
-  }
   function getPinterest() {
     $.getJSON('https://api.pinterest.com/v1/urls/count.json?callback%20&url=https://colorizor.github.io', function(data) {
       console.log(data);
@@ -67,7 +57,6 @@
   
   //Call
   getFacebook();
-  getTwitter();
   getPinterest();
   getLinkedIn();
 })();
