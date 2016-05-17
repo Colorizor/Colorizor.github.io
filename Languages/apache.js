@@ -1,6 +1,6 @@
 (function() {
   const data = {
-    language: '',
+    language: 'apache',
     prepare: [
       {
         pat: /\:\/\//gm,
