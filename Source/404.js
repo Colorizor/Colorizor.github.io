@@ -27,9 +27,9 @@
     $.getJSON('https://graph.facebook.com/fql?q=SELECT%20like_count,%20total_count,%20share_count,%20click_count,%20comment_count%20FROM%20link_stat%20WHERE%20url%20=%20%22https://colorizor.github.io%22', function(data) {
       var count = data.data[0].total_count;
       if (count !== '') {
-        $('span[id="facebook"]').text(count);
+        $('span#facebook').text(count);
       } else {
-        $('span[id="facebook"]').text('Share');
+        $('span#facebook').text('Share');
       }
     });
   }
@@ -37,9 +37,9 @@
     $.getJSON('https://cdn.api.twitter.com/1/urls/count.json?url=https://colorizor.github.io&callback=?', function(data) {
       var count = data.count;
       if (count !== '') {
-        $('span[id="twitter"]').text(count);
+        $('span#twitter').text(count);
       } else {
-        $('span[id="twitter"]').text('Share');
+        $('span#twitter').text('Share');
       }
     });
   }
@@ -47,9 +47,9 @@
     $.getJSON('https://api.pinterest.com/v1/urls/count.json?callback%20&url=https://colorizor.github.io', function(data) {
       var count = data.count;
       if (count !== '') {
-        $('span[id="pinterest"]').text(count);
+        $('span#pinterest').text(count);
       } else {
-        $('span[id="pinterest"]').text('Share');
+        $('span#pinterest').text('Share');
       }
     });
   }
@@ -57,9 +57,9 @@
     $.getJSON('https://www.linkedin.com/countserv/count/share?url=https://colorizor.github.io&callback=?', function(data) {
       var count = data.count;
       if (count !== '') {
-        $('span[id="linkedin"]').text(count);
+        $('span#linkedin').text(count);
       } else {
-        $('span[id="linkedin"]').text('Share');
+        $('span#linkedin').text('Share');
       }
     });
   }
