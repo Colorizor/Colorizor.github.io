@@ -6,7 +6,7 @@ body{height:auto;left:0px;margin:0px;position:fixed;right:0px;top:0px;width:auto
 header{left:0px;position:fixed;top:0px;width:auto;z-index:21;}
 main{background-color:rgb(220, 220, 220);height:auto;left:0px;position:fixed;top:0px;width:100%;z-index:21;}
 footer{background-color:rgb(220, 220, 220);height:auto;left:0px;position:fixed;top:0px;width:100%;z-index:21;}
-div{display:inline-block;height:auto;position:fixed;top:0px;}
+div{display:inline-block;height:auto;position:relative;top:0px;}
 
 #parallax{background-image:url("https://colorizor.github.io/Images/Background.png");background-position:center 0px;background-repeat:no-repeat;background-size:100% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-20;-webkit-filter:blur(5px);-moz-filter:blur(5px);-ms-filter:blur(5px);-o-filter:blur(5px);filter:blur(5px);}
 #layer{background-color:rgba(0, 0, 0, 0.4);height:100%;left:0px;opacity:1.0;position:fixed;top:0px;width:100%;z-index:22;}
