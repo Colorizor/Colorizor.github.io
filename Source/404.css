@@ -26,8 +26,8 @@ img#pinterest:hover{z-index:23;-webkit-filter:blur(2px);-moz-filter:blur(2px);-m
 img#linkedin{z-index:23;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
 img#linkedin:hover{z-index:23;-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
 
-img > span#facebook{float:left;visibility:hidden;z-index:24;}
-img > span#facebook:hover{float:left;visibility:visible;z-index:24;}
+img > span#facebook{float:left;position:absolute;visibility:hidden;z-index:24;}
+img > span#facebook:hover{float:left;position:absolute;visibility:visible;z-index:24;}
 img > span#twitter{visibility:hidden;z-index:24;}
 img > span#twitter:hover{visibility:visible;z-index:24;}
 img > span#googleplus{visibility:hidden;z-index:24;}
