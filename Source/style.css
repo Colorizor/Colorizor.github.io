@@ -8,7 +8,7 @@ main{background-color:rgb(60, 60, 65);height:auto;left:0px;position:relative;top
 footer{background-color:rgb(40, 40, 45);height:auto;left:0px;position:relative;top:0px;width:100%;z-index:21;}
 div{display:inline-block;height:auto;position:relative;top:0px;}
 
-#parallax{background-image:url("https://hovytech.github.io/Images/Background.png");background-position:center 0px;background-repeat:no-repeat;background-size:100% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-20;-webkit-filter:blur(5px);-moz-filter:blur(5px);-ms-filter:blur(5px);-o-filter:blur(5px);filter:blur(5px);}
+#parallax{background-image:url("https://colorizor.github.io/Images/Background.png");background-position:center 0px;background-repeat:no-repeat;background-size:100% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-20;-webkit-filter:blur(5px);-moz-filter:blur(5px);-ms-filter:blur(5px);-o-filter:blur(5px);filter:blur(5px);}
 #layer{background-color:rgba(0, 0, 0, 0.4);height:100%;left:0px;opacity:1.0;position:relative;top:0px;width:100%;z-index:22;}
 #title-parent{left:0px;position:fixed;top:0px;width:100%;z-index:22;}
 #title-child{height:auto;text-align:center;vertical-align:middle;width:auto;z-index:23;}
