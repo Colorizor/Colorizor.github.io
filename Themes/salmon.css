@@ -11,11 +11,11 @@ span#parameter{color:rgb(147, 141, 241);}
 span#unit{color:rgb(255, 216, 150);}
 span#regex{color:rgb(158, 83, 74);}
 /*----------------------------------------Plugin----------------------------------------*/
-/*Number
-table#numbering tr{line-height:14px;}*/
-table#numbering{border:none;border-collapse:collapse;}
-table#numbering tr td#number{border-right:1px solid rgb(129, 144, 158);color:rgb(129, 144, 158);margin:0px 8px 0px 2px;text-align:right;}
-table#numbering tr td#code{padding:0px 0px 0px 4px;text-align:left;}
+/*Number*/
+table#number tr{line-height:14px;}
+table#number{border:none;border-collapse:collapse;}
+table#number tr td#unselect{border-right:1px solid rgb(129, 144, 158);color:rgb(129, 144, 158);margin:0px 8px 0px 2px;text-align:right;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
+table#number tr td#select{padding:0px 0px 0px 4px;text-align:left;-webkit-user-select:all;-moz-user-select:all;-ms-user-select:all;-o-user-select:all;user-select:all;}
 /*Select*/
 code::-moz-selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
 code::selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
