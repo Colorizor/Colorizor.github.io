@@ -20,9 +20,10 @@ div{display:inline-block;height:auto;position:relative;text-align:center;top:0px
 /*------------------------------------------------------------------------------------*/
 span.social{border-radius:25px;color:rgb(220, 220, 220);font-family:"Arial", Sans-serif;font-size:13px;height:50px;width:50px;}
 /*Facebook*/
+
 div#facebook{height:50px;position:relative;width:50px;z-index:23;}
 div#facebook:before{background-image:url("https://colorizor.github.io/Images/Facebook.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
-div#facebook:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
+div#facebook:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);-webkit-filter:brightness(50%);-moz-filter:brightness(50%);-ms-filter:brightness(50%);-o-filter:brightness(50%);filter:brightness(50%);}
 div#facebook > b > span#facebook{background-color:rgba(0, 0, 0, 0.4);height:50px;width:50px;line-height:50px;visibility:hidden;z-index:24;}
 div#facebook:hover > b > span#facebook{visibility:visible;}
 /*Twitter*/
