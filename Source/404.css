@@ -16,7 +16,7 @@ div{display:inline-block;height:auto;position:relative;text-align:center;top:0px
 /*------------------------------------------------------------------------------------*/
 /*--------------------------------------Social---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
-span.social{color:rgb(40, 40, 45);font-family:"Arial", Sans-serif;font-size:12px;}
+span.social{color:rgb(40, 40, 45);font-family:"Arial", Sans-serif;font-size:13px;}
 /*Facebook*/
 div#facebook{height:50px;position:relative;width:50px;z-index:23;}
 div#facebook:before{background-image:url("https://colorizor.github.io/Images/Facebook.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
