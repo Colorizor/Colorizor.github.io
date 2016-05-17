@@ -6,7 +6,7 @@ body{height:auto;left:0px;margin:0px;position:fixed;right:0px;top:0px;width:auto
 header{left:0px;position:fixed;top:0px;width:auto;z-index:21;}
 main{background-color:rgb(220, 220, 220);height:auto;left:0px;position:fixed;top:0px;width:100%;z-index:21;}
 footer{background-color:rgb(220, 220, 220);height:auto;left:0px;position:fixed;top:0px;width:100%;z-index:21;}
-div{display:inline-block;height:auto;position:relative;text-align:center;top:0px;vertical-align:middle;}
+div{display:inline-block;height:auto;position:relative;text-align:center;top:0px;}
 
 #parallax{background-image:url("https://colorizor.github.io/Images/Background.png");background-position:center 0px;background-repeat:no-repeat;background-size:100% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-20;-webkit-filter:blur(5px);-moz-filter:blur(5px);-ms-filter:blur(5px);-o-filter:blur(5px);filter:blur(5px);}
 #layer{background-color:rgba(0, 0, 0, 0.4);height:100%;left:0px;opacity:1.0;position:fixed;top:0px;width:100%;z-index:22;}
@@ -19,7 +19,7 @@ div#facebook{height:50px;position:relative;width:50px;z-index:23;}
 div#facebook:before{background-image:url("https://colorizor.github.io/Images/Facebook.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
 div#facebook:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
 
-div#facebook:before > span#facebook{height:50px;line-height:50px;position:absolute;width:50px;z-index:24;}
+div#facebook:before > span#facebook{line-height:50px;vertical-align:middle;z-index:24;}
 div#facebook:hover:before > span#facebook{display:block;}
 
 
