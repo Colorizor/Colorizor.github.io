@@ -25,7 +25,7 @@ var clz = (function() {
   function loadJS(src, cb) {
     var ref = window.document.getElementsByTagName('script')[0];
     var script = window.document.createElement('script');
-    script.src = src;
+    script.src = Trim(src);
     script.async = true;
     ref.parentNode.insertBefore(script, ref);
     if (cb && typeof(cb) === 'function') {
@@ -39,7 +39,7 @@ var clz = (function() {
     var ref = before || window.document.getElementsByTagName('script')[0];
     var sheets = window.document.styleSheets;
     ss.rel = 'stylesheet';
-    ss.href = href;
+    ss.href = Trim(href);
     ss.media = 'only x';
     if (callback) {
       ss.onload = callback;
@@ -69,7 +69,7 @@ var clz = (function() {
   function Initialize(data) {
     //Language
     if (Exist(data.language)) {
-      language = data.language;
+      language = Trim(data.language);
     } else {
       language = '';
     }
@@ -97,7 +97,7 @@ var clz = (function() {
     code = $(object).html();
   }
   function Save(object) {
-    $(object).html(code);
+    $(object).html(Trim(code));
   }
   //==============================Core
   function Prepare() {
@@ -229,6 +229,10 @@ var clz = (function() {
   function Escape(value) {
     return value.replace(/[\-\/\\\^\$\*\+\?\.\(\)\|\[\]\{\}]/gm, '\\$&');
   }
+  //Trim
+  function Trim(value) {
+    return $.trim(value);
+  }
   //URL Parameters
   function Parameter(url) {
     //Setup
@@ -271,7 +275,7 @@ var clz = (function() {
     //Language
     $.each($('pre[language], code[language]'), function() {
       var lang = $(this).attr('language');
-      loadJS('https://colorizor.github.io/Languages/' + lang.toLowerCase() + '.js');
+      loadJS('https://colorizor.github.io/Languages/' + Trim(lang.toLowerCase()) + '.js');
     });
     //Theme & Plugin
     $.each($('script'), function() {
@@ -282,10 +286,10 @@ var clz = (function() {
         theme = data.theme;
         plugin = data.plugin;
         //Theme
-        loadCSS('https://colorizor.github.io/Themes/' + theme.toLowerCase() + '.css');
+        loadCSS('https://colorizor.github.io/Themes/' + Trim(theme.toLowerCase()) + '.css');
         //Plugin
         $.each(plugin, function() {
-          loadJS('https://colorizor.github.io/Plugins/' + this.toLowerCase() + '.js');
+          loadJS('https://colorizor.github.io/Plugins/' + Trim(this.toLowerCase()) + '.js');
         });
       }
     });
