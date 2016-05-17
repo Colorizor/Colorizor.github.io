@@ -25,6 +25,17 @@ img#pinterest{-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px
 img#pinterest:hover{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
 img#linkedin{-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
 img#linkedin:hover{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
+
+span#facebook{visibility:hidden;}
+span#facebook:hover{visibility:visible;}
+span#twitter{visibility:hidden;}
+span#twitter:hover{visibility:visible;}
+span#googleplus{visibility:hidden;}
+span#googleplus:hover{visibility:visible;}
+span#pinterest{visibility:hidden;}
+span#pinterest:hover{visibility:visible;}
+span#linkedin{visibility:hidden;}
+span#linkedin:hover{visibility:visible;}
 /*------------------------------------------------------------------------------------*/
 /*--------------------------------------Desktop---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
