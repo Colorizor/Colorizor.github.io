@@ -15,7 +15,7 @@ $.each($('pre:not([nonumber])').find('code'), function() {
   //Closing
   number += '</table>';
   code += '</table>';
-  var block = '<table class="line-height" id="numbering"><tr id="line"><td id="number">' + number + '</td><td id="code">' + code + '</td></tr></table>';
+  var block = '<table id="numbering"><tr id="line"><td id="number">' + number + '</td><td id="code">' + code + '</td></tr></table>';
   //Save
   $(this).html(block);
 });
