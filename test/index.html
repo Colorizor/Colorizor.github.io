@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Colorizor - Test</title>
-    <script type="text/javascript" src="https://colorizor.github.io/colorizor.min.js?theme=Salmon&plugin=number,select" async></script>
+    <script type="text/javascript" src="https://colorizor.github.io/colorizor.min.js?theme=Salmon&plugin=number,select,url" async></script>
   </head>
   <body>
     <main>
@@ -10,7 +10,7 @@
 <pre><code language="actionscript">package org.example.dummy {
     import org.dummy.*;
 
-    /*define package inline interface*/
+    /*define package [Example][http://example.com] inline interface*/
     public interface IFooBarzable {
         public function foo(... pairs):Array;
     }
@@ -31,7 +31,7 @@
         }
     }
 }</code></pre>
-<pre><code language="apache"># rewrite`s rules for wordpress pretty url
+<pre nourl><code language="apache"># rewrite`s [Example][http://example.com] rules for wordpress pretty url
 LoadModule rewrite_module  modules/mod_rewrite.so
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
