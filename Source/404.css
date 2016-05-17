@@ -14,33 +14,39 @@ div{display:inline-block;height:auto;position:relative;text-align:center;top:0px
 #title-child{height:auto;text-align:center;vertical-align:middle;width:auto;z-index:23;}
 #socialise{height:100%;left:0px;position:relative;text-align:center;top:0px;width:100%;z-index:22;}
 #other{bottom:0px;height:auto;left:0px;position:fixed;text-align:center;width:100%;z-index:22;}
-
+/*------------------------------------------------------------------------------------*/
+/*--------------------------------------Social---------------------------------------*/
+/*------------------------------------------------------------------------------------*/
+/*Facebook*/
 div#facebook{height:50px;position:relative;width:50px;z-index:23;}
 div#facebook:before{background-image:url("https://colorizor.github.io/Images/Facebook.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
 div#facebook:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
-
 div#facebook > span#facebook{line-height:50px;visibility:hidden;z-index:24;}
 div#facebook:hover > span#facebook{visibility:visible;}
-
-
-
-img#twitter{z-index:23;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
-img#twitter:hover{z-index:23;-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
-img#googleplus{z-index:23;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
-img#googleplus:hover{z-index:23;-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
-img#pinterest{z-index:23;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
-img#pinterest:hover{z-index:23;-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
-img#linkedin{z-index:23;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
-img#linkedin:hover{z-index:23;-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
-
-img > span#twitter{visibility:hidden;z-index:24;}
-img > span#twitter:hover{visibility:visible;z-index:24;}
-img > span#googleplus{visibility:hidden;z-index:24;}
-img > span#googleplus:hover{visibility:visible;z-index:24;}
-img > span#pinterest{visibility:hidden;z-index:24;}
-img > span#pinterest:hover{visibility:visible;z-index:24;}
-img > span#linkedin{visibility:hidden;z-index:24;}
-img > span#linkedin:hover{visibility:visible;z-index:24;}
+/*Twitter*/
+div#twitter{height:50px;position:relative;width:50px;z-index:23;}
+div#twitter:before{background-image:url("https://colorizor.github.io/Images/Twitter.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
+div#twitter:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
+div#twitter > span#twitter{line-height:50px;visibility:hidden;z-index:24;}
+div#twitter:hover > span#twitter{visibility:visible;}
+/*GooglePlus*/
+div#googleplus{height:50px;position:relative;width:50px;z-index:23;}
+div#googleplus:before{background-image:url("https://colorizor.github.io/Images/GooglePlus.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
+div#googleplus:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
+div#googleplus > span#googleplus{line-height:50px;visibility:hidden;z-index:24;}
+div#googleplus:hover > span#googleplus{visibility:visible;}
+/*Pinterest*/
+div#pinterest{height:50px;position:relative;width:50px;z-index:23;}
+div#pinterest:before{background-image:url("https://colorizor.github.io/Images/Pinterest.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
+div#pinterest:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
+div#pinterest > span#pinterest{line-height:50px;visibility:hidden;z-index:24;}
+div#pinterest:hover > span#pinterest{visibility:visible;}
+/*LinkedIn*/
+div#linkedin{height:50px;position:relative;width:50px;z-index:23;}
+div#linkedin:before{background-image:url("https://colorizor.github.io/Images/LinkedIn.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
+div#linkedin:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
+div#linkedin > span#linkedin{line-height:50px;visibility:hidden;z-index:24;}
+div#linkedin:hover > span#linkedin{visibility:visible;}
 /*------------------------------------------------------------------------------------*/
 /*--------------------------------------Desktop---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
