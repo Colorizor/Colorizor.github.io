@@ -1,7 +1,7 @@
 //================================================================================
 //=====================================Select=====================================
 //================================================================================
-$('pre:not([noselect])').find('code').click(function() {
+$('pre:not([noselect]), pre:not([noall])').find('code').click(function() {
   if (document.selection) {
     var block = document.body.createTextRange();
     block.moveToElementText($(this)[0]);
