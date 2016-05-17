@@ -24,9 +24,19 @@
     'height': header + 'px'
   });
   //====================Footer
+  //Footer
   $('footer').css({
     'height': (screen.height - header) + 'px',
     'top': header + 'px'
+  });
+  //Socialise
+  $('#socialise').css({
+    'height': (screen.height - header - 80) + 'px',
+    'top': header + 'px'
+  });
+  //Other
+  $('#other').css({
+    'height': '80px'
   });
   
   //================================================================================
