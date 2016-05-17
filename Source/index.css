@@ -13,6 +13,10 @@ table#article th,table#article td{border-bottom:1px solid rgb(220, 220, 220);fon
 table#article th{background-color:rgb(40, 40, 45);font-size:20px;}
 table#article tr:nth-child(odd){background-color:rgb(60, 60, 65);}
 table#article tr:nth-child(even){background-color:rgb(60, 60, 65);}
+table#article th a:link{color:rgb(220, 220, 220);}
+table#article th a:visited{color:rgb(220, 220, 220);}
+table#article th a:hover{color:rgb(220, 220, 220);}
+table#article th a:active{color:rgb(220, 220, 220);}
 
 #parallax{background-image:url("https://colorizor.github.io/Images/Background.png");background-position:center 0px;background-repeat:no-repeat;background-size:100% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-20;-webkit-filter:blur(5px);-moz-filter:blur(5px);-ms-filter:blur(5px);-o-filter:blur(5px);filter:blur(5px);}
 #layer{background-color:rgba(0, 0, 0, 0.4);height:100%;left:0px;opacity:1.0;position:relative;top:0px;width:100%;z-index:22;}
