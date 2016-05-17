@@ -5,8 +5,8 @@ $.each($('pre:not([nonumber])').find('code'), function() {
   //Variable
   var lines = $(this).html().split('\n');
   //Opening
-  var number = '<table>';
-  var code = '<table id="select">';
+  var number = '<table class="line-height">';
+  var code = '<table class="line-height" id="select">';
   //Table Data
   for (var a = 0; a < lines.length; a++) {
     number += '<tr><td>' + (a + 1) + '</td></tr>';
