@@ -18,36 +18,35 @@ div{display:inline-block;height:auto;position:relative;text-align:center;top:0px
 /*------------------------------------------------------------------------------------*/
 /*--------------------------------------Social---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
-span.social{border-radius:25px;color:rgb(220, 220, 220);font-family:"Arial", Sans-serif;font-size:13px;height:50px;width:50px;}
+span.social{border-radius:25px;color:rgb(220, 220, 220);font-family:"Arial", Sans-serif;font-size:13px;}
 /*Facebook*/
-
 div#facebook{height:50px;position:relative;width:50px;z-index:23;}
-div#facebook:before{background-image:url("https://colorizor.github.io/Images/Facebook.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
-div#facebook:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);-webkit-filter:brightness(50%);-moz-filter:brightness(50%);-ms-filter:brightness(50%);-o-filter:brightness(50%);filter:brightness(50%);}
-div#facebook > b > span#facebook{background-color:rgba(0, 0, 0, 0.4);height:50px;width:50px;line-height:50px;visibility:hidden;z-index:24;}
+div#facebook:before{background-image:url("https://colorizor.github.io/Images/Facebook.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:none;-moz-filter:none;-ms-filter:none;-o-filter:none;filter:none;}
+div#facebook:hover:before{-webkit-filter:blur(2px) brightness(50%);-moz-filter:blur(2px) brightness(50%);-ms-filter:blur(2px) brightness(50%);-o-filter:blur(2px) brightness(50%);filter:blur(2px) brightness(50%);}
+div#facebook > b > span#facebook{background-color:rgba(0, 0, 0, 0.4);line-height:50px;visibility:hidden;z-index:24;}
 div#facebook:hover > b > span#facebook{visibility:visible;}
 /*Twitter*/
 div#twitter{height:50px;position:relative;width:50px;z-index:23;}
-div#twitter:before{background-image:url("https://colorizor.github.io/Images/Twitter.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
-div#twitter:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
+div#twitter:before{background-image:url("https://colorizor.github.io/Images/Twitter.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:none;-moz-filter:none;-ms-filter:none;-o-filter:none;filter:none;}
+div#twitter:hover:before{-webkit-filter:blur(2px) brightness(50%);-moz-filter:blur(2px) brightness(50%);-ms-filter:blur(2px) brightness(50%);-o-filter:blur(2px) brightness(50%);filter:blur(2px) brightness(50%);}
 div#twitter > b > span#twitter{background-color:rgba(0, 0, 0, 0.4);line-height:50px;visibility:hidden;z-index:24;}
 div#twitter:hover > b > span#twitter{visibility:visible;}
 /*GooglePlus*/
 div#googleplus{height:50px;position:relative;width:50px;z-index:23;}
-div#googleplus:before{background-image:url("https://colorizor.github.io/Images/GooglePlus.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
-div#googleplus:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
+div#googleplus:before{background-image:url("https://colorizor.github.io/Images/GooglePlus.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:none;-moz-filter:none;-ms-filter:none;-o-filter:none;filter:none;}
+div#googleplus:hover:before{-webkit-filter:blur(2px) brightness(50%);-moz-filter:blur(2px) brightness(50%);-ms-filter:blur(2px) brightness(50%);-o-filter:blur(2px) brightness(50%);filter:blur(2px) brightness(50%);}
 div#googleplus > b > span#googleplus{background-color:rgba(0, 0, 0, 0.4);line-height:50px;visibility:hidden;z-index:24;}
 div#googleplus:hover > b > span#googleplus{visibility:visible;}
 /*Pinterest*/
 div#pinterest{height:50px;position:relative;width:50px;z-index:23;}
-div#pinterest:before{background-image:url("https://colorizor.github.io/Images/Pinterest.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
-div#pinterest:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
+div#pinterest:before{background-image:url("https://colorizor.github.io/Images/Pinterest.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:none;-moz-filter:none;-ms-filter:none;-o-filter:none;filter:none;}
+div#pinterest:hover:before{-webkit-filter:blur(2px) brightness(50%);-moz-filter:blur(2px) brightness(50%);-ms-filter:blur(2px) brightness(50%);-o-filter:blur(2px) brightness(50%);filter:blur(2px) brightness(50%);}
 div#pinterest > b > span#pinterest{background-color:rgba(0, 0, 0, 0.4);line-height:50px;visibility:hidden;z-index:24;}
 div#pinterest:hover > b > span#pinterest{visibility:visible;}
 /*LinkedIn*/
 div#linkedin{height:50px;position:relative;width:50px;z-index:23;}
-div#linkedin:before{background-image:url("https://colorizor.github.io/Images/LinkedIn.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
-div#linkedin:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
+div#linkedin:before{background-image:url("https://colorizor.github.io/Images/LinkedIn.png");background-position:0px 0px;background-repeat:no-repeat;background-size:100% 100%;bottom:0px;content:"";height:50px;left:0px;position:absolute;right:0px;top:0px;width:50px;z-index:-1;-webkit-filter:none;-moz-filter:none;-ms-filter:none;-o-filter:none;filter:none;}
+div#linkedin:hover:before{-webkit-filter:blur(2px) brightness(50%);-moz-filter:blur(2px) brightness(50%);-ms-filter:blur(2px) brightness(50%);-o-filter:blur(2px) brightness(50%);filter:blur(2px) brightness(50%);}
 div#linkedin > b > span#linkedin{background-color:rgba(0, 0, 0, 0.4);line-height:50px;visibility:hidden;z-index:24;}
 div#linkedin:hover > b > span#linkedin{visibility:visible;}
 /*------------------------------------------------------------------------------------*/
