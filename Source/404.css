@@ -26,16 +26,16 @@ img#pinterest:hover{z-index:23;-webkit-filter:blur(2px);-moz-filter:blur(2px);-m
 img#linkedin{z-index:23;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);}
 img#linkedin:hover{z-index:23;-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
 
-span#facebook{visibility:hidden;z-index:24;}
-span#facebook:hover{visibility:visible;z-index:24;}
-span#twitter{visibility:hidden;z-index:24;}
-span#twitter:hover{visibility:visible;z-index:24;}
-span#googleplus{visibility:hidden;z-index:24;}
-span#googleplus:hover{visibility:visible;z-index:24;}
-span#pinterest{visibility:hidden;z-index:24;}
-span#pinterest:hover{visibility:visible;z-index:24;}
-span#linkedin{visibility:hidden;z-index:24;}
-span#linkedin:hover{visibility:visible;z-index:24;}
+img > span#facebook{visibility:hidden;z-index:24;}
+img > span#facebook:hover{visibility:visible;z-index:24;}
+img > span#twitter{visibility:hidden;z-index:24;}
+img > span#twitter:hover{visibility:visible;z-index:24;}
+img > span#googleplus{visibility:hidden;z-index:24;}
+img > span#googleplus:hover{visibility:visible;z-index:24;}
+img > span#pinterest{visibility:hidden;z-index:24;}
+img > span#pinterest:hover{visibility:visible;z-index:24;}
+img > span#linkedin{visibility:hidden;z-index:24;}
+img > span#linkedin:hover{visibility:visible;z-index:24;}
 /*------------------------------------------------------------------------------------*/
 /*--------------------------------------Desktop---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
