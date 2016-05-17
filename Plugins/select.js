@@ -1,7 +1,7 @@
 //================================================================================
 //=====================================Select=====================================
 //================================================================================
-$('table#select').click(function() {
+$('table.select').click(function() {
   if (document.selection) {
     var block = document.body.createTextRange();
     block.moveToElementText($(this)[0]);
