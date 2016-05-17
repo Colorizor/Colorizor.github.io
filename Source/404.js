@@ -25,8 +25,7 @@
   });
   //====================Footer
   $('footer').css({
-    'height': (screen.height - header) + 'px',
-    'top': header + 'px'
+    'height': (screen.height - header) + 'px'
   });
   
   //================================================================================
