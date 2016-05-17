@@ -21,4 +21,6 @@ code::-moz-selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
 code::selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
 span::-moz-selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
 span::selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
+table#numbering tr td#code::-moz-selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
+table#numbering tr td#code::selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
 /*URL*/
