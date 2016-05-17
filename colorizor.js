@@ -231,7 +231,7 @@ var clz = (function() {
   }
   //Trim
   function Trim(value) {
-    return $.trim(value);
+    return value.trim();
   }
   //URL Parameters
   function Parameter(url) {
