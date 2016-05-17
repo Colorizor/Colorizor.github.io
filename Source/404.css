@@ -20,7 +20,7 @@ div#facebook:before{background-image:url("https://colorizor.github.io/Images/Fac
 div#facebook:hover:before{-webkit-filter:blur(2px);-moz-filter:blur(2px);-ms-filter:blur(2px);-o-filter:blur(2px);filter:blur(2px);}
 
 div#facebook > span#facebook{height:100%;left:0px;position:absolute;text-align:center;top:0px;vertical-align:middle;visibility:hidden;width:100%;z-index:24;}
-div#facebook:hover > span#facebook:hover{visibility:visible;}
+div#facebook:hover:before > span#facebook{visibility:visible;}
 
 
 
