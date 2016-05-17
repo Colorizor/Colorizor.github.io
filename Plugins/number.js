@@ -7,7 +7,7 @@ $.each($('pre:not([nonumber])').find('code'), function() {
   $(this).html(string);
 });
 
-$.each($('pre:not([nonumber])').find('table'), function() {
+$.each($('pre:not([nonumber])').find('code').find('table'), function() {
   var lines = $(this).html().split('\n');
   
   for (var a = 0; a < lines.length; a++) {
