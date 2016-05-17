@@ -12,7 +12,7 @@ div{display:inline-block;height:auto;position:relative;text-align:center;top:0px
 #title-parent{left:0px;position:fixed;top:0px;width:100%;z-index:22;}
 #title-child{height:auto;text-align:center;vertical-align:middle;width:auto;z-index:23;}
 #socialise{height:70%;left:0px;position:relative;text-align:center;top:0px;width:100%;z-index:22;}
-#other{bottom:0px;height:30%;left:0px;position:relative;text-align:center;width:100%;z-index:22;}
+#other{bottom:0px;height:30%;left:0px;position:relative;text-align:center;top:0px;width:100%;z-index:22;}
 #mail{color:rgb(40, 40, 45);font-family:"Arial", Sans-serif;font-size:15px;}
 #copyright{color:rgb(40, 40, 45);font-family:"Arial", Sans-serif;font-size:9px;}
 /*------------------------------------------------------------------------------------*/
