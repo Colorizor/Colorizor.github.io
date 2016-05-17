@@ -7,7 +7,6 @@
   $(this).html(string);
 });*/
 
-
 $.each($('pre:not([nonumber])').find('code'), function() {
   var lines = $(this).html().split('\n');
   var string = '<table id="numbering">';
@@ -19,7 +18,6 @@ $.each($('pre:not([nonumber])').find('code'), function() {
   string += '</table>';
   $(this).html(string);
 });
-
 
 /*$.each($('pre:not([nonumber])').find('code'), function() {
   var string = $(this).html();
