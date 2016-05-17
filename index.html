@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="Images/favicon.ico" />
     <link rel="apple-touch-icon" href="Images/apple-touch-icon.png" />
     <noscript><link rel="stylesheet" type="text/css" href="Source/index.css" /></noscript>
-    <script type="text/javascript" src="https://colorizor.github.io/colorizor.min.js?theme=Salmon&plugin=number,select" async></script>
+    <script type="text/javascript" src="https://colorizor.github.io/colorizor.min.js?theme=Salmon&plugin=number,select,url" async></script>
     <script type="text/javascript">
       //--------------------------------------------------LOAD GOOGLE ANALYTICS
       !function(e,a,t,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=a.createElement(t),s=a.getElementsByTagName(t)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-61804299-1","auto"),ga("send","pageview");
@@ -92,7 +92,7 @@ $rollingDate = $initialDate
 
 do {
     $client = New-Object System.Net.WebClient
-    $results = $client.DownloadString("http://not.a.real.url")
+    $results = $client.DownloadString("[Not a Real URL][http://not.a.real.url]")
     Write-Host "$rollingDate.ToShortDateString() - $results"
     $rollingDate = $rollingDate.AddDays(21)
     $username = [System.Environment]::UserName
@@ -146,6 +146,11 @@ do {
             <span id="none">&lt;pre&gt;&lt;code language="none"&gt;...&lt;/code&gt;&lt;/pre&gt;</span>
           </p>
           <br />
+          <p>
+            <b>Block Plugin:</b><br />
+            <i>Add no(Plugin Name) to pre tags</i><br />
+            <span id="none">&lt;pre no...&gt;...&lt;/pre&gt;</span>
+          </p>
           <p>
             <b>In-Text Code:</b><br />
             <span id="none">&lt;span id="none"&gt;...&lt;/span&gt;</span>
@@ -440,7 +445,7 @@ do {
             <tr>
               <td><span id="none">Number</span></td>
               <td><span id="none">Select</span></td>
-              <td><span id="none"></span></td>
+              <td><span id="none">url</span></td>
               <td><span id="none"></span></td>
             </tr>
             <tr>
