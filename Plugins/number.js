@@ -16,7 +16,7 @@ $.each($('pre:not([nonumber])').find('code'), function() {
     string += '<tr id="line"><td id="number">' + (a + 1) + '</td><td id="code">' + line[a] + '</td></tr>';
   }
   
-  string += '</table>'
+  string += '</table>';
   $(this).html(string);
 });
 
