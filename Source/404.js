@@ -45,8 +45,8 @@
   }
   function getPinterest() {
     $.getJSON('https://api.pinterest.com/v1/urls/count.json?callback%20&url=https://colorizor.github.io', function(data) {
+      console.log(data);
       var count = data.count;
-      alert(count);
       if (count != '') {
         $('span#pinterest').text(count);
       } else {
