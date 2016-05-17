@@ -4,7 +4,7 @@
 html{background-color:rgb(40, 40, 45);height:auto;z-index:0;}
 body{height:auto;left:0px;margin:0px;position:fixed;right:0px;top:0px;width:auto;z-index:20;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
 header{left:0px;position:fixed;top:0px;width:auto;z-index:21;}
-footer{background-color:rgb(220, 220, 220);height:auto;left:0px;position:fixed;top:0px;width:100%;z-index:21;}
+footer{background-color:rgb(220, 220, 220);bottom:0px;height:auto;left:0px;position:fixed;width:100%;z-index:21;}
 div{display:inline-block;height:auto;position:relative;text-align:center;top:0px;vertical-align:middle;}
 
 #parallax{background-image:url("https://colorizor.github.io/Images/Background.png");background-position:center 0px;background-repeat:no-repeat;background-size:100% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-20;-webkit-filter:blur(5px);-moz-filter:blur(5px);-ms-filter:blur(5px);-o-filter:blur(5px);filter:blur(5px);}
