@@ -1,17 +1,13 @@
 //================================================================================
 //=======================================URL======================================
 //================================================================================
-$.each($('pre:not([nonumber])').find('code'), function() {
-  var string = $(this).html();
-  string = string.replace(/([\s\S]+)/igm, '<span id="numbers"></span><span id="coding">$&</span>');
-  $(this).html(string);
-});
-
-$.each($('pre:not([nonumber])').find('code'), function() {
-  var lines = $(this).find('span[id="coding"]').html().split('\n');
-  
-  for (var a = 0; a < lines.length; a++) {
-    var string = $(this).find('span[id="numbers"]').html();
-    $(this).find('span[id="numbers"]').html(string + '<span id="number">' + (a + 1) + '</span>\n');
-  }
+$.each($('pre:not([nourl])').find('code'), function() {
+  var block = $(this).html();
+  block = block.replace(/\[(.*?)\]\[(.*?)\]/igm, function(match) {
+    var split = match.split('][');
+    var title = $.trim(split[0].split('[')[1]);
+    var link = $.trim(split[1].split(']')[0]);
+    return '<a id="url" href="' + link + '" target="_blank">' + title + '</a>';
+  });
+  $(this).html(block);
 });
