@@ -11,8 +11,9 @@ span#parameter{color:rgb(147, 141, 241);}
 span#unit{color:rgb(255, 216, 150);}
 span#regex{color:rgb(158, 83, 74);}
 /*----------------------------------------Plugin----------------------------------------*/
-table#numbering tr{line-height:16px;}
-table#numbering tr td#number{border-right:1px solid rgb(129, 144, 158);color:rgb(129, 144, 158);margin:0px 2px 0px 4px;text-align:right;}
+table#numbering{border:none;border-collapse:collapse;}
+table#numbering tr{line-height:14px;}
+table#numbering tr td#number{border-right:1px solid rgb(129, 144, 158);color:rgb(129, 144, 158);margin:0px 8px 0px 2px;padding:0px 2px 0px 0px;text-align:right;}
 table#numbering tr td#code{text-align:left;}
 code::-moz-selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
 code::selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
