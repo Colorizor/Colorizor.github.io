@@ -1,7 +1,7 @@
 //================================================================================
 //=====================================Number=====================================
 //================================================================================
-$.each($('pre:not([nonumber]), pre:not([noall])').find('code'), function() {
+$.each($('pre:not([noall]), pre:not([nonumber])').find('code'), function() {
   var lines = $(this).html().split('\n');
   var block = '<table id="number">';
   for (var a = 0; a < lines.length; a++) {
