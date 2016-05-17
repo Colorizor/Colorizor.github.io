@@ -1,7 +1,7 @@
 //================================================================================
 //=====================================Select=====================================
 //================================================================================
-$('table#numbering > tr td#code').click(function() {
+$('pre, code').click(function() {
   if (document.selection) {
     var block = document.body.createTextRange();
     block.moveToElementText($(this)[0]);
