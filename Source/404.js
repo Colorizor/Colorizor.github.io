@@ -31,7 +31,7 @@
   });
   //Socialise
   $('#socialise').css({
-    'height': (screen.height - header - 80) + 'px',
+    'height': (screen.height - header - 80 - 50) + 'px',
     'top': header + 'px'
   });
   //Other
