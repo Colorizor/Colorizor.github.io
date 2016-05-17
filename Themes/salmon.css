@@ -24,3 +24,7 @@ span::selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
 table#number tr td#select::-moz-selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
 table#number tr td#select::selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
 /*URL*/
+a#url:link{color:rgb(166, 138, 181);}
+a#url:visited{color:rgb(166, 138, 181);}
+a#url:hover{color:rgb(166, 138, 181);}
+a#url:active{color:rgb(166, 138, 181);}
