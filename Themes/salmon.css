@@ -14,8 +14,8 @@ span#regex{color:rgb(158, 83, 74);}
 /*Number*/
 table#number tr{line-height:14px;}
 table#number{border:none;border-collapse:collapse;}
-table#number tr td#unselect{border-right:1px solid rgb(129, 144, 158);color:rgb(129, 144, 158);margin:0px 8px 0px 2px;text-align:right;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
-table#number tr td#select{padding:0px 0px 0px 4px;text-align:left;-webkit-user-select:all;-moz-user-select:all;-ms-user-select:all;-o-user-select:all;user-select:all;}
+table#number tr td#unselect{border-right:1px solid rgb(129, 144, 158);color:rgb(129, 144, 158);margin:0px 8px 0px 2px;text-align:right;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
+table#number tr td#select{padding:0px 0px 0px 4px;text-align:left;-webkit-touch-callout:all;-webkit-user-select:all;-moz-user-select:all;-ms-user-select:all;-o-user-select:all;user-select:all;}
 /*Select*/
 code::-moz-selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
 code::selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
