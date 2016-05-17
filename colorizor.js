@@ -299,7 +299,7 @@ var clz = (function() {
     Configure: function() {
       //Checking
       if (typeof jQuery == 'undefined') {
-        loadJS('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
+        loadJS('https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js');
       }
       //Waiting
       var waitForLoad = function() {
