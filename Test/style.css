@@ -5,6 +5,6 @@ span#comment {
 span#keyword {
   color: rgb(255, 127, 102);
 }
-span#text {
+span#string {
   color: rgb(126, 206, 253);
 }
