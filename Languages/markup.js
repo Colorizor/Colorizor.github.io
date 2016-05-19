@@ -1,12 +1,6 @@
 (function() {
   const data = {
-    language: 'javascript',
-    prepare: [
-      {
-        pat: /\:\/\//gm,
-        rep: '\:\/\\\/'
-      }
-    ],
+    language: 'markup',
     execute: [
       {
         custom: '([\'](.*?)[\']|[\"](.*?)[\"])',
@@ -14,46 +8,27 @@
         rep: '<span id="value">$&</span>'
       },
       {
-        keyword: /\b(abstract|arguments|boolean|break|byte|case|catch|char|class|const|continue|debugger|default|delete|do|double|else|enum|eval|export|extends|false|final|finally|float|for|function|goto|if|implements|import|in|instanceof|int|interface|let|long|native|new|null|package|private|protected|public|return|short|static|super|switch|synchronized|this|throw|throws|transient|true|try|typeof|var|void|volatile|while|with|yield)\b/gm,
-        rep: '<span id="attribute">$&</span>'
-      },
-      {
-        keyword: /\b(alert|all|anchor|anchors|area|assign|blur|button|checkbox|clearInterval|clearTimeout|clientInformation|close|closed|confirm|constructor|crypto|decodeURI|decodeURIComponent|defaultStatus|document|element|elements|embed|embeds|encodeURI|encodeURIComponent|escape|event|fileUpload|focus|form|forms|frame|height|innerHeight|innerWidth|layer|layers|link|location|mimeTypes|navigate|navigator|frames|frameRate|hidden|history|image|images|offscreenBuffering|open|opener|option|outerHeight|outerWidth|packages|pageXOffset|pageYOffset|parent|parseFloat|parseInt|password|plugin|prompt|propertyIsEnum|radio|reset|screen|screenX|screenY|scroll|secure|select|self|setInterval|setTimeout|status|submit|taint|text|textarea|top|unescape|untaint|width|window)\b/gm,
-        rep: '<span id="reserved">$&</span>'
-      },
-      {
-        keyword: /\b(Array|Date|eval|function|hasOwnProperty|Infinity|isFinite|isNaN|isPrototypeOf|length|Math|NaN|name|Number|Object|prototype|String|toString|undefined|valueOf)\b/gm,
-        rep: '<span id="reserved">$&</span>'
-      },
-      {
-        keyword: /\b(onblur|onclick|onerror|onfocus|onkeydown|onkeypress|onkeyup|onmouseover|onload|onmouseup|onmousedown|onsubmit)\b/gm,
-        rep: '<span id="parameter">$&</span>'
-      },
-      {
-        custom: '([\/][\*]([\\s\\S]*?)[\*][\/]|[\/][\/].+)',
-        pat: /([\s\S]+)/gm,
-        rep: '<span id="comment">$&</span>'
-      },
-      {
-        custom: '((\\d|[\-]\\d|[\.]\\d)+)([\%]|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?',
-        pat: /.+/gm,
-        rep: '<span id="unit">$&</span>'
-      },
-      {
-        begin: {pat: '[\.](?=([\\w]+)((.?)[\=]|[\(]))', exclude: true},
-        end: {pat: '([\=]|[\(])', exclude: true},
-        pat: /([\w]+)/gm,
+        begin: {pat: '[\&]lt[\;](|[\/])', exclude: true},
+        end: {pat: '(|[\/])[\&]gt[\;]', exclude: true},
+        pat: /^([\w]+)/gm,
         rep: '<span id="selector">$&</span>'
       },
       {
-        custom: '[\/](?!([\*]|span))(.*?)(?![\*])[\/](?!span)([igmuy]+|)',
-        pat: /.+/gm,
-        rep: '<span id="regex">$&</span>'
+        begin: {pat: '[\\s]', exclude: true},
+        end: {pat: '[\=]', exclude: true},
+        pat: /([\w\-]+)/gm,
+        rep: '<span id="attribute">$&</span>'
       },
       {
-        custom: '[\/](?!([\*]|span))(.*?)(?![\*])[\/](?!span)([igmuy]+|)',
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
-        rep: ''
+        begin: {pat: '[\&]lt[\;](|[\/])', exclude: true},
+        end: {pat: '(|[\/])[\&]gt[\;]', exclude: true},
+        pat: /([\s])([\w\-]+)([^\S\=]|(|[\/])[\&]gt[\;])/gm,
+        rep: '<span id="reserved">$&</span>'
+      },
+      {
+        custom: '([\&]lt[\;][\!][\-][\-])([\\s\\S]*?)([\-][\-][\&]gt[\;])',
+        pat: /([\s\S]+)/gm,
+        rep: '<span id="comment">$&</span>'
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
@@ -68,22 +43,22 @@
         rep: ''
       },
       {
-        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\*]', exclude: true},
-        end: {pat: '[\*][\/][\<][\/]span[\>]', exclude: true},
+        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>]([\&]lt[\;][\!][\-][\-])', exclude: true},
+        end: {pat: '([\-][\-][\&]gt[\;])[\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
       {
-        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\/]', exclude: true},
-        end: {pat: '[\<][\/]span[\>]$', exclude: true},
+        begin: {pat: '[\&]lt[\;]script(.*?)[\&]gt[\;]', exclude: true},
+        end: {pat: '[\&]lt[\;][\/]script[\&]gt[\;]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
-      }
-    ],
-    finalise: [
+      },
       {
-        pat: /\:\/\\\//gm,
-        rep: '\:\/\/'
+        begin: {pat: '[\&]lt[\;]link(.*?)[\&]gt[\;]', exclude: true},
+        end: {pat: '[\&]lt[\;][\/]link[\&]gt[\;]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
       }
     ]
   };
