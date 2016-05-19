@@ -97,7 +97,6 @@ var clz = (function() {
     code = $(object).html();
   }
   function Save(object) {
-    console.log(code);
     $(object).html(Trim(code));
   }
   //==============================Core
