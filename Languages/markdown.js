@@ -36,6 +36,11 @@
         rep: '<span id="comment">$&</span>'
       },
       {
+        custom: '(&lt;(.*?)pre(.*?)&gt;((|\\n+)&lt;(.*?)code(.*?)&gt;|)|&lt;(.*?)code(.*?)&gt;)([\\s\\S]*?)((&lt;[\/](.*?)code&gt;(\\n+|)|)&lt;[\/](.*?)pre&gt;|&lt;[\/](.*?)code&gt;)',
+        pat: /([\s\S]+)/gm,
+        rep: '<span id="block">$&</span>'
+      },
+      {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
         end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
@@ -66,8 +71,8 @@
         rep: ''
       },
       {
-        begin: {pat: '(&lt;(.*?)pre(.*?)&gt;((|\\n+)&lt;(.*?)code(.*?)&gt;|)|&lt;(.*?)code(.*?)&gt;)', exclude: true},
-        end: {pat: '((&lt;[\/](.*?)code&gt;(\\n+|)|)&lt;[\/](.*?)pre&gt;|&lt;[\/](.*?)code&gt;)', exclude: true},
+        begin: {pat: '[\<]span\\sid[\=][\"]block[\"][\>](&lt;(.*?)pre(.*?)&gt;((|\\n+)&lt;(.*?)code(.*?)&gt;|)|&lt;(.*?)code(.*?)&gt;)', exclude: true},
+        end: {pat: '((&lt;[\/](.*?)code&gt;(\\n+|)|)&lt;[\/](.*?)pre&gt;|&lt;[\/](.*?)code&gt;)[\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       }
