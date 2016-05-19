@@ -27,18 +27,13 @@
       {
         begin: {pat: '&lt;(|[\/])', exclude: true},
         end: {pat: '(|[\/])&gt;', exclude: true},
-        pat: /([\s])([\w\-]+)([^\S\\\=]|(|[\/])&gt;)/gm,
+        pat: /([\s])([\w\-]+)([^\S\\\=]|(?=(|[\/])&gt;))/gm,
         rep: '<span id="reserved">$&</span>'
       },
       {
         custom: '(&lt;[\!][\-][\-]((|\\n+)&lt;[\!][\-][\-]|))([\\s\\S]*?)(([\-][\-]&gt;(\\n+|)|)[\-][\-]&gt;)',
         pat: /([\s\S]+)/gm,
         rep: '<span id="comment">$&</span>'
-      },
-      {
-        custom: '(&lt;(.*?)pre(.*?)&gt;((|\\n+)&lt;(.*?)code(.*?)&gt;|)|&lt;(.*?)code(.*?)&gt;)([\\s\\S]*?)((&lt;[\/](.*?)code&gt;(\\n+|)|)&lt;[\/](.*?)pre&gt;|&lt;[\/](.*?)code&gt;)',
-        pat: /([\s\S]+)/gm,
-        rep: '<span id="block">$&</span>'
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
