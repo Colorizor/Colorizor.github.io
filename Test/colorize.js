@@ -19,5 +19,5 @@
       }
     ]
   };
-  clz.Colorize(data);
+  clzdev.Colorize(data);
 })();
