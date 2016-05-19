@@ -12,8 +12,6 @@ var clz = (function() {
   //==============================Variable
   var code = '',
       language = '',
-      theme = '',
-      plugin = [],
       prepare = [],
       execute = [],
       finalise = [];
@@ -32,38 +30,6 @@ var clz = (function() {
       script.onload = cb;
     }
     return script;
-  }
-  //==============================LoadCSS
-  function loadCSS(href, before, media, callback) {
-    var ss = window.document.createElement('link');
-    var ref = before || window.document.getElementsByTagName('script')[0];
-    var sheets = window.document.styleSheets;
-    ss.rel = 'stylesheet';
-    ss.href = Trim(href);
-    ss.media = 'only x';
-    if (callback) {
-      ss.onload = callback;
-    }
-    ref.parentNode.insertBefore(ss, ref);
-    ss.onloadcssdefined = function(cb) {
-      var defined;
-      for (var i = 0; i < sheets.length; i++) {
-        if (sheets[i].href && sheets[i].href.indexOf(href) > -1) {
-          defined = true;
-        }
-      }
-      if (defined) {
-        cb();
-      } else {
-        setTimeout(function() {
-          ss.onloadcssdefined(cb);
-        });
-      }
-    };
-    ss.onloadcssdefined(function() {
-      ss.media = media || 'all';
-    });
-    return ss;
   }
   //==============================Initialize
   function Initialize(data) {
@@ -233,65 +199,12 @@ var clz = (function() {
   function Trim(value) {
     return value.trim();
   }
-  //URL Parameters
-  function Parameter(url) {
-    //Setup
-    var option1 = /\/colorizor(|\.min|\.dev)\.js\?(theme|plugin)\=(?=(.*?)\&(theme|plugin)\=)/igm;
-    var option2 = /\/colorizor(|\.min|\.dev)\.js\?theme\=(?!(.*?)\&plugin\=)/igm;
-    var option3 = /\/colorizor(|\.min|\.dev)\.js\?plugin\=(?!(.*?)\&theme\=)/igm;
-    var option4 = /\/colorizor(|\.min|\.dev)\.js(?!\?(theme|plugin)\=)/igm;
-    //Configure
-    if (option1.test(url)) {
-      var tail = url.split('\?')[1];
-      var style = tail.split('\&')[0];
-      var extraTemp = tail.split('\&')[1];
-      style = style.split('\=')[1];
-      var extra = [],
-          temp = extraTemp.split('\=')[1];
-      if ((temp || '').split('\,').length > 1) {
-        extra = temp.split('\,');
-      } else {
-        extra.push(temp);
-      }
-      return {theme: style, plugin: extra};
-    } else if (option2.test(url)) {
-      var style = url.split('\=')[1];
-      return {theme: style, plugin: []};
-    } else if (option3.test(url)) {
-      var extra = [],
-          temp = url.split('\=')[1];
-      if ((temp || '').split('\,').length > 1) {
-        extra = temp.split('\,');
-      } else {
-        extra.push(temp);
-      }
-      return {theme: 'salmon', plugin: extra};
-    } else if (option4.test(url)) {
-      return {theme: 'salmon', plugin: []};
-    }
-  }
   //==============================Feature
   function Feature() {
-    //Language
-    $.each($('pre[language], code[language]'), function() {
-      var lang = $(this).attr('language');
-      loadJS('https://colorizor.github.io/Languages/' + Trim(lang.toLowerCase()) + '.js');
-    });
-    //Theme & Plugin
-    $.each($('script'), function() {
-      var url = $(this).attr('src');
-      var pattern = /\/colorizor(|\.min)\.js/igm;
-      if (pattern.test(url)) {
-        var data = Parameter(url);
-        theme = data.theme;
-        plugin = data.plugin;
-        //Theme
-        loadCSS('https://colorizor.github.io/Themes/' + Trim(theme.toLowerCase()) + '.css');
-        //Plugin
-        $.each(plugin, function() {
-          loadJS('https://colorizor.github.io/Plugins/' + Trim(this.toLowerCase()) + '.js');
-        });
-      }
+    //File
+    $.each($('pre[file], code[file]'), function() {
+      var file = $(this).attr('file');
+      loadJS(file);
     });
   }
   
