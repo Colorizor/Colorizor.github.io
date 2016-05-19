@@ -15,7 +15,7 @@
       {
         custom: '[\:]([\\w]+)',
         pat: /([\w]+)/gm,
-        rep: '<span id="keywork">$&</span>'
+        rep: '<span id="keyword">$&</span>'
       }
     ]
   };
