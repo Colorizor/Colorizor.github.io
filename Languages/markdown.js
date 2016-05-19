@@ -66,8 +66,8 @@
         rep: ''
       },
       {
-        begin: {pat: '&lt;(.*?)code(.*?)&gt;', exclude: true},
-        end: {pat: '&lt;[\/](.*?)code(.*?)&gt;', exclude: true},
+        begin: {pat: '(&lt;pre(.*?)&gt;((|\n+)&lt;code(.*?)&gt;|))', exclude: true},
+        end: {pat: '((&lt;[\/]code&gt;(\n+|)|)&lt;[\/]pre&gt;)', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       }
