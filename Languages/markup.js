@@ -18,7 +18,7 @@
         end: {pat: '(|[\/])&gt;', exclude: true},
         pat: /^([\w]+)/gm,
         rep: '<span id="selector">$&</span>'
-      },
+      }/*,
       {
         begin: {pat: '[\\s]', exclude: true},
         end: {pat: '[\\][\=]', exclude: true},
@@ -77,7 +77,7 @@
         end: {pat: '&lt;[\/]pre&gt;', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
-      }
+      }*/
     ],
     finalise: [
       {
