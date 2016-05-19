@@ -31,7 +31,7 @@
         rep: '<span id="reserved">$&</span>'
       },
       {
-        custom: '(&lt;[\!][\-][\-])([\\s\\S]*?)([\-][\-]&gt;)',
+        custom: '(&lt;[\!][\-][\-]((|\\n+)&lt;[\!][\-][\-]|))([\\s\\S]*?)(([\-][\-]&gt;(\\n+|)|)[\-][\-]&gt;)',
         pat: /([\s\S]+)/gm,
         rep: '<span id="comment">$&</span>'
       },
@@ -66,8 +66,8 @@
         rep: ''
       },
       {
-        begin: {pat: '(&lt;pre(.*?)&gt;((|\\n+)&lt;code(.*?)&gt;|))', exclude: true},
-        end: {pat: '((&lt;[\/]code&gt;(\\n+|)|)&lt;[\/]pre&gt;)', exclude: true},
+        begin: {pat: '(&lt;(.*?)pre(.*?)&gt;((|\\n+)&lt;(.*?)code(.*?)&gt;|)|&lt;(.*?)code(.*?)&gt;)', exclude: true},
+        end: {pat: '((&lt;[\/](.*?)code&gt;(\\n+|)|)&lt;[\/](.*?)pre&gt;|&lt;[\/](.*?)code&gt;)', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       }
@@ -81,3 +81,8 @@
   };
   clz.Colorize(data);
 })();
+
+
+///(&lt;(.*?)pre(.*?)&gt;((|\\n+)&lt;(.*?)code(.*?)&gt;|)|&lt;(.*?)code(.*?)&gt;)([\\s\\S]*?)((&lt;[\/](.*?)code&gt;(\\n+|)|)&lt;[\/](.*?)pre&gt;|&lt;[\/](.*?)code&gt;)/
+
+
