@@ -53,7 +53,7 @@
         end: {pat: '([\-][\-]&gt;)[\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
-      },
+      }*/,
       {
         begin: {pat: '&lt;script(.*?)&gt;', exclude: true},
         end: {pat: '&lt;[\/]script&gt;', exclude: true},
@@ -77,7 +77,7 @@
         end: {pat: '&lt;[\/]pre&gt;', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
-      }*/
+      }
     ],
     finalise: [
       {
