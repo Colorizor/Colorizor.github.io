@@ -1,15 +1,15 @@
 (function() {
   const data = {
-    language: 'markup',
+    language: 'markdown',
     prepare: [
       {
-        pat: /[\=\'\"]/gm,
+        pat: /[\=]/gm,
         rep: '\\$&'
       }
     ],
     execute: [
       {
-        custom: '([\\\\][\'](.*?)[\\\\][\']|[\\\\][\"](.*?)[\\\\][\"])',
+        custom: '([\'](.*?)[\']|[\"](.*?)[\"])',
         pat: /.+/gm,
         rep: '<span id="value">$&</span>'
       }/*,
