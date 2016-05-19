@@ -73,7 +73,7 @@
         rep: ''
       },
       {
-        begin: {pat: '&lt;pre(.*?)&gt;', exclude: true},
+        begin: {pat: '((?!(.*?)&lt;code(.*?)&gt;)&lt;pre(.*?)&gt;)', exclude: true},
         end: {pat: '&lt;[\/]pre&gt;', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
