@@ -25,12 +25,6 @@
         rep: '<span id="attribute">$&</span>'
       },
       {
-        begin: {pat: '&lt;(|[\/])', exclude: true},
-        end: {pat: '(|[\/])&gt;', exclude: true},
-        pat: /([\s])([\w\-]+)([^\S\\\=]|(?=(|[\/])&gt;))/gm,
-        rep: '<span id="reserved">$&</span>'
-      },
-      {
         custom: '(&lt;[\!][\-][\-]((|\\n+)&lt;[\!][\-][\-]|))([\\s\\S]*?)(([\-][\-]&gt;(\\n+|)|)[\-][\-]&gt;)',
         pat: /([\s\S]+)/gm,
         rep: '<span id="comment">$&</span>'
