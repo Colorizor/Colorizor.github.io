@@ -26,7 +26,7 @@
         rep: '<span id="selector">$&</span>'
       },
       {
-        keyword: /\b(alias|application|boolean|class|constant|date|file|integer|list|number|real|record|string|text|activate|beep|count|delay|launch|log|offset|read|round|run|say|summarize|write|character|characters|contents|day|frontmost|id|item|length|month|name|paragraph|paragraphs|rest|reverse|running|time|version|weekday|word|words|year)\b/gm,
+        keyword: /\b(alias|application|boolean|class|constant|date|file|integer|list|number|real|record|string|text|activate|beep|count|delay|launch|log|offset|read|round|run|say|summarize|write|character|characters|contents|day|frontmost|item|length|month|name|paragraph|paragraphs|rest|reverse|running|time|version|weekday|word|words|year)\b/gm,
         rep: '<span id="parameter">$&</span>'
       },
       {
