@@ -1,6 +1,6 @@
 (function() {
   const data = {
-    language: 'accesslog',
+    language: 'armasm',
     prepare: [
       {
         pat: /\:\/\//gm,
