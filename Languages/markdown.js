@@ -21,7 +21,7 @@
       },
       {
         begin: {pat: '[\\s]', exclude: true},
-        end: {pat: '[\\][\=]', exclude: true},
+        end: {pat: '[\\\\][\=]', exclude: true},
         pat: /([\w\-]+)/gm,
         rep: '<span id="attribute">$&</span>'
       },
