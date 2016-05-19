@@ -14,11 +14,6 @@
         rep: '<span id="value">$&</span>'
       },
       {
-        custom: '([\/][\*]([\\s\\S]*?)[\*][\/]|[\;\@].+)',
-        pat: /.+/gm,
-        rep: '<span id="comment">$&</span>'
-      },
-      {
         keyword: /(\.2byte|\.4byte|\.align|\.ascii|\.asciz|\.balign|\.byte|\.code|\.data|\.else|\.end|\.endif|\.endm|\.endr|\.equ|\.err|\.exitm|\.extern|\.global|\.hword|\.if|\.ifdef|\.ifndef|\.include|\.irp|\.long|\.macro|\.rept|\.req|\.section|\.set|\.skip|\.space|\.text|\.word|\.arm|\.thumb|\.code16|\.code32|\.force_thumb|\.thumb_func|\.ltorg|ALIAS|ALIGN|ARM|AREA|ASSERT|ATTR|CN|CODE|CODE16|CODE32|COMMON|CP|DATA|DCB|DCD|DCDU|DCDO|DCFD|DCFDU|DCI|DCQ|DCQU|DCW|DCWU|DN|ELIF|ELSE|END|ENDFUNC|ENDIF|ENDP|ENTRY|EQU|EXPORT|EXPORTAS|EXTERN|FIELD|FILL|FUNCTION|GBLA|GBLL|GBLS|GET|GLOBAL|IF|IMPORT|INCBIN|INCLUDE|INFO|KEEP|LCLA|LCLL|LCLS|LTORG|MACRO|MAP|MEND|MEXIT|NOFP|OPT|PRESERVE8|PROC|QN|READONLY|RELOC|REQUIRE|REQUIRE8|RLIST|FN|ROUT|SETA|SETL|SETS|SN|SPACE|SUBT|THUMB|THUMBX|TTL|WHILE|WEND)/gm,
         rep: '<span id="attribute">$&</span>'
       },
@@ -33,6 +28,11 @@
       {
         keyword: /\b(adc|(qd?|sh?|u[qh]?)?add(8|16)?|usada?8|(q|sh?|u[qh]?)?(as|sa)x|and|adrl?|sbc|rs[bc]|asr|b[lx]?|blx|bxj|cbn?z|tb[bh]|bic|bfc|bfi|[su]bfx|bkpt|cdp2?|clz|clrex|cmp|cmn|cpsi[ed]|cps|setend|dbg|dmb|dsb|eor|isb|it[te]{0,3}|lsl|lsr|ror|rrx|ldm(([id][ab])|f[ds])?|ldr((s|ex)?[bhd])?|movt?|mvn|mra|mar|mul|[us]mull|smul[bwt][bt]|smu[as]d|smmul|smmla|mla|umlaal|smlal?([wbt][bt]|d)|mls|smlsl?[ds]|smc|svc|sev|mia([bt]{2}|ph)?|mrr?c2?|mcrr2?|mrs|msr|orr|orn|pkh(tb|bt)|rbit|rev(16|sh)?|sel|[su]sat(16)?|nop|pop|push|rfe([id][ab])?|stm([id][ab])?|str(ex)?[bhd]?|(qd?)?sub|(sh?|q|u[qh]?)?sub(8|16)|[su]xt(a?h|a?b(16)?)|srs([id][ab])?|swpb?|swi|smi|tst|teq|wfe|wfi|yield)(eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le|al|hs|lo)?[sptrx]?/gm,
         rep: '<span id="selector">$&</span>'
+      },
+      {
+        custom: '([\/][\*]([\\s\\S]*?)[\*][\/]|[\;\@].+)',
+        pat: /.+/gm,
+        rep: '<span id="comment">$&</span>'
       },
       {
         custom: '([\#\$\=]?0x[0-9a-f]+|[\#\$\=]?0b[01]+|[\#\$\=]\\d+|\\b\\d+)',
