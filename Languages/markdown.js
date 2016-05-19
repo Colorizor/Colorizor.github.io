@@ -20,8 +20,7 @@
         rep: '<span id="selector">$&</span>'
       },
       {
-        begin: {pat: '[\\s]', exclude: true},
-        end: {pat: '[\\][\=]', exclude: true},
+        custom: '([\\w\-]+)[\\\\][\=]',
         pat: /([\w\-]+)/gm,
         rep: '<span id="attribute">$&</span>'
       },
