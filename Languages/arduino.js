@@ -14,11 +14,6 @@
         rep: '<span id="value">$&</span>'
       },
       {
-        custom: '([\/][\*]([\\s\\S]*?)[\*][\/]|[\/][\/].+)',
-        pat: /.+/gm,
-        rep: '<span id="comment">$&</span>'
-      },
-      {
         keyword: /\b(DIGITAL_MESSAGE|FIRMATA_STRING|ANALOG_MESSAGE|REPORT_DIGITAL|REPORT_ANALOG|INPUT_PULLUP|SET_PIN_MODE|INTERNAL2V56|SYSTEM_RESET|LED_BUILTIN|INTERNAL1V1|SYSEX_START|INTERNAL|EXTERNAL|DEFAULT|OUTPUT|INPUT|HIGH|LOW)\b/gm,
         rep: '<span id="attribute">$&</span>'
       },
@@ -33,6 +28,11 @@
       {
         keyword: /\b(boolean|byte|word|string|String|array|setup|loop|while|catch|for|if|do|goto|try|switch|case|else|default|break|continue|return|KeyboardController|MouseController|SoftwareSerial|EthernetServer|EthernetClient|LiquidCrystal|RobotControl|GSMVoiceCall|EthernetUDP|EsploraTFT|HttpClient|RobotMotor|WiFiClient|GSMScanner|FileSystem|Scheduler|GSMServer|YunClient|YunServer|IPAddress|GSMClient|GSMModem|Keyboard|Ethernet|Console|GSMBand|Esplora|Stepper|Process|WiFiUDP|GSM_SMS|Mailbox|USBHost|Firmata|PImage|Client|Server|GSMPIN|FileIO|Bridge|Serial|EEPROM|Stream|Mouse|Audio|Servo|File|Task|GPRS|WiFi|Wire|TFT|GSM|SPI|SD)\b/gm,
         rep: '<span id="selector">$&</span>'
+      },
+      {
+        custom: '([\/][\*]([\\s\\S]*?)[\*][\/]|[\/][\/].+)',
+        pat: /.+/gm,
+        rep: '<span id="comment">$&</span>'
       },
       {
         custom: '((\\d|[\-]\\d|[\.]\\d)+)([\%]|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?',
