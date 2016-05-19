@@ -30,14 +30,8 @@
         rep: '<span id="parameter">$&</span>'
       },
       {
-        custom: '[\/][\/].+',
-        pat: /.+/gm,
-        rep: '<span id="comment">$&</span>'
-      },
-      {
-        begin: {pat: '[\/][\*]', exclude: false},
-        end: {pat: '[\*][\/]', exclude: false},
-        pat: /.+/gm,
+        custom: '([\/][\*]([\\s\\S]*?)[\*][\/]|[\/][\/].+)',
+        pat: /([\s\S]+)/gm,
         rep: '<span id="comment">$&</span>'
       },
       {
@@ -74,14 +68,14 @@
         rep: ''
       },
       {
-        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\/]', exclude: true},
-        end: {pat: '[\<][\/]span[\>]$', exclude: true},
+        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\*]', exclude: true},
+        end: {pat: '[\*][\/][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
       {
-        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\*]', exclude: true},
-        end: {pat: '[\*][\/][\<][\/]span[\>]', exclude: true},
+        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\/]', exclude: true},
+        end: {pat: '[\<][\/]span[\>]$', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       }
