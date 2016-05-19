@@ -12,7 +12,7 @@
         custom: '([\'](.*?)[\']|[\"](.*?)[\"])',
         pat: /.+/gm,
         rep: '<span id="value">$&</span>'
-      }/*,
+      },
       {
         begin: {pat: '&lt;(|[\/])', exclude: true},
         end: {pat: '(|[\/])&gt;', exclude: true},
@@ -53,7 +53,7 @@
         end: {pat: '([\-][\-]&gt;)[\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
-      }*/,
+      },
       {
         begin: {pat: '&lt;script(.*?)&gt;', exclude: true},
         end: {pat: '&lt;[\/]script&gt;', exclude: true},
