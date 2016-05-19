@@ -236,10 +236,10 @@ var clz = (function() {
   //URL Parameters
   function Parameter(url) {
     //Setup
-    var option1 = /\/colorizor(|\.min|\.dev)\.js\?(theme|plugin)\=(?=(.*?)\&(theme|plugin)\=)/igm;
-    var option2 = /\/colorizor(|\.min|\.dev)\.js\?theme\=(?!(.*?)\&plugin\=)/igm;
-    var option3 = /\/colorizor(|\.min|\.dev)\.js\?plugin\=(?!(.*?)\&theme\=)/igm;
-    var option4 = /\/colorizor(|\.min|\.dev)\.js(?!\?(theme|plugin)\=)/igm;
+    var option1 = /\/colorizor(|\.min)\.js\?(theme|plugin)\=(?=(.*?)\&(theme|plugin)\=)/igm;
+    var option2 = /\/colorizor(|\.min)\.js\?theme\=(?!(.*?)\&plugin\=)/igm;
+    var option3 = /\/colorizor(|\.min)\.js\?plugin\=(?!(.*?)\&theme\=)/igm;
+    var option4 = /\/colorizor(|\.min)\.js(?!\?(theme|plugin)\=)/igm;
     //Configure
     if (option1.test(url)) {
       var tail = url.split('\?')[1];
