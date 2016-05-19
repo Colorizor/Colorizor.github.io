@@ -1,6 +1,12 @@
 (function() {
   const data = {
     language: 'markup',
+    prepare: [
+      {
+        pat: /[\=]/gm,
+        rep: '\\$&'
+      }
+    ],
     execute: [
       {
         custom: '([\'](.*?)[\']|[\"](.*?)[\"])',
@@ -15,14 +21,14 @@
       },
       {
         begin: {pat: '[\\s]', exclude: true},
-        end: {pat: '[\=]', exclude: true},
+        end: {pat: '[\\][\=]', exclude: true},
         pat: /([\w\-]+)/gm,
         rep: '<span id="attribute">$&</span>'
       },
       {
         begin: {pat: '\&lt\;(|[\/])', exclude: true},
         end: {pat: '(|[\/])\&gt\;', exclude: true},
-        pat: /([\s])([\w\-]+)([^\S\=]|(|[\/])\&gt\;)/gm,
+        pat: /([\s])([\w\-]+)([^\S\\\=]|(|[\/])\&gt\;)/gm,
         rep: '<span id="reserved">$&</span>'
       },
       {
@@ -59,6 +65,12 @@
         end: {pat: '\&lt\;[\/]link\&gt\;', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
+      }
+    ],
+    finalise: [
+      {
+        pat: /[\\][\=]/gm,
+        rep: '='
       }
     ]
   };
