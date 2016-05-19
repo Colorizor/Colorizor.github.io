@@ -81,6 +81,54 @@
           <p><i>These two keys will mainly be used for formatting special occurances of some sort in the language defined.</i><br />
           e.g. In some langauges the <span id="none">//</span> will be used to comment something, well in a url, <span id="none">http://...</span> it also contains it. To make life easier we can format all url's to replace <span id="none">://</span> with <span id="none">:/\/</span>. 
           When the main execution has completed the finalise is called and there we can once again fix the problem by replacing the newly formatted url's, <span id="none">:\/\</span> back to its original state, <span id="none">://</span>.</p>
+          <p><pre><code language="javascript">(function() {
+  const data = {
+    language: 'none',
+    prepare: [
+      {
+        pat: /\:\/\//gm,   //Pattern
+        rep: '\:\/\\\/'    //Replace
+      }
+    ],
+    execute: [],
+    finalise: [
+      {
+        pat: /\:\/\\\//gm,  //Pattern
+        rep: '\:\/\/'       //Replace
+      }
+    ]
+  };
+  clz.Colorize(data);
+})();</code></pre></p>
+          <p><b>Execute</b></p>
+          <p><i>There are three types of execution techniques to choose from:</i></p>
+          <p>Technique 1</p>
+          <p><i>This technique is handy for narrowing the results down to something between objects.</i></p>
+          <p><pre><code language="none">{
+  begin: {
+    pat: '',          //String Based RegEx
+    exclude: true     //Exclude this begining?
+  },
+  end: {
+    pat: '',          //String Based RegEx
+    exclude: true     //Exclude this end?
+  },
+  pat: //gm,          //Pattern to find within the search results of the begin and end
+  rep: ''             //Replace with
+}</code></pre></p>
+          <p>Technique 2</p>
+          <p><i>This technique is used for more of a global result.</i></p>
+          <p><pre><code language="none">{
+  custom: '',         //String Based RegEx
+  pat: //gm,          //Pattern to find within the search results
+  rep: ''             //Replace with
+}</code></pre></p>
+          <p>Technique 3</p>
+          <p><i>This is very helpful when just searching for keywords or stuff of the same sort.</i></p>
+          <p><pre><code language="none">{
+  keywork: //gm,      //Pattern
+  rep: ''             //Replace with
+}</code></pre></p>
         </div>
       </div>
       <div id="paragraph">
