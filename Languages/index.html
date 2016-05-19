@@ -17,6 +17,7 @@
     <link rel="apple-touch-icon" href="https://colorizor.github.io/Images/apple-touch-icon.png" />
     <noscript><link rel="stylesheet" type="text/css" href="https://colorizor.github.io/Source/support.css" /></noscript>
     <script type="text/javascript" src="https://colorizor.github.io/colorizor.min.js?theme=Salmon&plugin=select,url" async></script>
+    <script type="text/javascript" src="https://colorizor.github.io/colorizor.dev.js" async></script>
     <script type="text/javascript">
       //--------------------------------------------------LOAD GOOGLE ANALYTICS
       !function(e,a,t,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=a.createElement(t),s=a.getElementsByTagName(t)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-61804299-1","auto"),ga("send","pageview");
@@ -54,7 +55,7 @@
             <b>Setup</b>
           </h2>
           <hr />
-          <p><b>HTML</b></p>
+          <p><b>Markup</b></p>
           <p><pre><code language="markup"></code></pre></p>
           <p><b>JavaScript</b></p>
           <p><pre><code language="javascript">(function() {
@@ -66,6 +67,35 @@
   };
   clz.Colorize(data);
 })();</code></pre></p>
+        </div>
+      </div>
+      <div id="paragraph">
+        <div id="section">
+          <h2>
+            <b>Example</b>
+          </h2>
+          <hr />
+          <p><b>Markup</b></p>
+          <p><pre><code language="markup">...
+  &lt;script type="text/javascript" src="https://colorizor.github.io/colorizor.dev.js" async&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" type="text/css" href="https://colorizor.github.io/Test/style.css" /&gt;
+...
+  &lt;pre&gt;&lt;code language="colorize" file="https://colorizor.github.io/Test/colorize.js"&gt;
+    :: &lt; This language, Colorize was created by Colorizor
+    String:Text &lt; "Hello, This is a custom language"
+    PrintString():Execute &lt; (
+      :Print &lt; String
+    )
+  &lt;/code&gt;&lt;/pre&gt;
+...</code></pre></p>
+          <p><b>CSS</b></p>
+          <p><pre><code language="css"></code></pre></p>
+          <p><b>Output</b></p>
+          <p><pre><code language="colorize" file="https://colorizor.github.io/Test/colorize.js">:: &lt; This language, Colorize was created by Colorizor
+String:Text &lt; "Hello, This is a custom language"
+PrintString():Execute &lt; (
+  :Print &lt; String
+)</code></pre></p>
         </div>
       </div>
     </main>
