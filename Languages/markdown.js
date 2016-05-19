@@ -14,14 +14,14 @@
         rep: '<span id="value">$&</span>'
       },
       {
-        begin: {pat: '<(|[\/])', exclude: true},
-        end: {pat: '(|[\/])>', exclude: true},
+        begin: {pat: '&lt;(|[\/])', exclude: true},
+        end: {pat: '(|[\/])&gt;', exclude: true},
         pat: /^([\w]+)/gm,
         rep: '<span id="selector">$&</span>'
       },
       {
         begin: {pat: '[\\s]', exclude: true},
-        end: {pat: '[\\\\][\=]', exclude: true},
+        end: {pat: '[\\][\=]', exclude: true},
         pat: /([\w\-]+)/gm,
         rep: '<span id="attribute">$&</span>'
       },
