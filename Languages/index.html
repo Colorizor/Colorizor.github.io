@@ -58,11 +58,11 @@
           <hr />
           <p><i>Setting up your own language is very quick and easy. You would need to know a bit about Regular Expressions to find what you are looking for in you code.</i><br />
           <i>In order to setup your language files, you'll need to host your own styling and script files. The processing and functions are all handled by the <span id="none">colorizor.dev.js</span> script.</i><br />
-          <i>Lets get started...</i></p>
+          <i>Lets get started...</i></p><br />
           <p><b>Markdown (HTML)</b></p>
           <p><pre><code language="markdown">&lt;script type="text/javascript" src="https://colorizor.github.io/colorizor.dev.js" async&gt;&lt;/script&gt;
 &lt;link rel="stylesheet" type="text/css" href="https://colorizor.github.io/Test/style.css" /&gt;</code></pre></p>
-          <p>This is what you'll need to add to the <span id="none">head</span> of your markdown file.</p>
+          <p>This is what you'll need to add to the <span id="none">head</span> of your markdown file.</p><br />
           <p><b>Creating Your Language</b></p>
           <p><i>There is a basic structure for creating your own language. It consists of four main parts: language, prepare, execute and finalise.</i><br />
           <i>The structure is in a form of a dictionary. The language and execute are recommended keys to have in this dictionary.</i></p>
@@ -75,6 +75,12 @@
   };
   clz.Colorize(data);
 })();</code></pre></p>
+          <p>You will only need to make changes to: <span id="none">language</span>, <span id="none">prepare</span>, <span id="none">execute</span> and <span id="none">finalise</span><br />
+          The language key will determine for what language this script is for, e.g. javascript = The JavaScript language.</p><br />
+          <p><b>Prepare & Finalise</b></p>
+          <p><i>These two keys will mainly be used for formatting special occurances of some sort in the language defined.</i><br />
+          e.g. In some langauges the <span id="none">//</span> will be used to comment something, well in a url, <span id="none">http://...</span> it also contains it. To make life easier we can format all url's to replace <span id="none">://</span> with <span id="none">:/\/</span>. 
+          When the main execution has completed the finalise is called and there we can once again fix the problem by replacing the newly formatted url's, <span id="none">:\/\</span> back to its original state, <span id="none">://</span>.</p>
         </div>
       </div>
       <div id="paragraph">
