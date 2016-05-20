@@ -1,9 +1,9 @@
 /*================================================================================
 ======================================Salmon======================================
 ================================================================================*/
-pre:not([nobackground]){background-color:rgb(62, 69, 76);height:auto;margin:5px 5px 5px 5px;overflow-x:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
-pre[nobackground]{height:auto;margin:5px 5px 5px 5px;overflow-x:auto;}
-code{color:rgb(255, 246, 229);display:block;font-family:"Lucida Console", Monaco, monospace;font-size:14px;line-height:15px;margin:0px 10px 0px 10px;padding:0px 0px 0px 10px;text-align:left;}
+pre:not([nobackground]){background-color:rgb(62, 69, 76);max-height:100px;margin:5px 5px 5px 5px;overflow-x:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
+pre[nobackground]{max-height:100px;margin:5px 5px 5px 5px;overflow-x:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
+code{color:rgb(255, 246, 229);font-family:"Lucida Console", Monaco, monospace;font-size:14px;line-height:15px;text-align:left;}
 span#none{background-color:rgb(255, 127, 102);border-radius:2px;color:rgb(60, 60, 65);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;line-height:13px;padding:2px 2px 2px 2px;width:auto;}
 span#comment{color:rgb(159, 253, 193);font-style:italic;}
 span#selector{color:rgb(255, 127, 102);}
