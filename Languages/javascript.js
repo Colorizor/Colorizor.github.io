@@ -46,7 +46,7 @@
         rep: '<span id="selector">$&</span>'
       },
       {
-        custom: '[\/](?!([\*]|span))(.*?)(?![\*])[\/](?!span)([igmuy]+|)',
+        custom: '([\/])(.*?)([\/])([igmuy]+)',
         pat: /.+/gm,
         rep: '<span id="regex">$&</span>'
       },
