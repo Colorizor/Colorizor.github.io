@@ -1,7 +1,7 @@
 //================================================================================
 //=====================================Select=====================================
 //================================================================================
-$('pre:not([noselect])').find('code:not([contenteditable="false"])').click(function() {
+$('pre:not([noselect])').find('code').not('[contenteditable="true"]').click(function() {
   if (document.selection) {
     var block = document.body.createTextRange();
     block.moveToElementText($(this)[0]);
