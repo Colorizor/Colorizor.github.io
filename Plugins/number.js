@@ -17,7 +17,7 @@
 */
 
 $.each($('pre:not([nonumber])'), function() {
-  var block = $(this).find('code').html(),
+  var block = $(this).html(),
       number = '';
   for (var a = 0; a < lines.split('\n').length; a++) {
     number += '<span id="number">' + (a + 1) + '</span>\n';
