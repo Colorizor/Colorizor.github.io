@@ -1,5 +1,5 @@
 /*----------------------------------------Salmon----------------------------------------*/
-pre:not([nobackground]){background-color:rgb(62, 69, 76);color:rgb(255, 246, 229);font-family:"Lucida Console", Monaco, monospace;font-size:14px;height:auto;line-height:14px;margin:5px;overflow:auto;padding:10px;text-align:left;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
+pre:not([nobackground]){background-color:rgb(62, 69, 76);color:rgb(255, 246, 229);font-family:"Lucida Console", Monaco, monospace;font-size:15px;height:auto;line-height:14px;margin:5px;overflow:auto;padding:10px;text-align:left;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
 pre[nobackground]{color:rgb(255, 246, 229);font-family:"Lucida Console", Monaco, monospace;font-size:14px;height:auto;margin:5px;overflow:auto;padding:10px;text-align:left;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
 span#none{background-color:rgb(255, 127, 102);border-radius:2px;color:rgb(40, 40, 45);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;padding:2px 2px 2px 2px;width:auto;z-index:100;}
 span#comment{color:rgb(159, 253, 193);font-style:italic;}
@@ -12,7 +12,7 @@ span#unit{color:rgb(255, 216, 150);}
 span#regex{color:rgb(158, 83, 74);}
 /*----------------------------------------Plugin----------------------------------------*/
 /*Number*/
-span#numbers{border-right:1px solid rgb(129, 144, 158);color:rgb(129, 144, 158);float:left;margin:0px 8px 0px 2px;text-align:right;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
+span#numbers{border-right:1px solid rgb(129, 144, 158);color:rgb(129, 144, 158);float:left;margin:0px 8px 0px 2px;padding:0px 2px 0px 0px;text-align:right;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
 span#coding{float:top;padding:0px 0px 0px 4px;text-align:left;-webkit-user-select:all;-moz-user-select:all;-ms-user-select:all;-o-user-select:all;user-select:all;}
 /*Select*/
 code::-moz-selection{background-color:rgb(81, 90, 99);color:rgb(255, 255, 255);}
