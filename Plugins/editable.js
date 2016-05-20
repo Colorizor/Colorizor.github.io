@@ -1,7 +1,7 @@
 //================================================================================
 //====================================Editable====================================
 //================================================================================
-$('pre:not([noeditable])').dblclick(function() {
+$('pre:not([noeditable])').find('code').dblclick(function() {
   var editable = $(this).attr('contenteditable');
   if (!editable || editable != 'true') {
     $(this).attr('contenteditable', 'true');
