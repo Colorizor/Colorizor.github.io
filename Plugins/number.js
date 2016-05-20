@@ -1,7 +1,7 @@
 //================================================================================
 //=====================================Number=====================================
 //================================================================================
-$.each($('pre:not([nonumber])').find('code'), function() {
+/*$.each($('pre:not([nonumber])').find('code'), function() {
   var lines = $(this).html().split('\n');
   var block = '<table id="number">';
   for (var a = 0; a < lines.length; a++) {
@@ -12,5 +12,16 @@ $.each($('pre:not([nonumber])').find('code'), function() {
     }
   }
   block += '</table>';
+  $(this).html(block);
+});
+*/
+
+$.each($('pre:not([nonumber])'), function() {
+  var block = $(this).find('code').html(),
+      number = '';
+  for (var a = 0; a < lines.split('\n').length; a++) {
+    number += '<span id="number">' + (a + 1) + '</span>\n';
+  }
+  block = '<span id="numbers">' + number + '</span><span id="coding">' + block + '</span>';
   $(this).html(block);
 });
