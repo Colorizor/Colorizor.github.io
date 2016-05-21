@@ -211,7 +211,7 @@ var clzdev = (function() {
         var lang = $(this).attr('language'),
             file = $(this).attr('file');
         //Checking
-        if (lang) {
+        if (lang && file) {
           $(this).html('<code language="' + Trim(lang.toLowerCase()) + '">' + $(this).html() + '</code>');
           loadJS(Trim(file));
         } else {
@@ -224,10 +224,10 @@ var clzdev = (function() {
             langBlock = $(this).find('code').attr('language'),
             file = $(this).attr('file');
         //Checking
-        if (langPre) {
+        if (langPre && file) {
           $(this).find('code').attr('language', langPre);
           loadJS(Trim(file));
-        } else if (langBlock) {
+        } else if (langBlock && file) {
           loadJS(Trim(file));
         } else {
           $(this).find('code').attr('language', 'none');
