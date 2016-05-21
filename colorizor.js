@@ -279,13 +279,14 @@ var clz = (function() {
       //Process
       if (!block) {
         //Setup
-        var lang = $(this).attr('language');
+        var lang = $(this).attr('language'),
+            coding = $(this).html();
         //Checking
         if (lang) {
-          $(this).html('<code language="' + Trim(lang.toLowerCase()) + '">' + $(this).html() + '</code>');
+          $(this).html('<code language="' + Trim(lang.toLowerCase()) + '">' + coding + '</code>');
           loadJS('https://colorizor.github.io/Languages/' + Trim(lang.toLowerCase()) + '.js');
         } else {
-          $(this).html('<code language="none">' + $(this).html() + '</code>');
+          $(this).html('<code language="none">' + coding + '</code>');
           loadJS('https://colorizor.github.io/Languages/none.js');
         }
       } else {
