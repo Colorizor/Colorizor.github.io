@@ -277,16 +277,15 @@ var clz = (function() {
       //Setup
       var block = $(this).find('code');
       //Process
-      if (!block) {
+      if (block == undefined) {
         //Setup
-        var lang = $(this).attr('language'),
-            coding = $(this).html();
+        var lang = $(this).attr('language');
         //Checking
-        if (lang) {
-          $(this).html('<code language="' + Trim(lang.toLowerCase()) + '">' + coding + '</code>');
+        if (lang !== undefined) {
+          $(this).html('<code language="' + Trim(lang.toLowerCase()) + '">' + $(this).html() + '</code>');
           loadJS('https://colorizor.github.io/Languages/' + Trim(lang.toLowerCase()) + '.js');
         } else {
-          $(this).html('<code language="none">' + coding + '</code>');
+          $(this).html('<code language="none">' + $(this).html() + '</code>');
           loadJS('https://colorizor.github.io/Languages/none.js');
         }
       } else {
@@ -294,10 +293,10 @@ var clz = (function() {
         var langPre = $(this).attr('language'),
             langBlock = $(this).find('code').attr('language');
         //Checking
-        if (langPre) {
+        if (langPre !== undefined) {
           $(this).find('code').attr('language', langPre);
           loadJS('https://colorizor.github.io/Languages/' + Trim(langPre.toLowerCase()) + '.js');
-        } else if (langBlock) {
+        } else if (langBlock !== undefined) {
           loadJS('https://colorizor.github.io/Languages/' + Trim(langBlock.toLowerCase()) + '.js');
         } else {
           $(this).find('code').attr('language', 'none');
