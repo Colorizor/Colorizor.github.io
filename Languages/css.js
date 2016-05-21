@@ -1,6 +1,6 @@
 (function() {
   const data = {
-    language: 'javascript',
+    language: 'css',
     prepare: [
       {
         pat: /\:\/\//gm,
