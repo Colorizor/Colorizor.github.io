@@ -221,14 +221,15 @@ var clzdev = (function() {
       } else {
         //Setup
         var langPre = $(this).attr('language'),
+            filePre = $(this).attr('file'),
             langBlock = $(this).find('code').attr('language'),
-            file = $(this).attr('file');
+            fileBlock = $(this).find('code').attr('file');
         //Checking
-        if (langPre && file) {
+        if (langPre && filePre) {
           $(this).find('code').attr('language', langPre);
-          loadJS(Trim(file));
-        } else if (langBlock && file) {
-          loadJS(Trim(file));
+          loadJS(Trim(filePre));
+        } else if (langBlock && fileBlock) {
+          loadJS(Trim(fileBlock));
         } else {
           $(this).find('code').attr('language', 'none');
           loadJS('https://colorizor.github.io/Languages/none.js');
