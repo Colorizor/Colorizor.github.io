@@ -73,12 +73,6 @@
         end: {pat: '[\*][\/][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
-      },
-      {
-        begin: {pat: '<', exclude: true},
-        end: {pat: '>', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
-        rep: ''
       }
     ],
     finalise: [
