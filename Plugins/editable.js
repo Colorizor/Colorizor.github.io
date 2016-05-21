@@ -1,11 +1,11 @@
 //================================================================================
 //====================================Editable====================================
 //================================================================================
-$('pre:not([noeditable])').find('code').dblclick(function() {
-  var editable = $(this).attr('contenteditable');
+$('pre:not([noeditable])').dblclick(function() {
+  var editable = $(this).find('code').attr('contenteditable');
   if (!editable || editable != 'true') {
-    $(this).attr('contenteditable', 'true');
+    $(this).find('code').attr('contenteditable', 'true');
   } else {
-    $(this).attr('contenteditable', 'false');
+    $(this).find('code').attr('contenteditable', 'false');
   }
 });
