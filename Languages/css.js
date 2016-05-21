@@ -75,8 +75,8 @@
         rep: ''
       },
       {
-        begin: {pat: '\<', exclude: true},
-        end: {pat: '\>', exclude: true},
+        begin: {pat: '<', exclude: true},
+        end: {pat: '>', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       }
