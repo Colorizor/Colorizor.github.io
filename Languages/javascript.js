@@ -46,16 +46,6 @@
         rep: '<span id="selector">$&</span>'
       },
       {
-        custom: '([\/])(.*?)([\/])([igmuy]+)',
-        pat: /.+/gm,
-        rep: '<span id="regex">$&</span>'
-      },
-      {
-        custom: '[\/](?!([\*]|span))(.*?)(?![\*])[\/](?!span)([igmuy]+|)',
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
-        rep: ''
-      },
-      {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
         end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
