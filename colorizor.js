@@ -276,6 +276,7 @@ var clz = (function() {
     $.each($('pre'), function() {
       //Setup
       var block = $(this).find('code');
+      console.log(block);
       //Process
       if (block == undefined) {
         //Setup
