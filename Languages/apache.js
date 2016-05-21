@@ -40,11 +40,6 @@
         rep: '<span id="unit">$&</span>'
       },
       {
-        custom: '([\/])(.*?)([\/])([igmuy]+)',
-        pat: /.+/gm,
-        rep: '<span id="regex">$&</span>'
-      },
-      {
         custom: '[\/](?!([\*]|span))(.*?)(?![\*])[\/](?!span)([igmuy]+|)',
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
