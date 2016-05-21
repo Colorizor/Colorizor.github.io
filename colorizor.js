@@ -308,7 +308,7 @@ var clz = (function() {
       //Waiting
       var waitForLoad = function() {
         if (typeof jQuery != 'undefined') {
-          Feature()
+          Feature();
         } else {
           window.setTimeout(waitForLoad, 1);
         }
