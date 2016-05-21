@@ -352,7 +352,7 @@ var clz = (function() {
       //Initialize
       Initialize(data);
       //Procedure
-      $.each($('pre[language="' + language + '"], code[language="' + language + '"]'), function() {
+      $.each($('code[language="' + language + '"]'), function() {
         //Sizing
         $(this).css({
           'height': 'auto', 'left': '0px', 'right': '0px', 'width': 'auto'
