@@ -272,7 +272,7 @@ var clz = (function() {
   }
   //==============================Feature
   function Feature() {
-    //Standardise
+    //Language
     $.each($('pre'), function() {
       //Setup
       var block = $(this).find('code')[0];
@@ -304,11 +304,6 @@ var clz = (function() {
         }
       }
     });
-    /*//Language
-    $.each($('code[language]'), function() {
-      var lang = $(this).attr('language');
-      loadJS('https://colorizor.github.io/Languages/' + Trim(lang.toLowerCase()) + '.js');
-    });*/
     //Theme & Plugin
     $.each($('script'), function() {
       var url = $(this).attr('src');
