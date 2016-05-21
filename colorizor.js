@@ -275,10 +275,9 @@ var clz = (function() {
     //Standardise
     $.each($('pre'), function() {
       //Setup
-      var block = $(this).find('code');
-      console.log(block[0]);
+      var block = $(this).find('code')[0];
       //Process
-      if (!block[0]) {
+      if (!block) {
         //Setup
         var lang = $(this).attr('language');
         //Checking
