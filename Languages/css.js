@@ -1,47 +1,86 @@
 (function() {
-  //------------------------------------------------------------------------------------------------------------
-  //---------------------------------------------------RegEx----------------------------------------------------
-  //------------------------------------------------------------------------------------------------------------
-  var regex = [
-    //Problem Characters
-    ['\\$&\/', /[\'\"\<\>]/igm],
-    ['\:\/\\\/', /\:\/\//igm],
-    //Syntax
-    ['<span id="value">$&</span>', /(?:(?!.*?[\]]))(\\\'\/(.*?)\\\'\/|\\\"\/(.*?)\\\"\/)/igm],
-    ['<span id="selector">$&</span>', /([\#\.\w\-]+)(?:((?!.*?(\/\*|[\*\;\}]))|(?=.*?[\{])))/igm],
-    ['<span id="reserved">$&</span>', /(?:(?!.*?[\{]))([\w\-]+)(?=[\:])/igm],
-    ['<span id="attribute">$&</span>', /(([^\w\:]|[\w])+)(?=[\;])/igm],
-    ['<span id="comment">$&</span>', /\/\*([\s\S]+)\*\//igm],
-    ['<span id="unit">$&</span>', /([\d\.]+)(em|ex|\%|px|cm|mm|in|pt|pc|ch|rem|vh|vw|vmin|vmax)/igm],
-    //Clean
-    ['', /(?:(?!([\s\S]+)\/\*))(\<span(.*?)\>|\<\/span\>)(?=([\s\S]*?)\*\/)/igm],
-    ['', /(?:(?!.*?[\[]))(\<span(.*?)\>|\<\/span\>)(?=.*?[\]])/igm],
-    ['', /(?:(?!.*?\\\'\/.+\'\/))(\<span(.*?)\>|\<\/span\>)(?=.*?\\\'\/)/igm],
-    ['', /(?:(?!.*?\\\"\/.+\"\/))(\<span(.*?)\>|\<\/span\>)(?=.*?\\\"\/)/igm],
-    //Fix Characters
-    ['\'', /\\\'\//igm],
-    ['\"', /\\\"\//igm],
-    ['&lt;', /\\\<\//igm],
-    ['&gt;', /\\\>\//igm],
-    ['\:\/\/', /\:\/\\\//igm]
-  ];
-  
-  //------------------------------------------------------------------------------------------------------------
-  //-------------------------------------------------COLORIZING-------------------------------------------------
-  //------------------------------------------------------------------------------------------------------------
-  $.each($('code[language="css"]'), function() {
-    //--------------------------------------------------SIZING
-    $(this).css({
-      'height': 'auto',
-      'left': '0px',
-      'right': '0px',
-      'width': 'auto'
-    });
-    //--------------------------------------------------FIND
-    for (a = 0; a < regex.length; a++) {
-      var str = $(this).html();
-      str = str.replace(regex[a][1], regex[a][0]);
-      $(this).html(str);
-    }
-  });
+  const data = {
+    language: 'javascript',
+    prepare: [
+      {
+        pat: /\:\/\//gm,
+        rep: '\:\/\\\/'
+      }
+    ],
+    execute: [
+      {
+        custom: '([\'](.*?)[\']|[\"](.*?)[\"])',
+        pat: /.+/gm,
+        rep: '<span id="value">$&</span>'
+      },
+      {
+        keyword: /([\w\-]+)(?=(\n{0,}.*?)[\{])/gm,
+        rep: '<span id="selector">$&</span>'
+      },
+      {
+        begin: {pat: '[\{](\\n{0,}.+)', exclude: true},
+        end: {pat: '[\}]', exclude: true},
+        pat: /([\w\-]+)(?=(.*?)[\:])/gm,
+        rep: '<span id="reserved">$&</span>'
+      },
+      {
+        begin: {pat: '[\{](\\n{0,}.+)', exclude: true},
+        end: {pat: '[\}]', exclude: true},
+        pat: /(?!(.*?)[\:])([\w\-]+[\(]|[\)])/gm,
+        rep: '<span id="attribute">$&</span>'
+      },
+      {
+        begin: {pat: '[\{](\\n{0,}.+)', exclude: true},
+        end: {pat: '[\}]', exclude: true},
+        pat: /(?!(.*?)[\:])([\w\-]+)/gm,
+        rep: '<span id="parameter">$&</span>'
+      },
+      {
+        custom: '([\/][\*]((|\\n+)[\/][\*]|))([\\s\\S]*?)(([\*][\/](\\n+|)|)[\*][\/])',
+        pat: /([\s\S]+)/gm,
+        rep: '<span id="comment">$&</span>'
+      },
+      {
+        custom: '((\\d|[\-]\\d|[\.]\\d)+)([\%]|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?',
+        pat: /.+/gm,
+        rep: '<span id="unit">$&</span>'
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
+        end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\"]', exclude: true},
+        end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      },
+      {
+        custom: '[\\\[](.*?)[\\\]]',
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]attribute[\"][\>], exclude: true},
+        end: {pat: '[\(][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\*]', exclude: true},
+        end: {pat: '[\*][\/][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      }
+    ],
+    finalise: [
+      {
+        pat: /\:\/\\\//gm,
+        rep: '\:\/\/'
+      }
+    ]
+  };
+  clz.Colorize(data);
 })();
