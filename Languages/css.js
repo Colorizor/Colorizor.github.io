@@ -63,7 +63,7 @@
         rep: ''
       },
       {
-        begin: {pat: '[\<]span\\sid[\=][\"]attribute[\"][\>], exclude: true},
+        begin: {pat: '[\<]span\\sid[\=][\"]attribute[\"][\>]', exclude: true},
         end: {pat: '[\(][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
