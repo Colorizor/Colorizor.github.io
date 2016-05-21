@@ -272,11 +272,43 @@ var clz = (function() {
   }
   //==============================Feature
   function Feature() {
-    //Language
-    $.each($('pre[language], code[language]'), function() {
+    //Standardise
+    $.each($('pre'), function() {
+      //Setup
+      var block = $(this).find('code');
+      //Process
+      if (!block) {
+        //Setup
+        var lang = $(this).attr('language');
+        //Checking
+        if (lang) {
+          $(this).html('<code language="' + Trim(lang.toLowerCase()) + '">' + $(this).html() + '</code>');
+          loadJS('https://colorizor.github.io/Languages/' + Trim(lang.toLowerCase()) + '.js');
+        } else {
+          $(this).html('<code language="none">' + $(this).html() + '</code>');
+          loadJS('https://colorizor.github.io/Languages/none.js');
+        }
+      } else {
+        //Setup
+        var langPre = $(this).attr('language'),
+            langBlock = $(this).find('code').attr('language');
+        //Checking
+        if (langPre) {
+          $(this).find('code').attr('language', langPre);
+          loadJS('https://colorizor.github.io/Languages/' + Trim(langPre.toLowerCase()) + '.js');
+        } else if (langBlock) {
+          loadJS('https://colorizor.github.io/Languages/' + Trim(langBlock.toLowerCase()) + '.js');
+        } else {
+          $(this).find('code').attr('language', 'none');
+          loadJS('https://colorizor.github.io/Languages/none.js');
+        }
+      }
+    });
+    /*//Language
+    $.each($('code[language]'), function() {
       var lang = $(this).attr('language');
       loadJS('https://colorizor.github.io/Languages/' + Trim(lang.toLowerCase()) + '.js');
-    });
+    });*/
     //Theme & Plugin
     $.each($('script'), function() {
       var url = $(this).attr('src');
