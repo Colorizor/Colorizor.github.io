@@ -48,14 +48,14 @@
         rep: ''
       },
       {
-        begin: {pat: '&lt;script(.*?)&gt;', exclude: true},
-        end: {pat: '&lt;[\/]script&gt;', exclude: true},
+        begin: {pat: '&lt;(.*?)script(.*?)&gt;', exclude: true},
+        end: {pat: '&lt;[\/](.*?)script(.*?)&gt;', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
       {
-        begin: {pat: '&lt;link(.*?)&gt;', exclude: true},
-        end: {pat: '&lt;[\/]link&gt;', exclude: true},
+        begin: {pat: '&lt;(.*?)link(.*?)&gt;', exclude: true},
+        end: {pat: '&lt;[\/](.*?)link(.*?)&gt;', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
@@ -75,8 +75,3 @@
   };
   clz.Colorize(data);
 })();
-
-
-///(&lt;(.*?)pre(.*?)&gt;((|\\n+)&lt;(.*?)code(.*?)&gt;|)|&lt;(.*?)code(.*?)&gt;)([\\s\\S]*?)((&lt;[\/](.*?)code&gt;(\\n+|)|)&lt;[\/](.*?)pre&gt;|&lt;[\/](.*?)code&gt;)/
-
-
