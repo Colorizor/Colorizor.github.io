@@ -201,10 +201,39 @@ var clzdev = (function() {
   }
   //==============================Feature
   function Feature() {
-    //File
-    $.each($('pre[file], code[file]'), function() {
-      var file = $(this).attr('file');
-      loadJS(file);
+    //Language
+    $.each($('pre'), function() {
+      //Setup
+      var block = $(this).find('code')[0];
+      //Process
+      if (!block) {
+        //Setup
+        var lang = $(this).attr('language'),
+            file = $(this).attr('file');
+        //Checking
+        if (lang) {
+          $(this).html('<code language="' + Trim(lang.toLowerCase()) + '">' + $(this).html() + '</code>');
+          loadJS(Trim(file));
+        } else {
+          $(this).html('<code language="none">' + $(this).html() + '</code>');
+          loadJS('https://colorizor.github.io/Languages/none.js');
+        }
+      } else {
+        //Setup
+        var langPre = $(this).attr('language'),
+            langBlock = $(this).find('code').attr('language'),
+            file = $(this).attr('file');
+        //Checking
+        if (langPre) {
+          $(this).find('code').attr('language', langPre);
+          loadJS(Trim(file));
+        } else if (langBlock) {
+          loadJS(Trim(file));
+        } else {
+          $(this).find('code').attr('language', 'none');
+          loadJS('https://colorizor.github.io/Languages/none.js');
+        }
+      }
     });
   }
   
@@ -233,7 +262,7 @@ var clzdev = (function() {
       //Initialize
       Initialize(data);
       //Procedure
-      $.each($('pre[language="' + language + '"], code[language="' + language + '"]'), function() {
+      $.each($('code[language="' + language + '"]'), function() {
         //Sizing
         $(this).css({
           'height': 'auto', 'left': '0px', 'right': '0px', 'width': 'auto'
