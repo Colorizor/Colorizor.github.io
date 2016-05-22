@@ -30,6 +30,11 @@
         rep: '<span id="selector">$&</span>'
       },
       {
+        custom: '([\#\$\=]?0x[0-9a-f]+|[\#\$\=]?0b[01]+|[\#\$\=]\\d+|\\b\\d+)',
+        pat: /.+/gm,
+        rep: '<span id="unit">$&</span>'
+      },
+      {
         custom: '[\;\@].+',
         pat: /([\s\S]+)/gm,
         rep: '<span id="comment">$&</span>'
@@ -38,11 +43,6 @@
         nested: 'comment',
         begin: '[\/][\*]',
         end: '[\*][\/]'
-      },
-      {
-        custom: '([\#\$\=]?0x[0-9a-f]+|[\#\$\=]?0b[01]+|[\#\$\=]\\d+|\\b\\d+)',
-        pat: /.+/gm,
-        rep: '<span id="unit">$&</span>'
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
