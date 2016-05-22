@@ -188,7 +188,7 @@ var clzdev = (function() {
       var object = line.match(new RegExp(begin, 'gm'));
       if (object != null) {
         if (!busy) {
-          line = line.replace(new RegExp(begin, 'm'), '<span id="' + nested + '">$&');
+          line = line.replace(new RegExp(begin, 'm'), '<span id="' + nested + '">$&<span id="block">');
           busy = true;
         }
         open += object.length;
@@ -203,7 +203,7 @@ var clzdev = (function() {
         open = 0;
         close = 0;
         busy = false;
-        line = line.replace(new RegExp(end + '(?!(.*?)' + end + ')', 'm'), '$&</span>');
+        line = line.replace(new RegExp(end + '(?!(.*?)' + end + ')', 'm'), '</span>$&</span>');
       }
       //Replace
       return line;
