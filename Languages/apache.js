@@ -30,14 +30,14 @@
         rep: '<span id="parameter">$&</span>'
       },
       {
-        custom: '[\#].+',
-        pat: /.+/gm,
-        rep: '<span id="comment">$&</span>'
-      },
-      {
         custom: '[\$\%]\\d+',
         pat: /.+/gm,
         rep: '<span id="unit">$&</span>'
+      },
+      {
+        custom: '[\#].+',
+        pat: /.+/gm,
+        rep: '<span id="comment">$&</span>'
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
