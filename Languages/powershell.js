@@ -52,13 +52,13 @@
       {
         begin: {pat: '([\<]span\\sid[\=][\"]value[\"][\>][\']([\\s\\S]*?)[\']|[\<]span\\sid[\=][\"]value[\"][\>][\']?([\\s\\S]*?)[\']?)', exclude: true},
         end: {pat: '[\']?[\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)(?!value)(.*?)\>|\<\/span\>)/gm,
+        pat: /(\<span(?!(.*?)value)(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
       {
         begin: {pat: '([\<]span\\sid[\=][\"]value[\"][\>][\"]([\\s\\S]*?)[\"]|[\<]span\\sid[\=][\"]value[\"][\>][\"]?([\\s\\S]*?)[\"]?)', exclude: true},
         end: {pat: '[\"]?[\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)(?!value)(.*?)\>|\<\/span\>)/gm,
+        pat: /(\<span(?!(.*?)value)(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
       {
