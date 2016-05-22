@@ -20,7 +20,7 @@
       {
         begin: {pat: '[\{](((\\s{0,}.*?)?)[\{])?', exclude: true},
         end: {pat: '([\}]((\\s{0,}.*?)?))?[\}]', exclude: true},
-        pat: /([\w\-]+)(?=(.*?)[\:])/gm,
+        pat: /([\w\-]+)(?=.?[\:])/gm,
         rep: '<span id="reserved">$&</span>'
       },
       {
