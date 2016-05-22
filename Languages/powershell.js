@@ -21,10 +21,6 @@
         rep: '<span id="parameter">$&</span>'
       },
       {
-        keyword: /(-ne|-eq|-lt|-gt|-ge|-le|-not|-like|-notlike|-match|-notmatch|-contains|-notcontains|-in|-notin|-replace)/gm,
-        rep: '<span id="parameter">$&</span>'
-      },
-      {
         keyword: /([\w]+)(?=[\(])/gm,
         rep: '<span id="selector">$&</span>'
       },
@@ -32,6 +28,10 @@
         custom: '[\\\[](.*?)[\\\]]',
         pat: /([\w]+)/gm,
         rep: '<span id="attribute">$&</span>'
+      },
+      {
+        keyword: /(-ne|-eq|-lt|-gt|-ge|-le|-not|-like|-notlike|-match|-notmatch|-contains|-notcontains|-in|-notin|-replace)/gm,
+        rep: '<span id="unit">$&</span>'
       },
       {
         custom: '([\-]?)(\\b[0][Xx][a-fA-F\\d]+|([\#]?\\b[\\d]+([\.][\\d]*)?\\b|[\.][\\d]+)([Ee][\-\+]?[\\d]+)?)([\%]|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?',
