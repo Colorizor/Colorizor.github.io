@@ -134,12 +134,10 @@ var clz = (function() {
       } else if (Exist(this.nested)) {
         //Setup
         var nested = this.nested;
-        var beginPat = this.begin.pat;
-        var beginRep = this.begin.rep;
-        var endPat = this.end.pat;
-        var endRep = this.end.rep;
+        var begin = this.begin;
+        var end = this.end;
         //Configuration
-        Nested(nested, beginPat, beginRep, endPat, endRep);
+        Nested(nested, begin, end);
       } else if (Exist(this.custom)) {
         //Setup
         var custom = this.custom;
@@ -213,7 +211,7 @@ var clz = (function() {
     });
   }
   //Nested
-  function Nested(nested, beginPat, beginRep, endPat, endRep) {
+  function Nested(nested, begin, end) {
     //Setup
     var open = 0,
         close = 0,
