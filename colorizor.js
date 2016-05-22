@@ -222,7 +222,7 @@ var clz = (function() {
       var object = match.match(new RegExp(begin, 'gm'));
       if (object != null) {
         if (!busy) {
-          match = match.replace(new RegExp(begin, 'm'), '<span id="' + nested + '">$&');
+          match = match.replace(new RegExp(begin, 'm'), '<span id="' + nested + '">$&<span id="block">');
           busy = true;
         }
         open += object.length;
@@ -237,7 +237,7 @@ var clz = (function() {
         open = 0;
         close = 0;
         busy = false;
-        match = match.replace(new RegExp(end + '(?!(.*?)' + end + ')', 'm'), '$&</span>');
+        match = match.replace(new RegExp(end + '(?!(.*?)' + end + ')', 'm'), '</span>$&</span>');
       }
       //Replace
       return match;
