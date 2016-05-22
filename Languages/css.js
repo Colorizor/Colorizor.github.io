@@ -32,7 +32,7 @@
       {
         begin: {pat: '[\{](\\n{0,}.+)', exclude: true},
         end: {pat: '[\}]', exclude: true},
-        pat: /(?!(.*?)[\:])([\w\-]+)/gm,
+        pat: /[\:](.*?)(?=[\;\n\}])/gm,
         rep: '<span id="parameter">$&</span>'
       },
       {
