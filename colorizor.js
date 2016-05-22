@@ -113,7 +113,14 @@ var clz = (function() {
   function Execute() {
     $.each(execute, function() {
       //Detect
-      if (Exist(this.begin) && Exist(this.end)) {
+      if (Exist(this.nested)) {
+        //Setup
+        var nested = this.nested;
+        var begin = this.begin;
+        var end = this.end;
+        //Configuration
+        Nested(nested, begin, end);
+      } else if (Exist(this.begin) && Exist(this.end)) {
         //Setup
         var begin = this.begin.pat;
         var excludeBegin = this.begin.exclude;
@@ -131,13 +138,6 @@ var clz = (function() {
         } else {
           NotBeginNotEnd(begin, end, pat, rep);
         }
-      } else if (Exist(this.nested)) {
-        //Setup
-        var nested = this.nested;
-        var begin = this.begin;
-        var end = this.end;
-        //Configuration
-        Nested(nested, begin, end);
       } else if (Exist(this.custom)) {
         //Setup
         var custom = this.custom;
