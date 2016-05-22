@@ -25,9 +25,9 @@
         rep: '<span id="attribute">$&</span>'
       },
       {
-        custom: '(&lt;[\!][\-][\-]((|\\n+)&lt;[\!][\-][\-]|))([\\s\\S]*?)(([\-][\-]&gt;(\\n+|)|)[\-][\-]&gt;)',
-        pat: /([\s\S]+)/gm,
-        rep: '<span id="comment">$&</span>'
+        nested: 'comment',
+        begin: '&lt;[\!][\-][\-]',
+        end: '[\-][\-]&gt;'
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
