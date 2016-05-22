@@ -200,6 +200,8 @@ var clzdev = (function() {
       }
       //Check
       if (open == close) {
+        open = 0;
+        close = 0;
         busy = false;
         line = line.replace(new RegExp(end + '(?!(.*?)' + end + ')', 'm'), '$&</span>');
       }
