@@ -26,7 +26,7 @@
       {
         begin: {pat: '[\{](\\n{0,}.+)', exclude: true},
         end: {pat: '[\}]', exclude: true},
-        pat: /(?!(.*?)[\:])([\w\-]+[\(]|[\)])/gm,
+        pat: /([\w\-]+[\(]|[\)])/gm,
         rep: '<span id="attribute">$&</span>'
       },
       {
