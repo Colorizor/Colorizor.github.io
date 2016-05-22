@@ -30,14 +30,10 @@
         rep: '<span id="parameter">$&</span>'
       },
       {
-        nested: 'comment',
-        begin: '[\/][\*]',
-        end: '[\*][\/]'
-      },
-      {
-        custom: '[\/][\/].+',
-        pat: /([\s\S]+)/gm,
-        rep: '<span id="comment">$&</span>'
+        begin: {pat: '[\.](?=([\\w]+)((.?)[\=]|[\(]))', exclude: true},
+        end: {pat: '([\=]|[\(])', exclude: true},
+        pat: /([\w]+)/gm,
+        rep: '<span id="selector">$&</span>'
       },
       {
         custom: '([\-]?)(\\b[0][Xx][a-fA-F\\d]+|([\#]?\\b[\\d]+([\.][\\d]*)?\\b|[\.][\\d]+)([Ee][\-\+]?[\\d]+)?)([\%]|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?',
@@ -45,10 +41,14 @@
         rep: '<span id="unit">$&</span>'
       },
       {
-        begin: {pat: '[\.](?=([\\w]+)((.?)[\=]|[\(]))', exclude: true},
-        end: {pat: '([\=]|[\(])', exclude: true},
-        pat: /([\w]+)/gm,
-        rep: '<span id="selector">$&</span>'
+        custom: '[\/][\/].+',
+        pat: /([\s\S]+)/gm,
+        rep: '<span id="comment">$&</span>'
+      },
+      {
+        nested: 'comment',
+        begin: '[\/][\*]',
+        end: '[\*][\/]'
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
@@ -63,14 +63,14 @@
         rep: ''
       },
       {
-        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\*]', exclude: true},
-        end: {pat: '[\*][\/][\<][\/]span[\>]', exclude: true},
+        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\/]', exclude: true},
+        end: {pat: '[\<][\/]span[\>]$', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
       {
-        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\/]', exclude: true},
-        end: {pat: '[\<][\/]span[\>]$', exclude: true},
+        begin: {pat: '([\/][\*])\<span\\sid\=\"block\"\>', exclude: true},
+        end: {pat: '\<\/span\>([\*][\/])', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       }
