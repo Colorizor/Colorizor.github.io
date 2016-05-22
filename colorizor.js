@@ -217,28 +217,30 @@ var clz = (function() {
         close = 0,
         busy = false;
     //Colorize
-    code = code.replace(/(^\n|.+)/gm, function(line) {
+    code = code.replace(/(^\n|.+)/gm, function(match) {
       //Open
-      var object = line.match(new RegExp(begin, 'gm'));
+      var object = match.match(new RegExp(begin, 'gm'));
       if (object != null) {
         if (!busy) {
-          line = line.replace(new RegExp(begin, 'm'), '<span id="' + nested + '">$&');
+          match = match.replace(new RegExp(begin, 'm'), '<span id="' + nested + '">$&');
           busy = true;
         }
         open += object.length;
       }
       //Close
-      var object = line.match(new RegExp(end, 'gm'));
+      var object = match.match(new RegExp(end, 'gm'));
       if (object != null) {
         close += object.length;
       }
       //Check
       if (open == close) {
+        open = 0;
+        close = 0;
         busy = false;
-        line = line.replace(new RegExp(end + '(?!(.*?)' + end + ')', 'm'), '$&</span>');
+        match = match.replace(new RegExp(end + '(?!(.*?)' + end + ')', 'm'), '$&</span>');
       }
       //Replace
-      return line;
+      return match;
     });
   }
   //Custom
