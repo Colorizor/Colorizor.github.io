@@ -131,6 +131,15 @@ var clz = (function() {
         } else {
           NotBeginNotEnd(begin, end, pat, rep);
         }
+      } else if (Exist(this.nested)) {
+        //Setup
+        var nested = this.nested;
+        var beginPat = this.begin.pat;
+        var beginRep = this.begin.rep;
+        var endPat = this.end.pat;
+        var endRep = this.end.rep;
+        //Configuration
+        Nested(nested, beginPat, beginRep, endPat, endRep);
       } else if (Exist(this.custom)) {
         //Setup
         var custom = this.custom;
@@ -201,6 +210,37 @@ var clz = (function() {
     //Colorize
     code = code.replace(reg, function(match) {
       return match.replace(pat, rep);
+    });
+  }
+  //Nested
+  function Nested(nested, beginPat, beginRep, endPat, endRep) {
+    //Setup
+    var open = 0,
+        close = 0,
+        busy = false;
+    //Colorize
+    code = code.replace(/(^\n|.+)/gm, function(line) {
+      //Open
+      var object = line.match(new RegExp(begin, 'gm'));
+      if (object != null) {
+        if (!busy) {
+          line = line.replace(new RegExp(begin, 'm'), '<span id="' + nested + '">$&');
+          busy = true;
+        }
+        open += object.length;
+      }
+      //Close
+      var object = line.match(new RegExp(end, 'gm'));
+      if (object != null) {
+        close += object.length;
+      }
+      //Check
+      if (open == close) {
+        busy = false;
+        line = line.replace(new RegExp(end + '(?!(.*?)' + end + ')', 'm'), '$&</span>');
+      }
+      //Replace
+      return line;
     });
   }
   //Custom
