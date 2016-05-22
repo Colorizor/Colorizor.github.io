@@ -18,20 +18,20 @@
         rep: '<span id="selector">$&</span>'
       },
       {
-        begin: {pat: '[\{](\\n{0,}.+)', exclude: true},
-        end: {pat: '[\}]', exclude: true},
+        begin: {pat: '[\{](((\\s{0,}.*?)?)[\{])?', exclude: true},
+        end: {pat: '([\}]((\\s{0,}.*?)?))?[\}]', exclude: true},
         pat: /([\w\-]+)(?=(.*?)[\:])/gm,
         rep: '<span id="reserved">$&</span>'
       },
       {
-        begin: {pat: '[\{](\\n{0,}.+)', exclude: true},
-        end: {pat: '[\}]', exclude: true},
+        begin: {pat: '[\{](((\\s{0,}.*?)?)[\{])?', exclude: true},
+        end: {pat: '([\}]((\\s{0,}.*?)?))?[\}]', exclude: true},
         pat: /([\w\-]+[\(]|[\)])/gm,
         rep: '<span id="attribute">$&</span>'
       },
       {
-        begin: {pat: '[\{](\\n{0,}.+)', exclude: true},
-        end: {pat: '[\}]', exclude: true},
+        begin: {pat: '[\{](((\\s{0,}.*?)?)[\{])?', exclude: true},
+        end: {pat: '([\}]((\\s{0,}.*?)?))?[\}]', exclude: true},
         pat: /[\:](.*?)(?=[\;\\n\}])/gm,
         rep: '<span id="parameter">$&</span>'
       },
