@@ -30,9 +30,17 @@
         rep: '<span id="parameter">$&</span>'
       },
       {
-        custom: '(([\/][\*]((.*?)[\*][\/]|([\\s\\S]*?)(\\n.*?){4,}[\*][\/]))|[\/][\/].+)',
+        custom: '[\/][\/].+',
         pat: /([\s\S]+)/gm,
         rep: '<span id="comment">$&</span>'
+      },
+      {
+        keyword: /[\/][\*]/gm,
+        rep: '<span id="comment">$&'
+      },
+      {
+        keyword: /[\*][\/]/gm,
+        rep: '$&</span>'
       },
       {
         custom: '([\-]?)(\\b[0][Xx][a-fA-F\\d]+|([\#]?\\b[\\d]+([\.][\\d]*)?\\b|[\.][\\d]+)([Ee][\-\+]?[\\d]+)?)([\%]|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?',
@@ -60,7 +68,7 @@
       {
         begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\*]', exclude: true},
         end: {pat: '[\*][\/][\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        pat: /(\<span(.*?)(?!comment)(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
       {
