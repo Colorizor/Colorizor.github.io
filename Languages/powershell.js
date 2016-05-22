@@ -14,7 +14,7 @@
       },
       {
         custom: '([\'](.*?)[\']|[\"](.*?)[\"])',
-        pat: /[\$][\(](.*?)[\)]/gm,
+        pat: /[\$][\(](.*?)[\)]{1,2}/gm,
         rep: '</span>$&<span id="value">'
       },
       {
@@ -40,14 +40,14 @@
         rep: '<span id="unit">$&</span>'
       },
       {
-        custom: '[\/][\/].+',
+        custom: '[\#].+',
         pat: /([\s\S]+)/gm,
         rep: '<span id="comment">$&</span>'
       },
       {
         nested: 'comment',
-        begin: '[\/][\*]',
-        end: '[\*][\/]'
+        begin: '&lt;[\#]',
+        end: '[\#]&gt;'
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
