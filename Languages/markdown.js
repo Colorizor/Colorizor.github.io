@@ -30,24 +30,6 @@
         end: '[\-][\-]&gt;'
       },
       {
-        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
-        end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
-        rep: ''
-      },
-      {
-        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\"]', exclude: true},
-        end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
-        rep: ''
-      },
-      {
-        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>](&lt;[\!][\-][\-])', exclude: true},
-        end: {pat: '([\-][\-]&gt;)[\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
-        rep: ''
-      },
-      {
         begin: {pat: '&lt;(.*?)script(.*?)&gt;', exclude: true},
         end: {pat: '&lt;[\/](.*?)script(.*?)&gt;', exclude: true},
         pat: /([\s\S]+)/gm,
@@ -64,6 +46,24 @@
         end: {pat: '((&lt;[\/](.*?)code(.*?)&gt;((\\s{0,}.*?)?))?&lt;[\/](.*?)pre(.*?)&gt;)', exclude: true},
         pat: /([\s\S]+)/gm,
         rep: '<span id="block">$&</span>'
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
+        end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\"]', exclude: true},
+        end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      },
+      {
+        begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>](&lt;[\!][\-][\-])', exclude: true},
+        end: {pat: '([\-][\-]&gt;)[\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
       },
       {
         begin: {pat: '\<span\\sid\=\"block\"\>', exclude: true},
