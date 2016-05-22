@@ -97,6 +97,13 @@ var clzdev = (function() {
         } else {
           NotBeginNotEnd(begin, end, pat, rep);
         }
+      } else if (Exist(this.nested)) {
+        //Setup
+        var nested = this.nested;
+        var begin = this.begin;
+        var end = this.end;
+        //Configuration
+        Nested(nested, begin, end);
       } else if (Exist(this.custom)) {
         //Setup
         var custom = this.custom;
@@ -167,6 +174,37 @@ var clzdev = (function() {
     //Colorize
     code = code.replace(reg, function(match) {
       return match.replace(pat, rep);
+    });
+  }
+  //Nested
+  function Nested(nested, begin, end) {
+    //Setup
+    var open = 0,
+        close = 0,
+        busy = false;
+    //Colorize
+    code = code.replace(/(^\n|.+)/gm, function(line) {
+      //Open
+      var object = line.match(new RegExp(begin, 'gm'));
+      if (object != null) {
+        if (!busy) {
+          line = line.replace(new RegExp(begin, 'm'), '<span id="' + nested + '">$&');
+          busy = true;
+        }
+        open += object.length;
+      }
+      //Close
+      var object = line.match(new RegExp(end, 'gm'));
+      if (object != null) {
+        close += object.length;
+      }
+      //Check
+      if (open == close) {
+        busy = false;
+        line = line.replace(new RegExp(end + '(?!(.*?)' + end + ')', 'm'), '$&</span>');
+      }
+      //Replace
+      return line;
     });
   }
   //Custom
