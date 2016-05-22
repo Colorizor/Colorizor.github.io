@@ -17,7 +17,11 @@
         rep: '<span id="reserved">$&</span>'
       },
       {
-        keyword: /(if|else|foreach|return|function|do|while|until|elseif|begin|for|trap|data|dynamicparam|end|break|throw|param|continue|finally|in|switch|exit|filter|try|process|catch|-ne|-eq|-lt|-gt|-ge|-le|-not|-like|-notlike|-match|-notmatch|-contains|-notcontains|-in|-notin|-replace)/gm,
+        keyword: /\b(if|else|foreach|return|function|do|while|until|elseif|begin|for|trap|data|dynamicparam|end|break|throw|param|continue|finally|in|switch|exit|filter|try|process|catch)\b/gm,
+        rep: '<span id="parameter">$&</span>'
+      },
+      {
+        keyword: /(-ne|-eq|-lt|-gt|-ge|-le|-not|-like|-notlike|-match|-notmatch|-contains|-notcontains|-in|-notin|-replace)/gm,
         rep: '<span id="parameter">$&</span>'
       },
       {
