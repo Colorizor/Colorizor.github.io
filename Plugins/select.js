@@ -3,7 +3,7 @@
 //================================================================================
 $('pre:not([noselect])').find('code').click(function() {
   var select = $(this).attr('contenteditable');
-  if (!select || select != 'true') {
+  if (!select || select == 'false') {
     if (document.selection) {
       var block = document.body.createTextRange();
       block.moveToElementText($(this)[0]);
