@@ -50,18 +50,24 @@
       {
         begin: {pat: '&lt;(.*?)script(.*?)&gt;', exclude: true},
         end: {pat: '&lt;[\/](.*?)script(.*?)&gt;', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
-        rep: ''
+        pat: /([\s\S]+)/gm,
+        rep: '<span id="block">$&</span>'
       },
       {
         begin: {pat: '&lt;(.*?)link(.*?)&gt;', exclude: true},
         end: {pat: '&lt;[\/](.*?)link(.*?)&gt;', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
-        rep: ''
+        pat: /([\s\S]+)/gm,
+        rep: '<span id="block">$&</span>'
       },
       {
-        begin: {pat: '[\<]span\\sid[\=][\"]block[\"][\>](&lt;(.*?)pre(.*?)&gt;((|\\n+)&lt;(.*?)code(.*?)&gt;|)|&lt;(.*?)code(.*?)&gt;)', exclude: true},
-        end: {pat: '((&lt;[\/](.*?)code&gt;(\\n+|)|)&lt;[\/](.*?)pre&gt;|&lt;[\/](.*?)code&gt;)[\<][\/]span[\>]', exclude: true},
+        begin: {pat: '(&lt;(.*?)pre(.*?)&gt;(((\\s{0,}.*?)?)&lt;(.*?)code(.*?)&gt;)?)', exclude: true},
+        end: {pat: '((&lt;[\/](.*?)code(.*?)&gt;((\\s{0,}.*?)?))?&lt;[\/](.*?)pre(.*?)&gt;)', exclude: true},
+        pat: /([\s\S]+)/gm,
+        rep: '<span id="block">$&</span>'
+      },
+      {
+        begin: {pat: '\<span\\sid\=\"block\"\>', exclude: true},
+        end: {pat: '\<\/span\>', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       }
