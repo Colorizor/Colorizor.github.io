@@ -75,13 +75,13 @@
         rep: ''
       },
       {
-        custom: '[\"]\<\/span\>[\\][\(]',
-        pat: /[\"]\<\/span\>/gm,
+        custom: '[\"][\<][\/]span[\>][\\\\][\(]',
+        pat: /[\"][\<][\/]span[\>]/gm,
         rep: '\<\/span\>'
       },
       {
-        custom: '[\)]\<span(.*?)\>[\"]',
-        pat: /\<span(.*?)\>[\"]/gm,
+        custom: '[\)][\<]span(.*?)[\>][\"]',
+        pat: /[\<]span(.*?)[\>][\"]/gm,
         rep: '\<span id="value"\>'
       }
     ],
