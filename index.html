@@ -96,21 +96,22 @@ int main(int argc, char *argv[]) {
 
 export  $initHighlight;</code></pre></p>
           <p>PowerShell</p>
-          <p><pre nonumber noeditable nofold noselect><code language="powershell">$initialDate = [datetime]'2013/1/8'
+          <p><pre nonumber noeditable nofold noselect><code language="swift">import Foundation
 
-$rollingDate = $initialDate
-&lt;#
-  &lt;#
-    Perfect URL: [URL Plugin][https://colorizor.github.io/Plugins]
-  #&gt;
-#&gt;
-do {
-    $client = New-Object System.Net.WebClient
-    $results = $client.DownloadString("[Not a Real URL][http://not.a.real.url]")
-    Write-Host "$rollingDate.ToShortDateString() - $results"
-    $rollingDate = $rollingDate.AddDays(21)
-    $username = [System.Environment]::UserName
-} until ($rollingDate -ge [datetime]'2013/12/31')</code></pre></p>
+@objc class Person: Entity {
+  var name: String!
+  var age:  Int!
+
+  init(name: String, age: Int) {
+    /* /* ... */ */
+  }
+
+  // Return a descriptive string for this person
+  func description(offset: Int = 0) -> String {
+    return "\(name) is \(age + offset) years old"
+  }
+}
+</code></pre></p>
           <p>CSS</p>
           <p><pre nonumber noeditable nofold noselect nourl><code language="css">@font-face {
   font-family: Chunkfive; src: url('Chunkfive.otf');
