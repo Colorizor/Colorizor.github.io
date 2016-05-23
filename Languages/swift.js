@@ -77,12 +77,12 @@
       {
         custom: '[\"][\<][\/]span[\>][\\\\][\(]',
         pat: /[\"][\<][\/]span[\>]/gm,
-        rep: '\<\/span\>'
+        rep: '<\/span>'
       },
       {
         custom: '[\)][\<]span(.*?)[\>][\"]',
         pat: /[\<]span(.*?)[\>][\"]/gm,
-        rep: '\<span id="value"\>'
+        rep: '<span id="value">'
       }
     ],
     finalise: [
