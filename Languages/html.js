@@ -1,6 +1,6 @@
 (function() {
   const data = {
-    language: 'markdown',
+    language: 'html',
     prepare: [
       {
         pat: /[\=]/gm,
