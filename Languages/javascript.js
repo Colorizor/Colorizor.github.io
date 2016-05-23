@@ -35,13 +35,11 @@
         rep: '<span id="selector">$&</span>'
       },
       {
-        custom: '([\-]?)(\\b[0][Xx][a-fA-F\\d]+|([\#]?\\b[\\d]+([\.][\\d]*)?\\b|[\.][\\d]+)([Ee][\-\+]?[\\d]+)?)([\%]|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?',
-        pat: /.+/gm,
+        keyword: /([\-]?)(\b[0][Xx][a-fA-F\d]+|([\#]?\b[\d]+([\.][\d]*)?\b|[\.][\d]+)([Ee][\-\+]?[\d]+)?)([\%]|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?/gm,
         rep: '<span id="unit">$&</span>'
       },
       {
-        custom: '[\/][\/].+',
-        pat: /([\s\S]+)/gm,
+        keyword: /[\/][\/].+/gm,
         rep: '<span id="comment">$&</span>'
       },
       {
