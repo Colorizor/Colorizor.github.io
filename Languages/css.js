@@ -44,6 +44,10 @@
         end: '[\*][\/]'
       },
       {
+        keyword: /[\<]span[\s]id[\=][\"]parameter[\"][\>][\:]/gm,
+        rep: ':<span id="parameter">'
+      },
+      {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
         end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
