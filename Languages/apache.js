@@ -29,13 +29,11 @@
         rep: '<span id="parameter">$&</span>'
       },
       {
-        custom: '[\$\%]\\d+',
-        pat: /.+/gm,
+        keyword: /[\$\%]\\d+/gm,
         rep: '<span id="unit">$&</span>'
       },
       {
-        custom: '[\#].+',
-        pat: /.+/gm,
+        keyword: /[\#].+/gm,
         rep: '<span id="comment">$&</span>'
       },
       {
