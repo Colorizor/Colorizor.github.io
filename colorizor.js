@@ -26,7 +26,7 @@ var clz = (function() {
     var ref = window.document.getElementsByTagName('script')[0];
     var script = window.document.createElement('script');
     script.src = Trim(src);
-    script.async = false;
+    script.async = true;
     ref.parentNode.insertBefore(script, ref);
     if (cb && typeof(cb) === 'function') {
       script.onload = cb;
