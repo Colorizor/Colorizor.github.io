@@ -14,7 +14,7 @@
         rep: '\`$&\`'
       },
       {
-        keyword: /([\'](.*?)[\']|[\"](.*?)[\"]|[\`](.*?)[\`])/gm,
+        keyword: /([\`](.*?)[\`]|[\'](.*?)[\']|[\"](.*?)[\"])/gm,
         rep: '<span id="value">$&</span>'
       },
       {
@@ -53,6 +53,12 @@
         end: '[\*][\/]'
       },
       {
+        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\`]', exclude: true},
+        end: {pat: '[\`][\<][\/]span[\>]', exclude: true},
+        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        rep: ''
+      },
+      {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
         end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
@@ -61,12 +67,6 @@
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\"]', exclude: true},
         end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
-        rep: ''
-      },
-      {
-        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\`]', exclude: true},
-        end: {pat: '[\`][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       },
