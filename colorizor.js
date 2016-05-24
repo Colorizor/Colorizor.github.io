@@ -300,7 +300,7 @@ var clz = (function() {
           themePar = themePar.match(themeReg[1])[0];
         }
       } else {
-        themePar = 'default';
+        themePar = 'none';
       }
       //Plugin
       if (Validate(urlPar.match(pluginReg[0]))) {
