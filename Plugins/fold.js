@@ -13,7 +13,7 @@ $('pre:not([nofold])').find('span#block').mousedown(function(event) {
         $(this).html($(this).attr('block'));
         $(this).removeAttr('block');
       }
-      console.log($(this));
+      console.log($(this).parent('pre:not([nonumber])'));
       Renumber($(this), count);
       break;
     default:
