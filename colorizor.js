@@ -273,42 +273,47 @@ var clz = (function() {
   function Trim(value) {
     return value.trim();
   }
+  //Validate
+  function Validate(value) {
+    if (value != null) {
+      return value;
+    }
+  }
   //URL Parameters
   function Parameter(url) {
     //Setup
-    var option1 = /\/colorizor(|\.min)\.js\?(theme|plugin)\=(?=(.*?)\&(theme|plugin)\=)/igm;
-    var option2 = /\/colorizor(|\.min)\.js\?theme\=(?!(.*?)\&plugin\=)/igm;
-    var option3 = /\/colorizor(|\.min)\.js\?plugin\=(?!(.*?)\&theme\=)/igm;
-    var option4 = /\/colorizor(|\.min)\.js(?!\?(theme|plugin)\=)/igm;
-    //Configure
-    if (option1.test(url)) {
-      var tail = url.split('\?')[1];
-      var style = tail.split('\&')[0];
-      var extraTemp = tail.split('\&')[1];
-      style = style.split('\=')[1];
-      var extra = [],
-          temp = extraTemp.split('\=')[1];
-      if ((temp || '').split('\,').length > 1) {
-        extra = temp.split('\,');
+    var urlReg = /((\?|\&)(theme|plugin)\=((\,)?([\w]+)){1,}){1,}/igm,
+        themeReg = [/(\?|\&)(theme(s)?)\=(.*?)(?=(\&|$))/igm, /([\w]+)(?!(.*?)\=)/igm],
+        pluginReg = [/(\?|\&)(plugin(s)?)\=(.*?)(?=(\&|$))/igm, /([\w]+)(?!(.*?)\=)/igm];
+    //Prepare
+    var urlPar = '',
+        themePar = '',
+        pluginPar = [];
+    //Check
+    if (Validate(url.match(urlReg))) {
+      //Parameters
+      urlPar = url.match(urlReg)[0];
+      //Theme
+      if (Validate(urlPar.match(themeReg[0]))) {
+        themePar = urlPar.match(themeReg[0])[0];
+        if (Validate(themePar.match(themeReg[1]))) {
+          themePar = themePar.match(themeReg[1])[0];
+        }
       } else {
-        extra.push(temp);
+        themePar = 'default';
       }
-      return {theme: style, plugin: extra};
-    } else if (option2.test(url)) {
-      var style = url.split('\=')[1];
-      return {theme: style, plugin: []};
-    } else if (option3.test(url)) {
-      var extra = [],
-          temp = url.split('\=')[1];
-      if ((temp || '').split('\,').length > 1) {
-        extra = temp.split('\,');
+      //Plugin
+      if (Validate(urlPar.match(pluginReg[0]))) {
+        pluginPar = urlPar.match(pluginReg[0])[0];
+        if (Validate(pluginPar.match(pluginReg[1]))) {
+          pluginPar = pluginPar.match(pluginReg[1]);
+        }
       } else {
-        extra.push(temp);
+        pluginPar = [];
       }
-      return {theme: 'salmon', plugin: extra};
-    } else if (option4.test(url)) {
-      return {theme: 'salmon', plugin: []};
     }
+    //Return
+    return {theme: themePar, plugin: pluginPar};
   }
   //==============================Feature
   function Feature() {
