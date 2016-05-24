@@ -9,17 +9,17 @@
     $(this).find('code').attr('contenteditable', 'false');
   }
 });*/
-$('pre:not([noeditable])').find('code').mousedown(function(event) {
-  $(this).contextmenu(function() {
+$('pre:not([noeditable])').mousedown(function(event) {
+  $(this).find('code').contextmenu(function() {
     return false;
   });
   switch (event.which) {
     case 3:
-      var editable = $(this).attr('contenteditable');
+      var editable = $(this).find('code').attr('contenteditable');
       if (!editable) {
-        $(this).attr('contenteditable', 'true');
+        $(this).find('code').attr('contenteditable', 'true');
       } else {
-        $(this).removeAttr('contenteditable');
+        $(this).find('code').removeAttr('contenteditable');
       }
       break;
     default:
