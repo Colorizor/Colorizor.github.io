@@ -29,7 +29,7 @@
       loadCSS("https://colorizor.github.io/Source/index.css");
       var styles = ['dark', 'salmon'];
       var themeURL = 'https://colorizor.github.io/Themes/' + styles[RandomRange(0, styles.length)].toLowerCase() + '.css';
-      LoadCSS(themeURL);
+      loadCSS(themeURL);
       function RandomRange(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
       }
