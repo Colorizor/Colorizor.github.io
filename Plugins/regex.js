@@ -4,7 +4,7 @@
 $.each($('pre:not([noregex])').find('code'), function() {
   var block = $(this).html(),
       comment = new RegExp('\<span id\=\"comment\"\>[\/][\/]', 'gm');
-  block = block.replace(/[\:][\/][\/]/gm, ':/\\/');
+  block = block.replace(/[\:][\/][\/]/gm, ':\\\\');
   block = block.replace(/.+/gm, function(line) {
     var temp = line;
     if (line.match(comment) != null) {
@@ -19,6 +19,6 @@ $.each($('pre:not([noregex])').find('code'), function() {
       }
     });
   });
-  block = block.replace(/[\:][\/][\\][\/]/gm, '://');
+  block = block.replace(/[\:][\\][\\]/gm, '://');
   $(this).html(block);
 });
