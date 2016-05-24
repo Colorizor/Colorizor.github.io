@@ -11,6 +11,7 @@ $('pre:not([nofold])').find('span#block').mousedown(function(event) {
         $(this).html($(this).attr('block'));
         $(this).removeAttr('block');
       }
+      Renumber();
       break;
     default:
       break;
