@@ -22,6 +22,7 @@ function Renumber() {
     var line = $(this).find('code').html(),
         number = '';
     for (var a = 0; a < line.split('\n').length; a++) {
+      console.log(a);
       number += '<span id="number">' + (a + 1) + '</span>\n';
     }
     $(this).find('span#numbers').html(number);
