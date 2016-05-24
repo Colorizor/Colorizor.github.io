@@ -1,14 +1,6 @@
 //================================================================================
 //====================================Editable====================================
 //================================================================================
-/*$('pre:not([noeditable])').find('code').dblclick(function() {
-  var editable = $(this).find('code').attr('contenteditable');
-  if (!editable || editable != 'true') {
-    $(this).find('code').attr('contenteditable', 'true');
-  } else {
-    $(this).find('code').attr('contenteditable', 'false');
-  }
-});*/
 $('pre:not([noeditable])').mousedown(function(event) {
   $(this).find('code').contextmenu(function() {
     return false;
