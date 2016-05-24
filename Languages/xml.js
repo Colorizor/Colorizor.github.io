@@ -1,6 +1,6 @@
 (function() {
   const data = {
-    language: 'xml',
+    language: 'html',
     prepare: [
       {
         pat: /[\=]/gm,
@@ -29,22 +29,19 @@
         end: '[\-][\-]&gt;'
       },
       {
-        begin: {pat: '&lt;(.*?)script(.*?)&gt;', exclude: true},
-        end: {pat: '&lt;[\/](.*?)script(.*?)&gt;', exclude: true},
-        pat: /([\s\S]+)/gm,
-        rep: '<span id="block">$&</span>'
+        nested: 'script',
+        begin: '&lt;(?![\/])(.*?)script(?!(.*?)[\/]&gt;)(.*?)&gt;',
+        end: '&lt;[\/](.*?)script(.*?)&gt;'
       },
       {
-        begin: {pat: '&lt;(.*?)link(.*?)&gt;', exclude: true},
-        end: {pat: '&lt;[\/](.*?)link(.*?)&gt;', exclude: true},
-        pat: /([\s\S]+)/gm,
-        rep: '<span id="block">$&</span>'
+        nested: 'link',
+        begin: '&lt;(?![\/])(.*?)link(?!(.*?)[\/]&gt;)(.*?)&gt;',
+        end: '&lt;[\/](.*?)link(.*?)&gt;'
       },
       {
-        begin: {pat: '(&lt;(.*?)pre(.*?)&gt;(((\\s{0,}.*?)?)&lt;(.*?)code(.*?)&gt;)?)', exclude: true},
-        end: {pat: '((&lt;[\/](.*?)code(.*?)&gt;((\\s{0,}.*?)?))?&lt;[\/](.*?)pre(.*?)&gt;)', exclude: true},
-        pat: /([\s\S]+)/gm,
-        rep: '<span id="block">$&</span>'
+        nested: 'pre',
+        begin: '(&lt;(?![\/])(.*?)pre(.*?)&gt;((([\\s\\W]{0,}.*?)?)&lt;(?![\/])(.*?)code(.*?)&gt;)?)',
+        end: '((&lt;[\/](.*?)code(.*?)&gt;(([\\s\\W]{0,}.*?)?))?&lt;[\/](.*?)pre(.*?)&gt;)'
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
