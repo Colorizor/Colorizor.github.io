@@ -20,7 +20,7 @@ $('pre:not([nofold])').find('span#block').mousedown(function(event) {
   }
 });
 function Renumber(object, count) {
-  $($(object).parentsUntil('pre:not([nonumber])'), function() {
+  $.each($(object).parentsUntil('pre:not([nonumber])'), function() {
     var line = $(this).find('code').html(),
         number = '';
     for (var a = 0; a < line.split('\n').length - count; a++) {
