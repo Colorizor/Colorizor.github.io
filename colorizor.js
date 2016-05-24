@@ -382,10 +382,10 @@ var clz = (function() {
         if (typeof jQuery != 'undefined') {
           Feature();
         } else {
-          window.setTimeout(waitForLoad, 1);
+          window.setTimeout(waitForLoad, 60);
         }
       };
-      window.setTimeout(waitForLoad, 1);
+      window.setTimeout(waitForLoad, 60);
     },
     //==============================Colorize
     Colorize: function(data) {
