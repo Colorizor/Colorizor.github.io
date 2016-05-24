@@ -7,11 +7,10 @@ $('pre:not([noeditable])').mousedown(function(event) {
   });
   switch (event.which) {
     case 3:
-      if (!$(this).find('code').find('style').attr('contenteditable')) {
-        $(this).find('code').html('<style spellcheck="false">' + $(this).find('code').html() + '</style>');
-        $(this).find('code').find('style').attr('contenteditable', 'true');
+      if (!$(this).find('code').attr('contenteditable')) {
+        $(this).find('code').attr('contenteditable', 'true');
       } else {
-        $(this).find('code').find('style').removeAttr('contenteditable');
+        $(this).find('code').removeAttr('contenteditable');
       }
       break;
     default:
