@@ -30,17 +30,17 @@
       },
       {
         nested: 'script',
-        begin: '&lt;(.*?)script(.*?)&gt;',
+        begin: '&lt;(?![\/])(.*?)script(.*?)&gt;',
         end: '&lt;[\/](.*?)script(.*?)&gt;'
       },
       {
         nested: 'link',
-        begin: '&lt;(.*?)link(.*?)&gt;',
+        begin: '&lt;(?![\/])(.*?)link(.*?)&gt;',
         end: '&lt;[\/](.*?)link(.*?)&gt;'
       },
       {
         nested: 'pre',
-        begin: '(&lt;(.*?)pre(.*?)&gt;((([\\s\\W]{0,}.*?)?)&lt;(.*?)code(.*?)&gt;)?)',
+        begin: '(&lt;(?![\/])(.*?)pre(.*?)&gt;((([\\s\\W]{0,}.*?)?)&lt;(?![\/])(.*?)code(.*?)&gt;)?)',
         end: '((&lt;[\/](.*?)code(.*?)&gt;(([\\s\\W]{0,}.*?)?))?&lt;[\/](.*?)pre(.*?)&gt;)'
       },
       {
