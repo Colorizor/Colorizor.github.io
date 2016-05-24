@@ -31,12 +31,12 @@
       {
         nested: 'script',
         begin: '&lt;(?![\/])(.*?)script(.*?)&gt;',
-        end: '&lt;[\/](.*?)script(.*?)&gt;'
+        end: '(&lt;[\/](.*?)script(.*?)&gt;|&lt;(.*?)script(.*?)[\/]&gt;)'
       },
       {
         nested: 'link',
         begin: '&lt;(?![\/])(.*?)link(.*?)&gt;',
-        end: '&lt;[\/](.*?)link(.*?)&gt;'
+        end: '(&lt;[\/](.*?)link(.*?)&gt;|&lt;(.*?)link(.*?)[\/]&gt;)'
       },
       {
         nested: 'pre',
