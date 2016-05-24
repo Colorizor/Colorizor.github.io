@@ -11,7 +11,7 @@ $('pre:not([nofold])').find('span#block').mousedown(function(event) {
         $(this).html($(this).attr('block'));
         $(this).removeAttr('block');
       }
-      $.each($(this).parentUntil('pre:not([nonumber])'), function() {
+      $($(this).parentsUntil('pre:not([nonumber])'), function() {
         var line = $(this).find('code').html(),
             number = '';
         for (var a = 0; a < line.split('\n').length; a++) {
