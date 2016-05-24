@@ -11,14 +11,7 @@ $('pre:not([nofold])').find('span#block').mousedown(function(event) {
         $(this).html($(this).attr('block'));
         $(this).removeAttr('block');
       }
-      $($(this).parentsUntil('pre:not([nonumber])'), function() {
-        var line = $(this).find('code').html(),
-            number = '';
-        for (var a = 0; a < line.split('\n').length; a++) {
-          number += '<span id="number">' + (a + 1) + '</span>\n';
-        }
-        $(this).find('span#numbers').html(number);
-      });
+      clznumber.Renumber();
       break;
     default:
       break;
