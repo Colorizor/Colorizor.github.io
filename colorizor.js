@@ -26,7 +26,7 @@ var clz = (function() {
     var ref = window.document.getElementsByTagName('script')[0];
     var script = window.document.createElement('script');
     script.src = Trim(src);
-    script.async = true;
+    script.async = false;
     ref.parentNode.insertBefore(script, ref);
     if (cb && typeof(cb) === 'function') {
       script.onload = cb;
@@ -382,10 +382,10 @@ var clz = (function() {
         if (typeof jQuery != 'undefined') {
           Feature();
         } else {
-          window.setTimeout(waitForLoad, 60);
+          window.setTimeout(waitForLoad, 1);
         }
       };
-      window.setTimeout(waitForLoad, 60);
+      window.setTimeout(waitForLoad, 1);
     },
     //==============================Colorize
     Colorize: function(data) {
