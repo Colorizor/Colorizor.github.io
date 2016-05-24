@@ -23,6 +23,7 @@ function Renumber(object, count) {
   $.each($(object).parent('pre:not([nonumber])'), function() {
     var line = $(this).find('code').html(),
         number = '';
+        console.log(line);
     for (var a = 0; a < line.split('\n').length - count; a++) {
       console.log(a);
       number += '<span id="number">' + (a + 1) + '</span>\n';
