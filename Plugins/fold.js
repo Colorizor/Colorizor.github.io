@@ -13,7 +13,7 @@ $('pre:not([nofold])').find('span#block').mousedown(function(event) {
         $(this).html($(this).attr('block'));
         $(this).removeAttr('block');
       }
-      console.log($(this).parent('pre'));
+      console.log($(this).parents('pre'));
       Renumber($(this), count);
       break;
     default:
@@ -21,7 +21,7 @@ $('pre:not([nofold])').find('span#block').mousedown(function(event) {
   }
 });
 function Renumber(object, count) {
-  $(object).parent('pre:not([nonumber])').each(function() {
+  $(object).parents('pre:not([nonumber])').each(function() {
     var line = $(this).find('code').html(),
         number = '';
         console.log(line);
