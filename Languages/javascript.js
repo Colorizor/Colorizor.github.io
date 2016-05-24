@@ -9,7 +9,12 @@
     ],
     execute: [
       {
-        keyword: /([\'](.*?)[\']|[\"](.*?)[\"])/gm,
+        custom: '[\`]([\\s\\S]*?)[\`]',
+        pat: /[\$][\{](.*?)[\}]/gm,
+        rep: '\`$&\`'
+      },
+      {
+        keyword: /([\'](.*?)[\']|[\"](.*?)[\"]|[\`](.*?)[\`])/gm,
         rep: '<span id="value">$&</span>'
       },
       {
@@ -46,6 +51,16 @@
         nested: 'comment',
         begin: '[\/][\*]',
         end: '[\*][\/]'
+      },
+      {
+        custom: '[\`][\<][\/]span[\>][\$][\{]',
+        pat: /[\`][\<][\/]span[\>]/gm,
+        rep: '<\/span>'
+      },
+      {
+        custom: '[\}][\<]span(.*?)[\>][\`]',
+        pat: /[\<]span(.*?)[\>][\`]/gm,
+        rep: '<span id="value">'
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
