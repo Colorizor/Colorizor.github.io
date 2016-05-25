@@ -1,16 +1,38 @@
-/*----------------------------------------Light----------------------------------------*/
-pre{background-color:rgb(252, 255, 245);color:rgb(142, 127, 170);font-family:"Lucida Console", Monaco, monospace;font-size:14px;font-style:bold;height:auto;margin:5px;overflow:auto;padding:10px;text-align:left;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
-span[language="text"]{background-color:rgb(219, 186, 162);border-radius:2px;color:rgb(142, 127, 170);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;padding:2px 2px 2px 2px;width:auto;z-index:100;}
-#all-number{border-right:1px solid rgb(142, 127, 170);display:inline-block;float:left;margin-right:8px;text-align:right;}
-#all-code{display:inline-block;float:top;margin-left:8px;text-align:left;}
-#number{color:rgb(142, 127, 170);float:top;padding-right:4px;}
-#code{float:top;}
-#link{color:rgb(150, 150, 150);font-style:underline;}
-#regx{color:rgb(150, 150, 150);}
-#units{color:rgb(150, 150, 150);}
-#comment{color:rgb(145, 170, 157);font-style:italic;}
-#selector{color:rgb(219, 186, 162);}
-#attribute{color:rgb(25, 52, 65);}
-#reserved{color:rgb(25, 52, 65);}
-#value{color:rgb(62, 96, 111);}
-#parameter{color:rgb(142, 127, 170);}
+/*================================================================================
+======================================Light=======================================
+================================================================================*/
+pre:not([nobackground]){background-color:rgb(220, 220, 220);border-radius:5px;max-height:500px;margin:5px 5px 5px 5px;overflow:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
+pre[nobackground]{border-radius:5px;max-height:500px;margin:5px 5px 5px 5px;overflow:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
+code{color:rgb(30, 30, 30);display:block;font-family:"Lucida Console", Monaco, monospace;font-size:14px;line-height:15px;padding:10px 0px 10px 10px;text-align:left;}
+span#none{background-color:rgb(255, 127, 102);border-radius:2px;color:rgb(60, 60, 65);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;line-height:13px;padding:2px 2px 2px 2px;width:auto;}
+span#comment{color:rgb(116, 255, 157);font-style:italic;}
+span#selector{color:rgb(143, 163, 255);}
+span#attribute{color:rgb(223, 150, 255);}
+span#reserved{color:rgb(255, 209, 123);}
+span#value{color:rgb(73, 227, 247);}
+span#parameter{color:rgb(255, 135, 120);}
+span#unit{color:rgb(120, 120, 120);}
+/*================================================================================
+======================================Plugins=====================================
+================================================================================*/
+/*Editable*/
+code[contenteditable] * {color:rgb(30, 30, 30)!important;}
+/*Fold*/
+span#block[block]{background-color:rgb(40, 40, 40);}
+/*Number*/
+span#numbers{background-color:rgb(40, 40, 40);border-right:1px solid rgb(120, 120, 120);color:rgb(120, 120, 120);display:block;float:left;font-size:12px;line-height:15px;margin:0px 10px 0px 0px;padding:10px 2px 10px 10px;text-align:right;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
+span#coding{display:block;float:top;font-size:14px;line-height:15px;text-align:left;}
+/*RegEx*/
+span#regex{color:rgb(255, 157, 93);}
+/*Select*/
+code::-moz-selection{background-color:rgb(120, 120, 120);color:rgb(0, 0, 0);}
+code::selection{background-color:rgb(120, 120, 120);color:rgb(0, 0, 0);}
+span::-moz-selection{background-color:rgb(120, 120, 120);color:rgb(0, 0, 0);}
+span::selection{background-color:rgb(120, 120, 120);color:rgb(0, 0, 0);}
+a#url::-moz-selection{background-color:rgb(120, 120, 120);color:rgb(0, 0, 0);}
+a#url::selection{background-color:rgb(120, 120, 120);color:rgb(0, 0, 0);}
+/*URL*/
+a#url:link{color:rgb(197, 153, 240);}
+a#url:visited{color:rgb(197, 153, 240);}
+a#url:hover{color:rgb(197, 153, 240);}
+a#url:active{color:rgb(197, 153, 240);}
