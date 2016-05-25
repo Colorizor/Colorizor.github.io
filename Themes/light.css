@@ -5,11 +5,11 @@ pre:not([nobackground]){background-color:rgb(210, 210, 210);border-radius:5px;ma
 pre[nobackground]{border-radius:5px;max-height:500px;margin:5px 5px 5px 5px;overflow:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
 code{color:rgb(30, 30, 30);display:block;font-family:"Lucida Console", Monaco, monospace;font-size:14px;line-height:15px;padding:10px 0px 10px 10px;text-align:left;}
 span#none{background-color:rgb(210, 210, 210);border-radius:2px;color:rgb(30, 30, 30);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;line-height:13px;padding:2px 2px 2px 2px;width:auto;}
-span#comment{color:rgb(96, 235, 137);font-style:italic;}
+span#comment{color:rgb(68, 178, 91);font-style:italic;}
 span#selector{color:rgb(123, 143, 235);}
 span#attribute{color:rgb(203, 130, 235);}
-span#reserved{color:rgb(235, 189, 103);}
-span#value{color:rgb(53, 207, 227);}
+span#reserved{color:rgb(207, 184, 69);}
+span#value{color:rgb(81, 93, 240);}
 span#parameter{color:rgb(225, 115, 100);}
 span#unit{color:rgb(120, 120, 120);}
 /*================================================================================
