@@ -28,8 +28,12 @@
       function loadCSS(e,n,o,t){"use strict";var d=window.document.createElement("link"),i=n||window.document.getElementsByTagName("script")[0],s=window.document.styleSheets;return d.rel="stylesheet",d.href=e,d.media="only x",t&&(d.onload=t),i.parentNode.insertBefore(d,i),d.onloadcssdefined=function(n){for(var o,t=0;t<s.length;t++)s[t].href&&s[t].href.indexOf(e)>-1&&(o=!0);o?n():setTimeout(function(){d.onloadcssdefined(n)})},d.onloadcssdefined(function(){d.media=o||"all"}),d}
       loadCSS("https://colorizor.github.io/Source/index.css");
       var styles = ['dark', 'light', 'salmon', 'vintage'];
-      var themeURL = 'https://colorizor.github.io/Themes/' + styles[RandomRange(0, styles.length)].toLowerCase() + '.css';
-      loadCSS(themeURL);
+      //var themeURL = 'https://colorizor.github.io/Themes/' + styles[RandomRange(0, styles.length)].toLowerCase() + '.css';
+      //loadCSS(themeURL);
+      var light = 'https://colorizor.github.io/Themes/light.css';
+      var salmon = 'https://colorizor.github.io/Themes/salmon.css';
+      loadCSS(light);
+      loadCSS(salmon);
       function RandomRange(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
       }
@@ -61,7 +65,7 @@
           </h2>
           <hr />
           <p>C++</p>
-          <p><pre noeditable nourl><code language="cpp">#include &lt;iostream&gt;
+          <p><pre noeditable nourl class="light"><code language="cpp">#include &lt;iostream&gt;
 
 int main(int argc, char *argv[]) {
 
