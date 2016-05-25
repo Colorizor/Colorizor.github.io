@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="https://colorizor.github.io/Images/favicon.ico" />
     <link rel="apple-touch-icon" href="https://colorizor.github.io/Images/apple-touch-icon.png" />
     <noscript><link rel="stylesheet" type="text/css" href="https://colorizor.github.io/Source/index.css" /></noscript>
-    <script type="text/javascript" src="https://colorizor.github.io/colorizor.min.js?plugin=editable,number,url,colour,select,regex" async></script>
+    <script type="text/javascript" src="https://colorizor.github.io/colorizor.min.js?theme=salmon&plugin=fold,editable,number,url,colour,select,regex" async></script>
     <script type="text/javascript">
       //--------------------------------------------------LOAD GOOGLE ANALYTICS
       !function(e,a,t,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=a.createElement(t),s=a.getElementsByTagName(t)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-61804299-1","auto"),ga("send","pageview");
@@ -27,16 +27,14 @@
       //--------------------------------------------------LOAD CSS
       function loadCSS(e,n,o,t){"use strict";var d=window.document.createElement("link"),i=n||window.document.getElementsByTagName("script")[0],s=window.document.styleSheets;return d.rel="stylesheet",d.href=e,d.media="only x",t&&(d.onload=t),i.parentNode.insertBefore(d,i),d.onloadcssdefined=function(n){for(var o,t=0;t<s.length;t++)s[t].href&&s[t].href.indexOf(e)>-1&&(o=!0);o?n():setTimeout(function(){d.onloadcssdefined(n)})},d.onloadcssdefined(function(){d.media=o||"all"}),d}
       loadCSS("https://colorizor.github.io/Source/index.css");
-      var styles = ['dark', 'light', 'salmon', 'vintage'];
-      //var themeURL = 'https://colorizor.github.io/Themes/' + styles[RandomRange(0, styles.length)].toLowerCase() + '.css';
-      //loadCSS(themeURL);
-      var light = 'https://colorizor.github.io/Themes/light.css';
+      var dark = 'https://colorizor.github.io/Themes/dark.css';
       var salmon = 'https://colorizor.github.io/Themes/salmon.css';
+      var vintage = 'https://colorizor.github.io/Themes/vintage.css';
+      var light = 'https://colorizor.github.io/Themes/light.css';
+      loadCSS(dark);
       loadCSS(salmon);
+      loadCSS(vintage);
       loadCSS(light);
-      function RandomRange(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-      }
     </script>
   </head>
   <body>
@@ -65,7 +63,7 @@
           </h2>
           <hr />
           <p>C++</p>
-          <p><pre noeditable nourl class="light"><code language="cpp">#include &lt;iostream&gt;
+          <p><pre class="dark" noeditable nourl nofold><code language="cpp">#include &lt;iostream&gt;
 
 int main(int argc, char *argv[]) {
 
@@ -83,14 +81,14 @@ int main(int argc, char *argv[]) {
   return -2e3 + 12l;
 }</code></pre></p>
           <p>JavaScript</p>
-          <p><pre noselect noeditable nourl><code language="javascript">function $initHighlight(block, cls) {
+          <p><pre class="salmon" noselect noeditable nourl><code language="javascript">function $initHighlight(block, cls) {
   try {
     if (cls.search(/\bno\-highlight\b/) != -1)
       return process(block, true, 0x0F) +
              ` class="${cls}"`;
   } catch (e) {
     /* /*
-      Nested comment for all languages
+      Click on comment, code blocks, etc. to fold!!!
     */ */
   }
   for (var i = 0 / 2; i &lt; classes.length; i++) {
@@ -101,7 +99,7 @@ int main(int argc, char *argv[]) {
 
 export  $initHighlight;</code></pre></p>
           <p>Swift</p>
-          <p><pre nonumber noselect><code language="swift">import Foundation
+          <p><pre class="vintage" nofold nonumber noselect><code language="swift">import Foundation
 
 @objc class Person: Entity {
   var name: String!
@@ -120,7 +118,7 @@ export  $initHighlight;</code></pre></p>
 }
 </code></pre></p>
           <p>CSS</p>
-          <p><pre nonumber noeditable noselect><code language="css">@font-face {
+          <p><pre class="light" nofold nonumber noeditable noselect><code language="css">@font-face {
   font-family: Chunkfive; src: url('Chunkfive.otf');
 }
 
