@@ -48,13 +48,13 @@
         rep: '<span id="unit">$&</span>'
       },
       {
-        keyword: /[\#].+/gm,
-        rep: '<span id="comment">$&</span>'
-      },
-      {
         nested: 'comment',
         begin: '&lt;[\#]',
         end: '[\#]&gt;'
+      },
+      {
+        keyword: /[\#](?!(.*?)(&gt;)?\<(\/)?span(.*?)?\>).+/gm,
+        rep: '<span id="comment">$&</span>'
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
