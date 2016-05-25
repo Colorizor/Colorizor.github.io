@@ -5,12 +5,12 @@ pre:not([nobackground]){background-color:rgb(143, 139, 123);border-radius:5px;ma
 pre[nobackground]{border-radius:5px;max-height:500px;margin:5px 5px 5px 5px;overflow:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
 code{color:rgb(220, 220, 220);display:block;font-family:"Lucida Console", Monaco, monospace;font-size:14px;line-height:15px;padding:10px 0px 10px 10px;text-align:left;}
 span#none{background-color:rgb(143, 139, 123);border-radius:2px;color:rgb(220, 220, 220);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;line-height:13px;padding:2px 2px 2px 2px;width:auto;}
-span#comment{color:rgb(40, 131, 83);font-style:italic;}
+span#comment{color:rgb(30, 121, 73);font-style:italic;}
 span#selector{color:rgb(158, 76, 55);}
-span#attribute{color:rgb(86, 118, 131);}
+span#attribute{color:rgb(76, 108, 121);}
 span#reserved{color:rgb(102, 92, 150);}
 span#value{color:rgb(69, 93, 170);}
-span#parameter{color:rgb(133, 103, 75);}
+span#parameter{color:rgb(123, 93, 65);}
 span#unit{color:rgb(222, 208, 157);}
 /*================================================================================
 ======================================Plugins=====================================
