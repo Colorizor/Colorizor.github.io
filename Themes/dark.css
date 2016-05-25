@@ -1,5 +1,5 @@
 /*================================================================================
-======================================Salmon======================================
+=======================================Dark=======================================
 ================================================================================*/
 pre:not([nobackground]){background-color:rgb(18, 18, 18);border-radius:5px;max-height:500px;margin:5px 5px 5px 5px;overflow:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
 pre[nobackground]{border-radius:5px;max-height:500px;margin:5px 5px 5px 5px;overflow:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
