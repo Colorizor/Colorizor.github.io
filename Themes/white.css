@@ -1,0 +1,38 @@
+/*================================================================================
+======================================White=======================================
+================================================================================*/
+pre:not([nobackground]){background-color:rgb(255, 255, 255);border-radius:5px;max-height:500px;margin:5px 5px 5px 5px;overflow:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
+pre[nobackground]{border-radius:5px;max-height:500px;margin:5px 5px 5px 5px;overflow:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
+code{color:rgb(0, 0, 0);display:block;font-family:"Lucida Console", Monaco, monospace;font-size:14px;line-height:15px;padding:10px 0px 10px 10px;text-align:left;}
+span#none{background-color:rgb(0, 69, 255);border-radius:2px;color:rgb(255, 255, 255);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;line-height:13px;padding:2px 2px 2px 2px;width:auto;}
+span#comment{color:rgb(0, 255, 74);font-style:italic;}
+span#selector{color:rgb(0, 69, 255);}
+span#attribute{color:rgb(143, 0, 255);}
+span#reserved{color:rgb(255, 149, 0);}
+span#value{color:rgb(0, 155, 255);}
+span#parameter{color:rgb(255, 65, 0);}
+span#unit{color:rgb(255, 199, 0);}
+/*================================================================================
+======================================Plugins=====================================
+================================================================================*/
+/*Editable*/
+code[contenteditable] * {color:rgb(0, 0, 0)!important;}
+/*Fold*/
+span#block[block]{background-color:rgb(235, 235, 235);}
+/*Number*/
+span#numbers{background-color:rgb(235, 235, 235);border-right:1px solid rgb(50, 50, 50);color:rgb(50, 50, 50);display:block;float:left;font-size:12px;line-height:15px;margin:0px 10px 0px 0px;padding:10px 2px 10px 10px;text-align:right;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
+span#coding{display:block;float:top;font-size:14px;line-height:15px;text-align:left;}
+/*RegEx*/
+span#regex{color:rgb(143, 8, 0);}
+/*Select*/
+code::-moz-selection{background-color:rgb(225, 225, 225);color:rgb(40, 40, 40);}
+code::selection{background-color:rgb(225, 225, 225);color:rgb(40, 40, 40);}
+span::-moz-selection{background-color:rgb(225, 225, 225);color:rgb(40, 40, 40);}
+span::selection{background-color:rgb(225, 225, 225);color:rgb(40, 40, 40);}
+a#url::-moz-selection{background-color:rgb(225, 225, 225);color:rgb(40, 40, 40);}
+a#url::selection{background-color:rgb(225, 225, 225);color:rgb(40, 40, 40);}
+/*URL*/
+a#url:link{color:rgb(86, 0, 255);}
+a#url:visited{color:rgb(86, 0, 255);}
+a#url:hover{color:rgb(86, 0, 255);}
+a#url:active{color:rgb(86, 0, 255);}
