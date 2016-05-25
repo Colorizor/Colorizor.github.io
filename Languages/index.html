@@ -129,6 +129,13 @@
   keywork: //gm,      //Pattern
   rep: ''             //Replace with
 }</code></pre></p>
+        <p><u>Technique 4</u></p>
+          <p><i>This will find the first occurrence of the begin pattern and loop through the entire code till it finds its first occurrence's closure. This can be used for nested search results.</i></p>
+          <p><pre><code language="none">{
+  nested: '',          //Identifier e.g. comment
+  begin: //gm,         //Begin Pattern
+  end: //gm            //End Pattern
+}</code></pre></p>
         </div>
       </div>
       <div id="paragraph">
@@ -162,6 +169,30 @@ span#keywork {
 span#text {
   color: rgb(126, 206, 253);
 }</code></pre></p>
+        <p><b>JavaScript</b></p>
+          <p><pre><code language="javascript">(function() {
+  const data = {
+    language: 'colorize',
+    execute: [
+      {
+        custom: '([\'](.*?)[\']|[\"](.*?)[\"])',
+        pat: /.+/gm,
+        rep: '<span id="string">$&</span>'
+      },
+      {
+        custom: '[\:][\:].+',
+        pat: /.+/gm,
+        rep: '<span id="comment">$&</span>'
+      },
+      {
+        custom: '[\:]([\\w]+)',
+        pat: /([\w]+)/gm,
+        rep: '<span id="keyword">$&</span>'
+      }
+    ]
+  };
+  clzdev.Colorize(data);
+})();</code></pre></p>
           <p><b>Output</b></p>
           <p><pre><code language="colorize" file="https://colorizor.github.io/Test/colorize.js">:: This language, Colorize was created by Colorizor
 String:Text &gt; 'Hello, This is a custom language'
