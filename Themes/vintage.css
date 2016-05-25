@@ -5,10 +5,10 @@ pre:not([nobackground]){background-color:rgb(143, 139, 123);border-radius:5px;ma
 pre[nobackground]{border-radius:5px;max-height:500px;margin:5px 5px 5px 5px;overflow:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
 code{color:rgb(220, 220, 220);display:block;font-family:"Lucida Console", Monaco, monospace;font-size:14px;line-height:15px;padding:10px 0px 10px 10px;text-align:left;}
 span#none{background-color:rgb(143, 139, 123);border-radius:2px;color:rgb(220, 220, 220);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;line-height:13px;padding:2px 2px 2px 2px;width:auto;}
-span#comment{color:rgb(60, 151, 103);font-style:italic;}
-span#selector{color:rgb(178, 96, 75);}
+span#comment{color:rgb(80, 171, 123);font-style:italic;}
+span#selector{color:rgb(198, 116, 95);}
 span#attribute{color:rgb(106, 138, 151);}
-span#reserved{color:rgb(122, 112, 170);}
+span#reserved{color:rgb(142, 132, 190);}
 span#value{color:rgb(69, 93, 170);}
 span#parameter{color:rgb(153, 123, 95);}
 span#unit{color:rgb(222, 208, 157);}
@@ -25,12 +25,12 @@ span#coding{display:block;float:top;font-size:14px;line-height:15px;text-align:l
 /*RegEx*/
 span#regex{color:rgb(151, 54, 50);}
 /*Select*/
-code::-moz-selection{background-color:rgb(180, 180, 180);color:rgb(133, 129, 113);}
-code::selection{background-color:rgb(180, 180, 180);color:rgb(133, 129, 113);}
-span::-moz-selection{background-color:rgb(180, 180, 180);color:rgb(133, 129, 113);}
-span::selection{background-color:rgb(180, 180, 180);color:rgb(133, 129, 113);}
-a#url::-moz-selection{background-color:rgb(180, 180, 180);color:rgb(133, 129, 113);}
-a#url::selection{background-color:rgb(180, 180, 180);color:rgb(133, 129, 113);}
+code::-moz-selection{background-color:rgb(180, 180, 180);color:rgb(220, 220, 220);}
+code::selection{background-color:rgb(180, 180, 180);color:rgb(220, 220, 220);}
+span::-moz-selection{background-color:rgb(180, 180, 180);color:rgb(220, 220, 220);}
+span::selection{background-color:rgb(180, 180, 180);color:rgb(220, 220, 220);}
+a#url::-moz-selection{background-color:rgb(180, 180, 180);color:rgb(220, 220, 220);}
+a#url::selection{background-color:rgb(180, 180, 180);color:rgb(220, 220, 220);}
 /*URL*/
 a#url:link{color:rgb(122, 178, 145);}
 a#url:visited{color:rgb(122, 178, 145);}
