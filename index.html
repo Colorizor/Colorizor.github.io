@@ -114,31 +114,23 @@ import Foundation
 }
 </code></pre></p>
           <p>DOS</p>
-          <p><pre class="light" nofold nonumber noeditable noselect noregex><code language="dos">:: This is the @clz-light-clz@ theme
-cd \
-copy a b
-ping 192.168.0.1
-@rem ping [Google][https://google.com]
-net stop sharedaccess
-del %tmp% /f /s /q
-del %temp% /f /s /q
-ipconfig /flushdns
-taskkill /F /IM JAVA.EXE /T
+          <p><pre class="white" nofold nonumber noeditable noselect noregex><code language="powershell">:: This is the @clz-white-clz@ theme
+$initialDate = [datetime]'2013/1/8'
 
-cd Photoshop/Adobe Photoshop CS3/AMT/
-if exist application.sif (
-    ren application.sif _application.sif
-) else (
-    ren _application.sif application.sif
-)
+$rollingDate = $initialDate
 
-taskkill /F /IM proquota.exe /T
+&lt;# &lt;#
+  URL Plugin: [Plugins][https://colorizor.github.io/Plugins]!!!
+#&gt; #&gt;
 
-sfc /SCANNOW
-
-set path = test
-
-xcopy %1\*.* %2</code></pre></p>
+do {
+    $client = New-Object System.Net.WebClient
+    $results = $client.DownloadString("http://not.a.real.url")
+    Write-Host "$rollingDate.ToShortDateString() - $results"
+    $rollingDate = $rollingDate.AddDays(21)
+    $username = [System.Environment]::UserName
+} until ($rollingDate -ge [datetime]'2013/12/31')
+</code></pre></p>
         </div>
         <div id="section">
           <h2>
