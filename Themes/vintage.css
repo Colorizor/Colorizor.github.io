@@ -7,10 +7,10 @@ code{color:rgb(220, 220, 220);display:block;font-family:"Lucida Console", Monaco
 span#none{background-color:rgb(143, 139, 123);border-radius:2px;color:rgb(220, 220, 220);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;line-height:13px;padding:2px 2px 2px 2px;width:auto;}
 span#comment{color:rgb(40, 131, 83);font-style:italic;}
 span#selector{color:rgb(158, 76, 55);}
-span#attribute{color:rgb(106, 138, 151);}
+span#attribute{color:rgb(86, 118, 131);}
 span#reserved{color:rgb(102, 92, 150);}
 span#value{color:rgb(69, 93, 170);}
-span#parameter{color:rgb(153, 123, 95);}
+span#parameter{color:rgb(133, 103, 75);}
 span#unit{color:rgb(222, 208, 157);}
 /*================================================================================
 ======================================Plugins=====================================
