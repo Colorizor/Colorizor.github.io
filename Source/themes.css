@@ -80,7 +80,7 @@ pre[nobackground].salmon{border-radius:5px;max-height:500px;margin:5px 5px 5px 5
 pre:not([nobackground]).vintage{background-color:rgb(48, 43, 47);border-radius:5px;max-height:500px;margin:5px 5px 5px 5px;overflow:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
 pre[nobackground].vintage{border-radius:5px;max-height:500px;margin:5px 5px 5px 5px;overflow:auto;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
 .vintage code{color:rgb(105, 97, 83);display:block;font-family:"Lucida Console", Monaco, monospace;font-size:14px;line-height:15px;padding:10px 0px 10px 10px;text-align:left;}
-.vintage span#none{background-color:rgb(48, 43, 47);border-radius:2px;color:rgb(105, 97, 83);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;line-height:13px;padding:2px 2px 2px 2px;width:auto;}
+.vintage span#none{background-color:rgb(58, 53, 57);border:1px solid rgb(105, 97, 83);border-radius:2px;color:rgb(105, 97, 83);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;line-height:13px;padding:2px 2px 2px 2px;width:auto;}
 .vintage span#comment{color:rgb(155, 181, 143);font-style:italic;}
 .vintage span#selector{color:rgb(255, 166, 0);}
 .vintage span#attribute{color:rgb(76, 108, 121);}
