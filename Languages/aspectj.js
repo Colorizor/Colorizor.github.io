@@ -13,32 +13,24 @@
       {
         pat: /[\\][\"]/gm,
         rep: '$DQ$'
-      },
-      {
-        pat: /[\$]\&amp\;/gm,
-        rep: '$FR@'
       }
     ],
     execute: [
       {
-        custom: '[\`]([\\s\\S]*?)[\`]',
-        pat: /[\$][\{](.*?)[\}]{1,}/gm,
-        rep: '\`$&\`'
-      },
-      {
-        keyword: /([\`](.*?)[\`]|[\'](.*?)[\']|[\"](.*?)[\"])/gm,
+        custom: '',
+        pat: //gm,
         rep: '<span id="value">$&</span>'
       },
       {
-        keyword: /\b(abstract|arguments|boolean|break|byte|case|catch|char|class|const|continue|debugger|default|delete|do|double|else|enum|eval|export|extends|false|final|finally|float|for|function|goto|if|implements|import|in|instanceof|int|interface|let|long|native|new|null|package|private|protected|public|return|short|static|super|switch|synchronized|this|throw|throws|transient|true|try|typeof|var|void|volatile|while|with|yield)\b/gm,
+        keyword: /([\'](.*?)[\']|[\"](.*?)[\"])/gm,
+        rep: '<span id="value">$&</span>'
+      },
+      {
+        keyword: /[\@]([\w]+)/gm,
         rep: '<span id="attribute">$&</span>'
       },
       {
-        keyword: /\b(alert|all|anchor|anchors|area|assign|blur|button|checkbox|clearInterval|clearTimeout|clientInformation|close|closed|confirm|constructor|crypto|decodeURI|decodeURIComponent|defaultStatus|document|element|elements|embed|embeds|encodeURI|encodeURIComponent|escape|event|fileUpload|focus|form|forms|frame|height|innerHeight|innerWidth|layer|layers|link|location|mimeTypes|navigate|navigator|frames|frameRate|hidden|history|image|images|offscreenBuffering|open|opener|option|outerHeight|outerWidth|packages|pageXOffset|pageYOffset|parent|parseFloat|parseInt|password|plugin|prompt|propertyIsEnum|radio|reset|screen|screenX|screenY|scroll|secure|select|self|setInterval|setTimeout|status|submit|taint|text|textarea|top|unescape|untaint|width|window)\b/gm,
-        rep: '<span id="reserved">$&</span>'
-      },
-      {
-        keyword: /\b(Array|Date|eval|function|hasOwnProperty|Infinity|isFinite|isNaN|isPrototypeOf|length|Math|NaN|name|Number|Object|prototype|String|toString|undefined|valueOf)\b/gm,
+        keyword: /\b(false|synchronized|int|abstract|float|private|char|boolean|static|null|if|const|for|true|while|long|throw|strictfp|finally|protected|import|native|final|return|void|enum|else|extends|implements|break|transient|new|catch|instanceof|byte|super|volatile|case|assert|short|package|default|double|public|try|this|switch|continue|throws|privileged|aspectOf|adviceexecution|proceed|cflowbelow|cflow|initialization|preinitialization|staticinitialization|withincode|target|within|execution|getWithinTypeName|handler|thisJoinPoint|thisJoinPointStaticPart|thisEnclosingJoinPointStaticPart|declare|parents|warning|error|soft|precedence|thisAspectInstance|get|set|args|call)\b/gm,
         rep: '<span id="reserved">$&</span>'
       },
       {
@@ -117,10 +109,6 @@
       {
         pat: /[\$][D][Q][\$]/gm,
         rep: '\\\"'
-      },
-      {
-        pat: /[\$][F][R][\@]/gm,
-        rep: '&#36;\&'
       }
     ]
   };
