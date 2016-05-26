@@ -60,7 +60,7 @@ var clzdev = (function() {
   }
   //==============================Process
   function Fetch(object) {
-    code = $(object).html().replace(/\<(\/)?span(.*?)\>/gm, '');
+    code = $(object).html();
   }
   function Save(object) {
     $(object).html(Trim(code));
