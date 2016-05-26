@@ -6,30 +6,71 @@
   </head>
   <body>
     <main>
-      <pre><code language="arduino">/*
-  Blink
-  Turns on an LED on for one second, then off for one second, repeatedly.
- 
-  This example code is in the public domain.
- */
- 
-// Pin 13 has an LED connected on most Arduino boards.
-// give it a name:
-int led = 13;
+      <pre><code language="asciidoc">Hello, World!
+============
+Author Name, <author@domain.foo>
 
-// the setup routine runs once when you press reset:
-void setup() {
-  // initialize the digital pin as an output.
-  pinMode(led, OUTPUT);     
-}
+you can write text http://example.com[with links], optionally
+using an explicit link:http://example.com[link prefix].
 
-// the loop routine runs over and over again forever:
-void loop() {
-  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);               // wait for a second
-  digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);               // wait for a second
-}</code></pre>
+* single quotes around a phrase place 'emphasis'
+** alternatively, you can put underlines around a phrase to add _emphasis_
+* astericks around a phrase make the text *bold*
+* pluses around a phrase make it +monospaced+
+* `smart' quotes using a leading backtick and trailing single quote
+** use two of each for double ``smart'' quotes
+
+- escape characters are supported
+- you can escape a quote inside emphasized text like 'here\'s johnny!'
+
+term:: definition
+ another term:: another definition
+
+// this is just a comment
+
+Let's make a break.
+
+'''
+
+////
+we'll be right with you
+
+after this brief interruption.
+////
+
+== We're back!
+
+Want to see a image::images/tiger.png[Tiger]?
+
+.Nested highlighting
+++++
+<this_is inline="xml"></this_is>
+++++
+
+____
+asciidoc is so powerful.
+____
+
+another quote:
+
+[quote, Sir Arthur Conan Doyle, The Adventures of Sherlock Holmes]
+____
+When you have eliminated all which is impossible, then whatever remains, however improbable, must be the truth.
+____
+
+Getting Literal
+---------------
+
+ want to get literal? prefix a line with a space.
+
+....
+I'll join that party, too.
+....
+
+. one thing (yeah!)
+. two thing `i can write code`, and `more` wipee!
+
+NOTE: AsciiDoc is quite cool, you should try it.</code></pre>
     </main>
   </body>
 </html>
