@@ -6,8 +6,8 @@ var clz = (function() {
   const regexp = [
     {pat: /\<br(.*?)(|\/)\>/gm, rep: '\n'},
     {pat: /[\&]/gm, rep: '&amp;'},
-    {pat: /[\<]/gm, rep: '&lt;'},
     {pat: /[\>]/gm, rep: '&gt;'},
+    {pat: /[\<]/gm, rep: '&lt;'},
     {pat: /[\t]/gm, rep: '\s\s\s\s'}
   ];
   //==============================Variable
