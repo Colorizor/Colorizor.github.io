@@ -52,13 +52,13 @@
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
         end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
-        pat: /\<(\/)?span(.*?)?\>/gm,
+        pat: /\<(\/)?span(.*?)\>/gm,
         rep: ''
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\"]', exclude: true},
         end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
-        pat: /\<(\/)?span(.*?)?\>/gm,
+        pat: /\<(\/)?span(.*?)\>/gm,
         rep: ''
       },
       {
@@ -74,7 +74,7 @@
       {
         begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>](([\@])?[Rr][Ee][Mm]|[\:]{2,})', exclude: true},
         end: {pat: '[\<][\/]span[\>]$', exclude: true},
-        pat: /\<(\/)?span(.*?)?\>/gm,
+        pat: /\<(\/)?span(.*?)\>/gm,
         rep: ''
       }
     ],
