@@ -94,7 +94,7 @@ var clz = (function() {
   }
   //==============================Process
   function Fetch(object) {
-    code = $(object).html().replace(/\<(\/)?span(.*?)?\>/gm, '');
+    code = $(object).html().replace(/\<(\/)?span(.*?)\>/gm, '');
   }
   function Save(object) {
     $(object).html(Trim(code));
