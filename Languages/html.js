@@ -54,19 +54,19 @@
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
         end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        pat: /\<(\/)?span(.*?)?\>/gm,
         rep: ''
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\"]', exclude: true},
         end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        pat: /\<(\/)?span(.*?)?\>/gm,
         rep: ''
       },
       {
         begin: {pat: '(&lt;[\!][\-][\-]|&gt;)\<span\\sid\=\"block\"\>', exclude: true},
         end: {pat: '\<\/span\>(&lt;[\/]|[\-][\-]&gt;)', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        pat: /\<(\/)?span(.*?)?\>/gm,
         rep: ''
       }
     ],
