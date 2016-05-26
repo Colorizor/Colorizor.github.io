@@ -16,7 +16,7 @@
       },
       {
         pat: /[\$]\&amp\;/gm,
-        rep: '$FR@'
+        rep: '$FR\@'
       }
     ],
     execute: [
