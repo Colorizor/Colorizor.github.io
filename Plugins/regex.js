@@ -20,5 +20,5 @@ $.each($('pre:not([noregex])').find('code'), function() {
   $(this).html(block);
 });
 function Escape(value) {
-  return value.replace(/[\-\/\\\^\$\*\+\?\.\(\)\|\[\]\{\}]/gm, '\\$&');
+  return value.replace(/[\-\/\\\^\$\&\*\+\?\.\(\)\|\[\]\{\}]/gm, '\\$&');
 }
