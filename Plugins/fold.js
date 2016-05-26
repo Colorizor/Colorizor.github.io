@@ -22,7 +22,7 @@ $(window).load(function() {
       var line = $(this).find('code').html(),
           number = '';
       for (var a = 0; a < line.split('\n').length - count; a++) {
-        number += `<span id="number">${(a + 1)}</span>\n`;
+        number += '<span id="number">'+(a + 1)+'</span>\n';
       }
       $(this).find('span#numbers').html(number);
     });
