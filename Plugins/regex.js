@@ -9,10 +9,10 @@ $.each($('pre:not([noregex])').find('code'), function() {
       temp = temp.replace(/[\/][\/](?![igmuy])(.*?)\<\/span\>$/gm, '<span id="comment">$&');
     }
     return temp.replace(/[\/](?![\/][^gimuy])(?!span\>)([\w\d\S]+)?[\/](?!span\>)([gimuy]+)?/gm, function(match) {
-      if (line.match(new RegExp('\<span id\=\"value\"\>(.*?)' + Escape(match) + '(.*?)\<\/span\>', 'gm')) != null) {
+      if (line.match(new RegExp(`\<span id\=\"value\"\>(.*?)${Escape(match)}(.*?)\<\/span\>`, 'gm')) != null) {
         return match;
       } else {
-        return '<span id="regex">' + match + '</span>';
+        return `<span id="regex">${match}</span>`;
       }
     });
   });
