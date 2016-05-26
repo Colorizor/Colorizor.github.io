@@ -58,30 +58,30 @@
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
         end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        pat: /\<(\/)?span(.*?)?\>/gm,
         rep: ''
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\"]', exclude: true},
         end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        pat: /\<(\/)?span(.*?)?\>/gm,
         rep: ''
       },
       {
         custom: '[\\\[](.*?)[\\\]]',
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        pat: /\<(\/)?span(.*?)?\>/gm,
         rep: ''
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]attribute[\"][\>]', exclude: true},
         end: {pat: '[\(][\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        pat: /\<(\/)?span(.*?)?\>/gm,
         rep: ''
       },
       {
         begin: {pat: '([\(][\*])\<span\\sid\=\"block\"\>', exclude: true},
         end: {pat: '\<\/span\>([\*][\)])', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
+        pat: /\<(\/)?span(.*?)?\>/gm,
         rep: ''
       }
     ],
