@@ -267,7 +267,7 @@ var clz = (function() {
   }
   //Escape
   function Escape(value) {
-    return value.replace(/[\-\/\\\^\$\&\*\+\?\.\(\)\|\[\]\{\}]/gm, '\\$&');
+    return value.replace(/[\-\/\\\^\$\*\+\?\.\(\)\|\[\]\{\}]/gm, '\\$&');
   }
   //Trim
   function Trim(value) {
