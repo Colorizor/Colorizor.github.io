@@ -33,7 +33,7 @@
         rep: '<span id="unit">$&</span>'
       },
       {
-        custom: /[\/][\/].+/gm,
+        keyword: /[\/][\/].+/gm,
         rep: '<span id="comment">$&</span>'
       },
       {
