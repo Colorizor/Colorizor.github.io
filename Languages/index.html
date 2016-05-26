@@ -104,7 +104,7 @@
           <p><i>There are three types of execution techniques to choose from:</i></p>
           <p><u>Technique 1</u></p>
           <p><i>This technique is handy for narrowing the results down to something between objects.</i></p>
-          <p><pre><code language="none">{
+          <p><pre><code language="javascript">{
   begin: {
     pat: '',          //String Based RegEx
     exclude: true     //Exclude this begining?
@@ -118,20 +118,20 @@
 }</code></pre></p>
           <p><u>Technique 2</u></p>
           <p><i>This technique is used for more of a global result.</i></p>
-          <p><pre><code language="none">{
+          <p><pre><code language="javascript">{
   custom: '',         //String Based RegEx
   pat: //gm,          //Pattern to find within the search results
   rep: ''             //Replace with
 }</code></pre></p>
           <p><u>Technique 3</u></p>
           <p><i>This is very helpful when just searching for keywords or stuff of the same sort.</i></p>
-          <p><pre><code language="none">{
+          <p><pre><code language="javascript">{
   keywork: //gm,      //Pattern
   rep: ''             //Replace with
 }</code></pre></p>
         <p><u>Technique 4</u></p>
           <p><i>This will find the first occurrence of the begin pattern and loop through the entire code till it finds its first occurrence's closure. This can be used for nested search results.</i></p>
-          <p><pre><code language="none">{
+          <p><pre><code language="javascript">{
   nested: '',          //Identifier e.g. comment
   begin: //gm,         //Begin Pattern
   end: //gm            //End Pattern
