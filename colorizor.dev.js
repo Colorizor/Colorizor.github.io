@@ -60,7 +60,7 @@ var clzdev = (function() {
   }
   //==============================Process
   function Fetch(object) {
-    code = $(object).html();
+    code = $(object).html().replace(/\<(\/)?span(.*?)\>/gm, '');
   }
   function Save(object) {
     $(object).html(Trim(code));
@@ -129,7 +129,7 @@ var clzdev = (function() {
   //Exclude: Begin & End
   function BeginEnd(begin, end, pat, rep) {
     //Setup
-    var pattern = begin + '([\\s\\S]*?)' + end;
+    var pattern = begin+'([\\s\\S]*?)'+end;
     var reg = new RegExp(pattern, 'gm');
     var regCutBegin = new RegExp(begin, 'gm');
     var regCutEnd = new RegExp(end, 'gm');
@@ -143,7 +143,7 @@ var clzdev = (function() {
   //Exclude: Begin & Not End
   function BeginNotEnd(begin, end, pat, rep) {
     //Setup
-    var pattern = begin + '([\\s\\S]*?)' + end;
+    var pattern = begin+'([\\s\\S]*?)'+end;
     var reg = new RegExp(pattern, 'gm');
     var regCut = new RegExp(begin, 'gm');
     //Colorize
@@ -156,7 +156,7 @@ var clzdev = (function() {
   //Exclude: Not Begin & End
   function NotBeginEnd(begin, end, pat, rep) {
     //Setup
-    var pattern = begin + '([\\s\\S]*?)' + end;
+    var pattern = begin+'([\\s\\S]*?)'+end;
     var reg = new RegExp(pattern, 'gm');
     var regCut = new RegExp(end, 'gm');
     //Colorize
@@ -169,7 +169,7 @@ var clzdev = (function() {
   //Exclude: Not Begin & Not End
   function NotBeginNotEnd(begin, end, pat, rep) {
     //Setup
-    var pattern = begin + '([\\s\\S]*?)' + end;
+    var pattern = begin+'([\\s\\S]*?)'+end;
     var reg = new RegExp(pattern, 'gm');
     //Colorize
     code = code.replace(reg, function(match) {
@@ -188,7 +188,7 @@ var clzdev = (function() {
       var object = line.match(new RegExp(begin, 'gm'));
       if (object != null) {
         if (!busy) {
-          line = line.replace(new RegExp(begin, 'm'), '<span id="' + nested + '">$&<span id="block">');
+          line = line.replace(new RegExp(begin, 'm'), '<span id="'+nested+'">$&<span id="block">');
           busy = true;
         }
         open += object.length;
@@ -203,7 +203,7 @@ var clzdev = (function() {
         open = 0;
         close = 0;
         busy = false;
-        line = line.replace(new RegExp(end + '(?!(.*?)' + end + ')', 'm'), '</span>$&</span>');
+        line = line.replace(new RegExp(end+'(?!(.*?)'+end+')', 'm'), '</span>$&</span>');
       }
       //Replace
       return line;
@@ -273,7 +273,7 @@ var clzdev = (function() {
       //Initialize
       Initialize(data);
       //Procedure
-      $.each($('pre[language="' + language + '"], code[language="' + language + '"]'), function() {
+      $.each($('pre[language="'+language+'"], code[language="'+language+'"]'), function() {
         //Sizing
         $(this).css({
           'height': 'auto', 'left': '0px', 'right': '0px', 'width': 'auto'
