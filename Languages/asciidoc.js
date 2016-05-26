@@ -11,6 +11,7 @@
       {
         keyword: /^[\.]([\w]+).+/gm,
         rep: '<span id="title">$&</span>'
+      },
       {
         keyword: /^[\/][\/].+/gm,
         rep: '<span id="comment">$&</span>'
