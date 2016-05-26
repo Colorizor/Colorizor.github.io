@@ -4,7 +4,7 @@ var clz = (function() {
   //================================================================================
   //==============================Constant
   const regexp = [
-    {pat: /\<br(.*?)(|\/)\>/gm, rep: '\n'},
+    {pat: /\<br(.*?)(\/)?\>/gm, rep: '\n'},
     {pat: /[\<]/gm, rep: '&lt;'},
     {pat: /[\>]/gm, rep: '&gt;'},
     {pat: /[\t]/gm, rep: '\s\s\s\s'}
@@ -94,7 +94,7 @@ var clz = (function() {
   }
   //==============================Process
   function Fetch(object) {
-    code = $(object).html().replace(/(\<span(.*?)\>|\<\/span\>)/gm, '');
+    code = $(object).html().replace(/\<(\/)?span(.*?)?\>/gm, '');
   }
   function Save(object) {
     $(object).html(Trim(code));
@@ -163,7 +163,7 @@ var clz = (function() {
   //Exclude: Begin & End
   function BeginEnd(begin, end, pat, rep) {
     //Setup
-    var pattern = begin + '([\\s\\S]*?)' + end;
+    var pattern = `${begin}([\\s\\S]*?)${end}`;
     var reg = new RegExp(pattern, 'gm');
     var regCutBegin = new RegExp(begin, 'gm');
     var regCutEnd = new RegExp(end, 'gm');
@@ -177,7 +177,7 @@ var clz = (function() {
   //Exclude: Begin & Not End
   function BeginNotEnd(begin, end, pat, rep) {
     //Setup
-    var pattern = begin + '([\\s\\S]*?)' + end;
+    var pattern = `${begin}([\\s\\S]*?)${end}`;
     var reg = new RegExp(pattern, 'gm');
     var regCut = new RegExp(begin, 'gm');
     //Colorize
@@ -190,7 +190,7 @@ var clz = (function() {
   //Exclude: Not Begin & End
   function NotBeginEnd(begin, end, pat, rep) {
     //Setup
-    var pattern = begin + '([\\s\\S]*?)' + end;
+    var pattern = `${begin}([\\s\\S]*?)${end}`;
     var reg = new RegExp(pattern, 'gm');
     var regCut = new RegExp(end, 'gm');
     //Colorize
@@ -203,7 +203,7 @@ var clz = (function() {
   //Exclude: Not Begin & Not End
   function NotBeginNotEnd(begin, end, pat, rep) {
     //Setup
-    var pattern = begin + '([\\s\\S]*?)' + end;
+    var pattern = `${begin}([\\s\\S]*?)${end}`;
     var reg = new RegExp(pattern, 'gm');
     //Colorize
     code = code.replace(reg, function(match) {
@@ -222,7 +222,7 @@ var clz = (function() {
       var object = match.match(new RegExp(begin, 'gm'));
       if (object != null) {
         if (!busy) {
-          match = match.replace(new RegExp(begin, 'm'), '<span id="' + nested + '">$&<span id="block">');
+          match = match.replace(new RegExp(begin, 'm'), `<span id="${nested}">$&<span id="block">`);
           busy = true;
         }
         open += object.length;
@@ -237,7 +237,7 @@ var clz = (function() {
         open = 0;
         close = 0;
         busy = false;
-        match = match.replace(new RegExp(end + '(?!(.*?)' + end + ')', 'm'), '</span>$&</span>');
+        match = match.replace(new RegExp(`${end}(?!(.*?)${end})`, 'm'), '</span>$&</span>');
       }
       //Replace
       return match;
@@ -327,10 +327,10 @@ var clz = (function() {
         var lang = $(this).attr('language');
         //Checking
         if (lang) {
-          $(this).html('<code language="' + Trim(lang.toLowerCase()) + '">' + $(this).html() + '</code>');
-          loadJS('https://colorizor.github.io/Languages/' + Trim(lang.toLowerCase()) + '.js');
+          $(this).html(`<code language="${Trim(lang.toLowerCase())}">${$(this).html()}</code>`);
+          loadJS(`https://colorizor.github.io/Languages/${Trim(lang.toLowerCase())}.js`);
         } else {
-          $(this).html('<code language="none">' + $(this).html() + '</code>');
+          $(this).html(`<code language="none">${$(this).html()}</code>`);
           loadJS('https://colorizor.github.io/Languages/none.js');
         }
       } else {
@@ -340,9 +340,9 @@ var clz = (function() {
         //Checking
         if (langPre) {
           $(this).find('code').attr('language', langPre);
-          loadJS('https://colorizor.github.io/Languages/' + Trim(langPre.toLowerCase()) + '.js');
+          loadJS(`https://colorizor.github.io/Languages/${Trim(langPre.toLowerCase())}.js`);
         } else if (langBlock) {
-          loadJS('https://colorizor.github.io/Languages/' + Trim(langBlock.toLowerCase()) + '.js');
+          loadJS(`https://colorizor.github.io/Languages/${Trim(langBlock.toLowerCase())}.js`);
         } else {
           $(this).find('code').attr('language', 'none');
           loadJS('https://colorizor.github.io/Languages/none.js');
@@ -352,16 +352,16 @@ var clz = (function() {
     //Theme & Plugin
     $.each($('script'), function() {
       var url = $(this).attr('src');
-      var pattern = /\/colorizor(|\.min)\.js/igm;
+      var pattern = /\/colorizor(\.min)?\.js/igm;
       if (pattern.test(url)) {
         var data = Parameter(url);
         theme = data.theme;
         plugin = data.plugin;
         //Theme
-        loadCSS('https://colorizor.github.io/Themes/' + Trim(theme.toLowerCase()) + '.css');
+        loadCSS(`https://colorizor.github.io/Themes/${Trim(theme.toLowerCase())}.css`);
         //Plugin
         $.each(plugin, function() {
-          loadJS('https://colorizor.github.io/Plugins/' + Trim(this.toLowerCase()) + '.js');
+          loadJS(`https://colorizor.github.io/Plugins/${Trim(this.toLowerCase())}.js`);
         });
       }
     });
@@ -392,7 +392,7 @@ var clz = (function() {
       //Initialize
       Initialize(data);
       //Procedure
-      $.each($('code[language="' + language + '"]'), function() {
+      $.each($(`code[language="${language}"]`), function() {
         //Sizing
         $(this).css({
           'height': 'auto', 'left': '0px', 'right': '0px', 'width': 'auto'
