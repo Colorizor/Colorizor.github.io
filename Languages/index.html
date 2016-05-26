@@ -177,17 +177,17 @@ span#text {
       {
         custom: '([\'](.*?)[\']|[\"](.*?)[\"])',
         pat: /.+/gm,
-        rep: '&lt;span id="string"&gt;&lt;/span&gt;'
+        rep: '&lt;span id="string"&gt;&#36;&amp;&lt;/span&gt;'
       },
       {
         custom: '[\:][\:].+',
         pat: /.+/gm,
-        rep: '&lt;span id="comment"&gt;$&amp;&lt;/span&gt;'
+        rep: '&lt;span id="comment"&gt;&#36;&amp;&lt;/span&gt;'
       },
       {
         custom: '[\:]([\\w]+)',
         pat: /([\w]+)/gm,
-        rep: '&lt;span id="keyword"&gt;$&amp;&lt;/span&gt;'
+        rep: '&lt;span id="keyword"&gt;&#36;&amp;&lt;/span&gt;'
       }
     ]
   };
