@@ -60,8 +60,8 @@
         rep: ''
       },
       {
-        begin: {pat: '([\(][\*])\<span\\sid\=\"block\"\>', exclude: true},
-        end: {pat: '\<\/span\>([\*][\)])', exclude: true},
+        begin: {pat: '([\/][\*])\<span\\sid\=\"block\"\>', exclude: true},
+        end: {pat: '\<\/span\>([\*][\/])', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
       }
