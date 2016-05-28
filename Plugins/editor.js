@@ -1,4 +1,4 @@
-$('code').change(function() {
+$('code').html().change(function() {
   var lang = $(this).attr('language');
   var func = window[lang.toLowerCase()]['Editorize'];
   if (typeof func === 'function') {
