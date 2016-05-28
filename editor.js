@@ -342,7 +342,8 @@ var clz = (function() {
           $(this).find('code').attr('language', langPre);
           loadJS('https://colorizor.github.io/Languages/'+Trim(langPre.toLowerCase())+'.js');
         } else if (langBlock) {
-          loadJS('https://colorizor.github.io/Languages/'+Trim(langBlock.toLowerCase())+'.js');
+          loadJS('https://colorizor.github.io/lang.js');
+          //loadJS('https://colorizor.github.io/Languages/'+Trim(langBlock.toLowerCase())+'.js');
         } else {
           $(this).find('code').attr('language', 'none');
           loadJS('https://colorizor.github.io/Languages/none.js');
