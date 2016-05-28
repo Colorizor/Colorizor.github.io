@@ -388,21 +388,25 @@ var clz = (function() {
       window.setTimeout(waitForLoad, 1);
     },
     //==============================Colorize
-    Colorize: function(data) {
+    Colorize: function(data, object) {
       //Initialize
       Initialize(data);
       //Procedure
       $.each($('code[language="'+language+'"]'), function() {
+        //Optional
+        if (!object) {
+          object = $(this);
+        }
         //Sizing
-        $(this).css({
+        $(object).css({
           'height': 'auto', 'left': '0px', 'right': '0px', 'width': 'auto'
         });
         //Core
-        Fetch($(this));
+        Fetch($(object));
         Prepare();
         Execute();
         Finalise();
-        Save($(this));
+        Save($(object));
       });
     }
   };
