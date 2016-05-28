@@ -1,4 +1,4 @@
-$('pre:not([noeditable])').change(function() {
-  var lang = $(this).find('code[contenteditable]').attr('language');
-  window[lang.toLowerCase()]['Editorize']($(this).find('code[contenteditable]'));
+$('pre:not([noeditable])').find('code[contenteditable]').bind('contentchanged', function() {
+  var lang = $(this).attr('language');
+  window[lang.toLowerCase()]['Editorize']($(this));
 });
