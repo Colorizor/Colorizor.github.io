@@ -6,22 +6,25 @@
   </head>
   <body>
     <main>
-      <pre><code language="autoit">#NoTrayIcon
-#AutoIt3Wrapper_Run_Tidy=Y
-#include &lt;Misc.au3&gt;
+      <pre><code language="avrasm">;* Title:       Block Copy Routines
+;* Version:     1.1
 
-_Singleton(@ScriptName) ; Allow only one instance
-example(0, 10)
+.include "8515def.inc"
 
-Func example($min, $max)
-	For $i = $min To $max
-		If Mod($i, 2) == 0 Then
-			MsgBox(64, "Message", $i & ' is even number!')
-		Else
-			MsgBox(64, "Message", $i & ' is odd number!')
-		EndIf
-	Next
-EndFunc   ;==>example</code></pre>
+        rjmp    RESET       ;reset handle
+
+.def    flashsize=r16       ;size of block to be copied
+
+flash2ram:
+        lpm                 ;get constant
+        st      Y+,r0       ;store in SRAM and increment Y-pointer
+        adiw    ZL,1        ;increment Z-pointer
+        dec     flashsize
+        brne    flash2ram   ;if not end of table, loop more
+        ret
+
+.def    ramtemp =r1         ;temporary storage register
+.def    ramsize =r16        ;size of block to be copied</code></pre>
     </main>
   </body>
 </html>
