@@ -6,37 +6,30 @@
   </head>
   <body>
     <main>
-      <pre><code language="aspectj">package com.aspectj.syntax;
-import org.aspectj.lang.annotation.AdviceName;
+      <pre><code language="autohotkey">; hotkeys and hotstrings
+#a::WinSet, AlwaysOnTop, Toggle, A
+#Space::
+  MsgBox, Percent sign (`%) need to be escaped.
+  Run "C:\Program Files\some\program.exe"
+  Gosub, label1
+return
+::btw::by the way
+; volume
+#Numpad8::Send {Volume_Up}
+#Numpad5::Send {Volume_Mute}
+#Numpad2::Send {Volume_Down}
 
-/** /**
-   example@gmail.com
-   [Example][example@gmail.com]
-  http://example.com
-  [Example][http://example.com]
-*/ */
-
-//sdhfhsdf sdfsdf
-privileged public aspect LoggingAspect percflowbelow(ajia.services.*){
-  private pointcut getResult() : call(* *(..) throws SQLException) && args(Account, .., int);
-  @AdviceName("CheckValidEmail")
-  before (Customer hu) : getResult(hu){		
-    System.out.println("Your mail address is valid!");
+label1:
+  if (Clipboard = "")
+  {
+    MsgBox, , Clipboard, Empty!
   }
-  Object around() throws InsufficientBalanceException: getResult() && call(Customer.new(String,String,int,int,int)){
-    return	proceed();
+  else
+  {
+    StringReplace, temp, Clipboard, old, new, All
+    MsgBox, , Clipboard, %temp%
   }
-  public Cache getCache() {
-    return this.cache;
-  }
-  pointcut beanPropertyChange(BeanSupport bean, Object newValue): execution(void BeanSupport+.set*(*)) && args(newValue) && this(bean);
-  declare parents: banking.entities.* implements BeanSupport;
-  declare warning : call(void TestSoftening.perform()): "Please ensure you are not calling this from an AWT thread";
-  private String Identifiable.id;
-  public void Identifiable.setId(String id) {
-    this.id = id;
-  }
-}</code></pre>
+return</code></pre>
     </main>
   </body>
 </html>
