@@ -6,25 +6,38 @@
   </head>
   <body>
     <main>
-      <pre><code language="avrasm">;* Title:       Block Copy Routines
-;* Version:     1.1
+      <pre><code language="axapta">class ExchRateLoadBatch extends RunBaseBatch {
+  ExchRateLoad rbc;
+  container currencies;
+  boolean actual;
+  boolean overwrite;
+  date beg;
+  date end;
 
-.include "8515def.inc"
+  #define.CurrentVersion(5)
 
-        rjmp    RESET       ;reset handle
+  #localmacro.CurrentList
+    currencies,
+    actual,
+    beg,
+    end
+  #endmacro
+}
 
-.def    flashsize=r16       ;size of block to be copied
+public boolean unpack(container packedClass) {
+  container       base;
+  boolean         ret;
+  Integer         version    = runbase::getVersion(packedClass);
 
-flash2ram:
-        lpm                 ;get constant
-        st      Y+,r0       ;store in SRAM and increment Y-pointer
-        adiw    ZL,1        ;increment Z-pointer
-        dec     flashsize
-        brne    flash2ram   ;if not end of table, loop more
-        ret
-
-.def    ramtemp =r1         ;temporary storage register
-.def    ramsize =r16        ;size of block to be copied</code></pre>
+  switch (version) {
+    case #CurrentVersion:
+      [version, #CurrentList] = packedClass;
+      return true;
+    default:
+      return false;
+  }
+  return ret;
+}</code></pre>
     </main>
   </body>
 </html>
