@@ -55,12 +55,6 @@
         end: '[\*][\/]'
       },
       {
-        begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\`]', exclude: true},
-        end: {pat: '[\`][\<][\/]span[\>]', exclude: true},
-        pat: /(\<span(.*?)\>|\<\/span\>)/gm,
-        rep: ''
-      },
-      {
         begin: {pat: '[\<]span\\sid[\=][\"]value[\"][\>][\']', exclude: true},
         end: {pat: '[\'][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
@@ -71,16 +65,6 @@
         end: {pat: '[\"][\<][\/]span[\>]', exclude: true},
         pat: /(\<span(.*?)\>|\<\/span\>)/gm,
         rep: ''
-      },
-      {
-        custom: '[\`][\<][\/]span[\>][\$][\{]',
-        pat: /[\`][\<][\/]span[\>]/gm,
-        rep: '<\/span>'
-      },
-      {
-        custom: '[\}][\<]span(.*?)[\>][\`]',
-        pat: /[\<]span(.*?)[\>][\`]/gm,
-        rep: '<span id="value">'
       },
       {
         begin: {pat: '[\<]span\\sid[\=][\"]comment[\"][\>][\/][\/]', exclude: true},
