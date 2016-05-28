@@ -52,7 +52,7 @@
         rep: '<span id="unit">$&</span>'
       },
       {
-        keyword: /[\;\$].+/gm,
+        keyword: /\B[\;\$](?!\b).+/gm,
         rep: '<span id="comment">$&</span>'
       },
       {
