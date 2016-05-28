@@ -17,9 +17,9 @@
     ],
     execute: [
       {
-        custom: '',
-        pat: //gm,
-        rep: '<span id="value">$&</span>'
+        custom: '([\\w]+)[\@]',
+        pat: /[\@]/gm,
+        rep: '@$'
       },
       {
         keyword: /([\'](.*?)[\']|[\"](.*?)[\"])/gm,
@@ -34,13 +34,11 @@
         rep: '<span id="reserved">$&</span>'
       },
       {
-        keyword: /\b(onblur|onclick|onerror|onfocus|onkeydown|onkeypress|onkeyup|onmouseover|onload|onmouseup|onmousedown|onsubmit)\b/gm,
+        keyword: /\b(extends|implements|pertypewithin|perthis|pertarget|percflowbelow|percflow|issingleton)\b/gm,
         rep: '<span id="parameter">$&</span>'
       },
       {
-        begin: {pat: '[\.](?=([\\w]+)((.?)[\=]|[\(]))', exclude: true},
-        end: {pat: '([\=]|[\(])', exclude: true},
-        pat: /([\w]+)/gm,
+        keyword: /([\w]+)(?=[\(])/gm,
         rep: '<span id="selector">$&</span>'
       },
       {
@@ -53,7 +51,7 @@
       },
       {
         nested: 'comment',
-        begin: '[\/][\*]',
+        begin: '([\/][\*]){2}',
         end: '[\*][\/]'
       },
       {
@@ -109,6 +107,10 @@
       {
         pat: /[\$][D][Q][\$]/gm,
         rep: '\\\"'
+      },
+      {
+        pat: /[\@][\$]/gm,
+        rep: '@'
       }
     ]
   };
