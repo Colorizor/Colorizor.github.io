@@ -1,8 +1,8 @@
-$('pre:not([noeditable])').change(function() {
-  var lang = $(this).find('code[contenteditable]').attr('language');
+$('code').change(function() {
+  var lang = $(this).attr('language');
   var func = window[lang.toLowerCase()]['Editorize'];
   if (typeof func === 'function') {
-    func.apply($(this).find('code[contenteditable]'));
+    func.apply($(this));
     console.log('yes');
   } else {
     console.log('no');
