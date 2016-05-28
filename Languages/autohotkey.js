@@ -34,7 +34,7 @@
       },
       {
         custom: '^([^\\n\"\;]+)[\:](?![\=])',
-        keyword: /([\w\d]+)/gm,
+        pat: /([\w\d]+)/gm,
         rep: '<span id="selector">$&</span>'
       },
       {
