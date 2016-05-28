@@ -7,7 +7,7 @@ var clz = (function() {
     {pat: /\<br(.*?)(\/)?\>/gm, rep: '\n'},
     {pat: /\</gm, rep: '&lt;'},
     {pat: /\>/gm, rep: '&gt;'},
-    {pat: /\t/gm, rep: '\s\s\s\s'}
+    {pat: /\t/gm, rep: '    '}
   ];
   //==============================Variable
   var code = '',
