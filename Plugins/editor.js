@@ -14,21 +14,16 @@ function Keypress(object, event) {
     count = 1;
     Insert($(object), '\n');
   } else if (event.type == 'keypress' && event.keyCode == 40) {
-    count = 0;
     Insert($(object), ')');
   } else if (event.type == 'keypress' && event.keyCode == 123) {
     var space = Space(),
         block = '\n'+space+'    \n'+space+'}';
-    count = 1 + space.length + 4;
     Insert($(object), block);
   } else if (event.type == 'keypress' && event.keyCode == 91) {
-    count = 0;
     Insert($(object), ']');
   } else if (event.type == 'keyup' && event.keyCode == 222 && !event.shiftKey) {
-    count = 0;
     Insert($(object), '\'');
   } else if (event.type == 'keyup' && event.keyCode == 222 && event.shiftKey) {
-    count = 0;
     Insert($(object), '"');
   }
   GetCursor($(object), count);
