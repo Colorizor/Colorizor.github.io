@@ -1,6 +1,6 @@
-(function() {
+var xml = (function() {
   const data = {
-    language: 'html',
+    language: 'xml',
     prepare: [
       {
         pat: /[\=]/gm,
@@ -85,5 +85,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+xml.Colorize();
