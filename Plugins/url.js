@@ -1,4 +1,4 @@
-var number = (function() {
+var url = (function() {
   return {
     Init: function() {
       $.each($('pre:not([nourl])').find('code'), function() {
@@ -36,4 +36,4 @@ var number = (function() {
     }
   };
 })();
-number.Init();
+url.Init();
