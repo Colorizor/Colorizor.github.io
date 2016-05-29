@@ -1,4 +1,4 @@
-(function() {
+var accesslog = (function() {
   const data = {
     language: 'accesslog',
     prepare: [
@@ -50,5 +50,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+accesslog.Colorize();
