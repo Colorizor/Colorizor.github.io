@@ -1,32 +1,23 @@
-$('pre:not([noeditor])').keyup(function(event) {
+$('pre:not([noeditor])').keypress(function(event) {
   var lang = $(this).find('code[contenteditable]').attr('language'),
       func = window[lang.toLowerCase()]['Editorize'];
   if (typeof func === 'function') {
-    Keypress($(this).find('code[contenteditable]'), event.which);
+    Keypress($(this).find('code[contenteditable]'), event.keyCode);
     func.apply(null, $(this).find('code[contenteditable]'));
     SetCursor($(this).find('code[contenteditable]'));
   }
 });
 function Keypress(object, key) {
   var count = 0;
-  /*switch (key) {
+  switch (key) {
     case 13://Return
       count = 1;
       break;
-    case 8://Escape
-      count = 0;
-      break;
-    case 9://Tab
-      count = 0;
-      break;
-    case 32://Space
-      count = 0;
-      break;
-    case 57://(
+    case 40://(
       count = 0;
       Insert($(object), ')');
       break;
-    case 16://)
+    case 41://)
       count = 0;
       break;
     case 123://{
@@ -42,34 +33,8 @@ function Keypress(object, key) {
     case 93://]
       count = 0;
       break;
-    case 34://"
-      count = 0;
-      Insert($(object), '"');
-      break;
-    case 39://'
-      count = 0;
-      Insert($(object), '\'');
-      break;
     default:
       break;
-  }*/
-  if (key == 13) {
-    count = 1;
-  } else if (String.fromCharCode(key) == '(') {
-    count = 0;
-    Insert($(object), ')');
-  } else if (String.fromCharCode(key) == '{') {
-    count = 0;
-    Insert($(object), '}');
-  } else if (String.fromCharCode(key) == '[') {
-    count = 0;
-    Insert($(object), ']');
-  } else if (String.fromCharCode(key) == '"') {
-    count = 0;
-    Insert($(object), '"');
-  } else if (String.fromCharCode(key) == '\'') {
-    count = 0;
-    Insert($(object), '\'');
   }
   GetCursor($(object), count);
 }
