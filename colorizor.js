@@ -373,10 +373,12 @@ var clz = (function() {
   function Plugin(object) {
     $.each(plugin, function() {
       console.log(this.toLowerCase());
-      var name = Trim(this.toLowerCase()),
-          func = window[name.toString()]['Colorize'];
-      if (typeof func === 'function') {
-        func.apply(null, $(object));
+      var name = Trim(this.toLowerCase());
+      if (!window[name]) {
+        var func = window[name]['Colorize'];
+        if (typeof func === 'function') {
+          func.apply(null, $(object));
+        }
       }
     });
   }
