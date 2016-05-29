@@ -26,7 +26,7 @@ function GetCursor(object) {
   $(object).attr('cursor', offset.toString());
 }
 function SetCursor(object) {
-  var offset = parseInt($(object).attr('Cursor'), 10);
+  var offset = parseInt($(object).attr('cursor'), 10);
   var element = $(object).get(0);
   if (document.selection) {
     var range = document.body.createTextRange();
