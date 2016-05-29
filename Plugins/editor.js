@@ -9,23 +9,67 @@ $('pre:not([noeditor])').keyup(function(event) {
 });
 function Keypress(object, key) {
   var count = 0;
+  /*switch (key) {
+    case 13://Return
+      count = 1;
+      break;
+    case 8://Escape
+      count = 0;
+      break;
+    case 9://Tab
+      count = 0;
+      break;
+    case 32://Space
+      count = 0;
+      break;
+    case 57://(
+      count = 0;
+      Insert($(object), ')');
+      break;
+    case 16://)
+      count = 0;
+      break;
+    case 123://{
+      count = 0;
+      break;
+    case 125://}
+      count = 0;
+      break;
+    case 91://[
+      count = 0;
+      Insert($(object), ']');
+      break;
+    case 93://]
+      count = 0;
+      break;
+    case 34://"
+      count = 0;
+      Insert($(object), '"');
+      break;
+    case 39://'
+      count = 0;
+      Insert($(object), '\'');
+      break;
+    default:
+      break;
+  }*/
   if (key == 13) {
     count = 1;
   } else if (String.fromCharCode(key) == '(') {
     count = 0;
-      Insert($(object), ')');
+    Insert($(object), ')');
   } else if (String.fromCharCode(key) == '{') {
     count = 0;
-      Insert($(object), '}');
+    Insert($(object), '}');
   } else if (String.fromCharCode(key) == '[') {
     count = 0;
-      Insert($(object), ']');
+    Insert($(object), ']');
   } else if (String.fromCharCode(key) == '"') {
     count = 0;
-      Insert($(object), '"');
+    Insert($(object), '"');
   } else if (String.fromCharCode(key) == '\'') {
     count = 0;
-      Insert($(object), '\'');
+    Insert($(object), '\'');
   }
   GetCursor($(object), count);
 }
