@@ -2,8 +2,8 @@ $('pre:not([noeditor])').keyup(function() {
   var lang = $(this).find('code[contenteditable]').attr('language');
   var func = window[lang.toLowerCase()]['Editorize'];
   if (typeof func === 'function') {
-    func.apply(null, $(this).find('code[contenteditable]'));
     GetCursor($(this).find('code[contenteditable]'));
+    func.apply(null, $(this).find('code[contenteditable]'));
     SetCursor($(this).find('code[contenteditable]'));
   }
 });
