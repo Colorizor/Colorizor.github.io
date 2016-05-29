@@ -10,11 +10,18 @@ $('pre:not([noeditor])').bind('keypress', function(event) {
 function Keypress(object, event) {
   var count = 0;
   if (event.keyCode == 13) {
+    event.preventDefault();
     count = 1;
     Insert($(object), '\n');
-  } else if (event.keyCode == 57 && event.shiftKey) {
+  } else if (event.keyCode == 40) {
     count = 0;
     Insert($(object), ')');
+  } else if (event.keyCode == 123) {
+    count = 0;
+    Insert($(object), '}');
+  } else if (event.keyCode == 91) {
+    count = 0;
+    Insert($(object), ']');
   }
   /*switch (key) {
     case 13://Return
