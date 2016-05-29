@@ -1,4 +1,4 @@
-$('pre:not([noeditor])').bind('keyup', function(event) {
+$('pre:not([noeditor])').bind('keypress', function(event) {
   var lang = $(this).find('code[contenteditable]').attr('language'),
       func = window[lang.toLowerCase()]['Editorize'];
   if (typeof func === 'function') {
@@ -10,7 +10,8 @@ $('pre:not([noeditor])').bind('keyup', function(event) {
 function Keypress(object, event) {
   var count = 0;
   if (event.keyCode == 13) {
-    
+    count = 1;
+    Insert($(object), '\n');
   } else if (event.keyCode == 57 && event.shiftKey) {
     count = 0;
     Insert($(object), ')');
