@@ -1,4 +1,4 @@
-(function() {
+var aspectj = (function() {
   const data = {
     language: 'aspectj',
     prepare: [
@@ -98,5 +98,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+aspectj.Colorize();
