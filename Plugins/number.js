@@ -1,6 +1,6 @@
-var number = (function(object) {
+var number = (function() {
   return {
-    Colorize: function() {
+    Colorize: function(object) {
       var block = $(object).html(),
           line = $(object).find('code').html(),
           number = '';
