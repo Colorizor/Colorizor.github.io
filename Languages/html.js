@@ -1,4 +1,4 @@
-(function() {
+var html = (function() {
   const data = {
     language: 'html',
     prepare: [
@@ -85,5 +85,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+html.Colorize();
