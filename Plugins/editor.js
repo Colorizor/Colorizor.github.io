@@ -17,9 +17,9 @@ function Keypress(object, event) {
     count = 0;
     Insert($(object), ')');
   } else if (event.type == 'keypress' && event.keyCode == 123) {
-    count = 0;
     var space = Space(),
         block = '\n'+space+'    \n'+space+'}';
+    count = 1 + space.length + 4;
     Insert($(object), block);
   } else if (event.type == 'keypress' && event.keyCode == 91) {
     count = 0;
