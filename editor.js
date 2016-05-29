@@ -4,9 +4,9 @@ var clz = (function() {
   //================================================================================
   //==============================Constant
   const regexp = [
-    {pat: /\<br(.*?)(\/)?\>/gm, rep: '\n'},
-    {pat: /\<div\>/gm, rep: '\n'},
+    //{pat: /\<div\>/gm, rep: '\n'},
     {pat: /\<\/div\>$/gm, rep: ''},
+    {pat: /\<br(.*?)(\/)?\>/gm, rep: '\n'},
     {pat: /\</gm, rep: '&lt;'},
     {pat: /\>/gm, rep: '&gt;'},
     {pat: /\t/gm, rep: '    '}
