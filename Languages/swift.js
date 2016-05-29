@@ -1,4 +1,4 @@
-(function() {
+var swift = (function() {
   const data = {
     language: 'swift',
     prepare: [
@@ -108,5 +108,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+swift.Colorize();
