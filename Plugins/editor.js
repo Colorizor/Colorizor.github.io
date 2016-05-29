@@ -1,3 +1,20 @@
+$('pre:not([noeditor])').mousedown(function(event) {
+  $(this).find('code').contextmenu(function() {
+    return false;
+  });
+  switch (event.which) {
+    case 3:
+      if (!$(this).find('code').attr('contenteditable')) {
+        $(this).find('code').attr('contenteditable', 'true');
+        $(this).find('code').attr('spellcheck', 'false');
+      } else {
+        $(this).find('code').removeAttr('contenteditable');
+      }
+      break;
+    default:
+      break;
+  }
+});
 $('pre:not([noeditor])').bind('keypress keyup', function(event) {
   var lang = $(this).find('code[contenteditable]').attr('language'),
       func = window[lang.toLowerCase()]['Editorize'];
@@ -124,4 +141,3 @@ function Nodes(node) {
   }
   return nodes;
 }
-//^([^\S\n]){1,}(?=[\S])
