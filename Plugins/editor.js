@@ -22,7 +22,7 @@ function Keypress(object, event) {
   } else if (event.type == 'keypress' && event.keyCode == 91) {
     count = 0;
     Insert($(object), ']');
-  } else if (event.type == 'keyup' && event.keyCode == 222) {
+  } else if (event.type == 'keyup' && event.keyCode == 222 && !event.shiftKey) {
     count = 0;
     Insert($(object), '\'');
   } else if (event.type == 'keyup' && event.keyCode == 222 && event.shiftKey) {
