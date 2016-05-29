@@ -399,7 +399,6 @@ var clz = (function() {
         if (!object) {
           object = $(this);
         }
-        console.log(object);
         //Sizing
         $(object).css({
           'height': 'auto', 'left': '0px', 'right': '0px', 'width': 'auto'
