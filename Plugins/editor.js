@@ -14,29 +14,53 @@ function Keypress(object, key) {
       count = 1;
       break;
     case 27://Escape
+      count = 0;
       break;
     case 32://Space
+      count = 0;
       break;
     case 40://(
+      count = 0;
+      Insert($(object), ')');
       break;
     case 41://)
+      count = 0;
       break;
     case 123://{
+      count = 0;
       break;
     case 125://}
+      count = 0;
       break;
     case 91://[
+      count = 0;
+      Insert($(object), ']');
       break;
     case 93://]
+      count = 0;
       break;
     case 34://"
+      count = 0;
+      Insert($(object), '"');
       break;
     case 39://'
+      count = 0;
+      Insert($(object), '\'');
       break;
     default:
       break;
   }
   GetCursor($(object), count);
+}
+function Insert(object, value) {
+  if (document.selection) {
+    document.selection.createRange().text = value;
+  } else {
+    var select = window.getSelection(),
+        range = select.getRangeAt(0);
+    range.deleteContents();
+    range.insertNode(document.createTextNode(value));
+  }
 }
 function GetCursor(object, count) {
   var offset = 0,
