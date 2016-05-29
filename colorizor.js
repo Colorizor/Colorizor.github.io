@@ -369,11 +369,11 @@ var clz = (function() {
       }
     });
   }
-  //==============================Plugins
+  //==============================Plugin
   function Plugin(object) {
     $.each(plugin, function() {
-      var name = Trim(this.toLowerCase()),
-          func = window[name]['Colorize'];
+      var name = Trim(this),
+          func = window[name.toLowerCase()]['Colorize'];
       if (typeof func === 'function') {
         func.apply(null, $(object));
       }
