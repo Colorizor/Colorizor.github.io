@@ -1,4 +1,4 @@
-(function() {
+var powershell = (function() {
   const data = {
     language: 'powershell',
     prepare: [
@@ -124,5 +124,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+powershell.Colorize();
