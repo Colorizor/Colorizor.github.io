@@ -4,7 +4,7 @@ $('pre:not([noeditor])').keyup(function() {
   if (typeof func === 'function') {
     GetCursor($(this).find('code[contenteditable]'));
     func.apply(null, $(this).find('code[contenteditable]'));
-    SetCursor($(this).find('code[contenteditable]'));
+    //SetCursor($(this).find('code[contenteditable]'));
   }
 });
 function GetCursor(object) {
