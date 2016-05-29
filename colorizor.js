@@ -99,7 +99,7 @@ var clz = (function() {
     code = $(object).html().replace(/\<(\/)?span(.*?)\>/gm, '');
   }
   function Save(object) {
-    $(object).html(Trim(code));
+    $(object).html(code);
   }
   //==============================Core
   function Prepare() {
