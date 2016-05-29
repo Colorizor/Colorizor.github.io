@@ -56,7 +56,9 @@ function SetCursor(object) {
       }
       count = endCount;
     }
-    window.getSelection().removeAllRanges().addRange(range);
+    var select = window.getSelection();
+    select.removeAllRanges();
+    select.addRange(range);
   }
 }
 function Nodes(node) {
