@@ -3,8 +3,8 @@ $('pre:not([noeditor])').keyup(function() {
   var func = window[lang.toLowerCase()]['Editorize'];
   if (typeof func === 'function') {
     func.apply(null, $(this).find('code[contenteditable]'));
-    GetCursor($(this));
-    SetCursor($(this));
+    GetCursor($(this).find('code[contenteditable]'));
+    SetCursor($(this).find('code[contenteditable]'));
   }
 });
 function GetCursor(object) {
