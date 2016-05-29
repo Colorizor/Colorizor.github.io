@@ -1,4 +1,4 @@
-(function() {
+var applescript = (function() {
   const data = {
     language: 'applescript',
     prepare: [
@@ -89,5 +89,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+applescript.Colorize();
