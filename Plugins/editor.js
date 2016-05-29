@@ -36,8 +36,8 @@ function SetCursor(object) {
     range.select();
   } else {
     var range = document.createRange();
-    range.setStart(element, offset);
-    range.setEnd(element, offset);
+    range.setStartAfter(element, offset);
+    range.setEndAfter(element, offset);
     window.getSelection().addRange(range);
   }
 }
