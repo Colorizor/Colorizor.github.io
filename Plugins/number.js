@@ -1,7 +1,5 @@
 var number = (function() {
   return {
-    Init: function() {
-    },
     Colorize: function(object) {
       var block = $(object).html(),
           line = $(object).find('code').html(),
@@ -14,4 +12,3 @@ var number = (function() {
     }
   };
 })();
-number.Init();
