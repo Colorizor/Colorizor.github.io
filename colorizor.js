@@ -100,6 +100,7 @@ var clz = (function() {
   }
   function Save(object) {
     $(object).html(code);
+    Plugin($(object).parents('pre'))
   }
   //==============================Core
   function Prepare() {
@@ -365,6 +366,16 @@ var clz = (function() {
         $.each(plugin, function() {
           loadJS('https://colorizor.github.io/Plugins/'+Trim(this.toLowerCase())+'.js');
         });
+      }
+    });
+  }
+  //==============================Plugins
+  function Plugin(object) {
+    $.each(plugin, function() {
+      var name = Trim(this.toLowerCase()),
+          func = window[name]['Colorize'];
+      if (typeof func === 'function') {
+        func.apply(null, $(object));
       }
     });
   }
