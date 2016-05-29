@@ -1,4 +1,4 @@
-(function() {
+var dos = (function() {
   const data = {
     language: 'dos',
     prepare: [
@@ -93,5 +93,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+dos.Colorize();
