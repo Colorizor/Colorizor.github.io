@@ -1,15 +1,21 @@
-$('pre:not([noeditor])').keypress(function(event) {
+$('pre:not([noeditor])').bind('keyup', function(event) {
   var lang = $(this).find('code[contenteditable]').attr('language'),
       func = window[lang.toLowerCase()]['Editorize'];
   if (typeof func === 'function') {
-    Keypress($(this).find('code[contenteditable]'), event.keyCode);
+    Keypress($(this).find('code[contenteditable]'), event);
     func.apply(null, $(this).find('code[contenteditable]'));
     SetCursor($(this).find('code[contenteditable]'));
   }
 });
-function Keypress(object, key) {
+function Keypress(object, event) {
   var count = 0;
-  switch (key) {
+  if (event.keyCode == 13) {
+    
+  } else if (event.keyCode == 57 && event.shiftKey) {
+    count = 0;
+    Insert($(object), ')');
+  }
+  /*switch (key) {
     case 13://Return
       count = 0;
       break;
@@ -36,7 +42,7 @@ function Keypress(object, key) {
       break;
     default:
       break;
-  }
+  }*/
   GetCursor($(object), count);
 }
 function Insert(object, value) {
