@@ -1,13 +1,44 @@
-$('pre:not([noeditor])').keyup(function() {
+$('pre:not([noeditor])').keyup(function(event) {
   var lang = $(this).find('code[contenteditable]').attr('language'),
       func = window[lang.toLowerCase()]['Editorize'];
   if (typeof func === 'function') {
-    GetCursor($(this).find('code[contenteditable]'));
+    Keypress($(this).find('code[contenteditable]'), event.which);
     func.apply(null, $(this).find('code[contenteditable]'));
     SetCursor($(this).find('code[contenteditable]'));
   }
 });
-function GetCursor(object) {
+function Keypress(object, key) {
+  var count = 0;
+  switch (key) {
+    case 13://Return
+      count = 1;
+      break;
+    case 27://Escape
+      break;
+    case 32://Space
+      break;
+    case 40://(
+      break;
+    case 41://)
+      break;
+    case 123://{
+      break;
+    case 125://}
+      break;
+    case 91://[
+      break;
+    case 93://]
+      break;
+    case 34://"
+      break;
+    case 39://'
+      break;
+    default:
+      break;
+  }
+  GetCursor($(object), count);
+}
+function GetCursor(object, count) {
   var offset = 0,
       element = $(object).get(0);
   if (document.selection) {
@@ -15,13 +46,13 @@ function GetCursor(object) {
         caret = document.body.createRange();
     caret.moveToElementText(element);
     caret.setEndPoint('EndToEnd', range);
-    offset = caret.text.length;
+    offset = caret.text.length + count;
   } else {
     var range = window.getSelection().getRangeAt(0),
         caret = range.cloneRange();
     caret.selectNodeContents(element);
     caret.setEnd(range.endContainer, range.endOffset);
-    offset = caret.toString().length;
+    offset = caret.toString().length + count;
   }
   $(object).attr('cursor', offset.toString());
 }
