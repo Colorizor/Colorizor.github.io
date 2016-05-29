@@ -3,7 +3,8 @@ var number = (function() {
     Init: function() {
       $.each($('pre:not([nonumber])'), function() {
         var block = $(this).html(),
-            block = block.replace(/(\<span(.*?)numbers(.*?)\>([\s\S]*?)\<\/span\>\<span(.*?)coding(.*?)\>|\<\/span\>$)/gm, ''),
+            block = block.replace(/\<span(.*?)numbers(.*?)\>([\s\S]*?)\<\/span\>\<span(.*?)coding(.*?)\>/gm, ''),
+            block = block.replace(/\<\/code\>\<\/span\>/gm, '</code>'),
             line = $(this).find('code').html(),
             number = '';
         for (var a = 0; a < line.split('\n').length; a++) {
@@ -15,7 +16,8 @@ var number = (function() {
     },
     Colorize: function(object) {
       var block = $(object).html(),
-          block = block.replace(/(\<span(.*?)numbers(.*?)\>([\s\S]*?)\<\/span\>\<span(.*?)coding(.*?)\>|\<\/span\>$)/gm, ''),
+          block = block.replace(/\<span(.*?)numbers(.*?)\>([\s\S]*?)\<\/span\>\<span(.*?)coding(.*?)\>/gm, ''),
+          block = block.replace(/\<\/code\>\<\/span\>/gm, '</code>'),
           line = $(object).find('code').html(),
           number = '';
       for (var a = 0; a < line.split('\n').length; a++) {
