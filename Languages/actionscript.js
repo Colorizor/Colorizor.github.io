@@ -1,4 +1,4 @@
-(function() {
+var actionscript = (function() {
   const data = {
     language: 'actionscript',
     prepare: [
@@ -87,5 +87,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+actionscript.Colorize();
