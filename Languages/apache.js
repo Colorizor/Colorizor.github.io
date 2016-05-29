@@ -1,4 +1,4 @@
-(function() {
+var apache = (function() {
   const data = {
     language: 'apache',
     prepare: [
@@ -78,5 +78,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+apache.Colorize();
