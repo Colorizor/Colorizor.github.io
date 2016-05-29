@@ -7,7 +7,7 @@ $('pre:not([noeditor])').keyup(function() {
     SetCursor($(this).find('code[contenteditable]'));
   }
 });
-GetCursor: function(object) {
+function GetCursor(object) {
   var offset = 0;
   var element = $(object).get(0);
   if (document.selection) {
@@ -25,7 +25,7 @@ GetCursor: function(object) {
   }
   $(object).attr('cursor', offset.toString());
 }
-SetCursor: function(object) {
+function SetCursor(object) {
   var offset = parseInt($(object).attr('cursor'), 10);
   var element = $(object).get(0);
   if (document.selection) {
