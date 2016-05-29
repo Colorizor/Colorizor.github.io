@@ -98,7 +98,7 @@ var clz = (function() {
   }
   function Save(object) {
     $(object).html(Trim(code));
-    SetCursor($(object));
+    editor.SetCursor($(object));
   }
   //==============================Core
   function Prepare() {
