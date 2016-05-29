@@ -1,4 +1,4 @@
-(function() {
+var autohotkey = (function() {
   const data = {
     language: 'autohotkey',
     prepare: [
@@ -79,5 +79,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+autohotkey.Colorize();
