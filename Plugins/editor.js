@@ -18,7 +18,9 @@ function Keypress(object, event) {
     Insert($(object), ')');
   } else if (event.type == 'keypress' && event.keyCode == 123) {
     count = 0;
-    Insert($(object), '}');
+    var space = Space(),
+        block = space+'    \n'+space+'}';
+    Insert($(object), block);
   } else if (event.type == 'keypress' && event.keyCode == 91) {
     count = 0;
     Insert($(object), ']');
@@ -29,35 +31,25 @@ function Keypress(object, event) {
     count = 0;
     Insert($(object), '"');
   }
-  /*switch (key) {
-    case 13://Return
-      count = 0;
-      break;
-    case 40://(
-      count = 0;
-      Insert($(object), ')');
-      break;
-    case 41://)
-      count = 0;
-      break;
-    case 123://{
-      count = 0;
-      Insert($(object), '}');
-      break;
-    case 125://}
-      count = 0;
-      break;
-    case 91://[
-      count = 0;
-      Insert($(object), ']');
-      break;
-    case 93://]
-      count = 0;
-      break;
-    default:
-      break;
-  }*/
   GetCursor($(object), count);
+}
+function Space() {
+  var space = '';
+  if (document.selection) {
+    
+  } else {
+    var select = document.getSelection(),
+        node = select.anchorNode,
+        block = node.textContent.slice(0, select.focusOffset),
+        line = block.split('\n'),
+        match = line.match(/^([\s]+)/gm);
+    if (match != null) {
+      space = match[0];
+    } else {
+      space = '';
+    }
+  }
+  return space;
 }
 function Insert(object, value) {
   if (document.selection) {
