@@ -372,7 +372,6 @@ var clz = (function() {
   //==============================Plugin
   function Plugin(object) {
     $.each(plugin, function() {
-      console.log(this.toLowerCase());
       var name = Trim(this.toLowerCase());
       if (window[name]) {
         var func = window[name]['Colorize'];
