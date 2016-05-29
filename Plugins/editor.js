@@ -41,10 +41,10 @@ function Space() {
     var select = document.getSelection(),
         node = select.anchorNode,
         block = node.textContent.slice(0, select.focusOffset),
-        line = block.split('\n'),
-        match = line.match(/^([\s]+)/gm);
-    if (match != null) {
-      space = match[0];
+        lines = block.split('\n'),
+        line = lines[lines.length - 1].match(/^([\s]+)/gm);
+    if (line != null) {
+      space = line[0];
     } else {
       space = '';
     }
