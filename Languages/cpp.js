@@ -1,4 +1,4 @@
-(function() {
+var cpp = (function() {
   const data = {
     language: 'cpp',
     prepare: [
@@ -91,5 +91,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+cpp.Colorize();
