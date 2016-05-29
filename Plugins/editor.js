@@ -1,4 +1,4 @@
-$('pre:not([noeditor])').bind('keypress', function(event) {
+$('pre:not([noeditor])').bind('keypress keyup', function(event) {
   var lang = $(this).find('code[contenteditable]').attr('language'),
       func = window[lang.toLowerCase()]['Editorize'];
   if (typeof func === 'function') {
@@ -9,19 +9,25 @@ $('pre:not([noeditor])').bind('keypress', function(event) {
 });
 function Keypress(object, event) {
   var count = 0;
-  if (event.keyCode == 13) {
+  if (event.type == 'keypress' && event.keyCode == 13) {
     event.preventDefault();
     count = 1;
     Insert($(object), '\n');
-  } else if (event.keyCode == 40) {
+  } else if (event.type == 'keypress' && event.keyCode == 40) {
     count = 0;
     Insert($(object), ')');
-  } else if (event.keyCode == 123) {
+  } else if (event.type == 'keypress' && event.keyCode == 123) {
     count = 0;
     Insert($(object), '}');
-  } else if (event.keyCode == 91) {
+  } else if (event.type == 'keypress' && event.keyCode == 91) {
     count = 0;
     Insert($(object), ']');
+  } else if (event.type == 'keyup' && event.keyCode == 222) {
+    count = 0;
+    Insert($(object), '\'');
+  } else if (event.type == 'keyup' && event.keyCode == 222 && event.shiftKey) {
+    count = 0;
+    Insert($(object), '"');
   }
   /*switch (key) {
     case 13://Return
