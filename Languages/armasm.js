@@ -1,4 +1,4 @@
-(function() {
+var armasm = (function() {
   const data = {
     language: 'armasm',
     prepare: [
@@ -89,5 +89,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+armasm.Colorize();
