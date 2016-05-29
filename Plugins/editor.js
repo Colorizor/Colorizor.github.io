@@ -1,9 +1,9 @@
-$('pre:not([noeditor])').find('code[contenteditable]').keydown(function() {
+$('pre:not([noeditor])').keydown(function() {
   console.log('hi');
-  var lang = $(this).attr('language');
+  var lang = $(this).find('code[contenteditable]').attr('language');
   var func = window[lang.toLowerCase()]['Editorize'];
   if (typeof func === 'function') {
-    func.apply($(this));
+    func.apply($(this).find('code[contenteditable]'));
     console.log('yes');
   } else {
     console.log('no');
