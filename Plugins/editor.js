@@ -22,6 +22,7 @@ function Keypress(object, key) {
       break;
     case 123://{
       count = 0;
+      Insert($(object), '}');
       break;
     case 125://}
       count = 0;
