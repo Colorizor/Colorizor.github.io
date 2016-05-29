@@ -27,18 +27,7 @@ function GetCursor(object) {
 }
 function SetCursor(object) {
   var offset = parseInt($(object).attr('cursor'), 10),
-      element = $(object).get(0),
-      nodes = [];
-  function Nodes(current) {
-    for (var a = 0; a < current.childNodes.length; a++) {
-      var child = current.childNodes[a];
-      if (child.nodeType == 3) {
-        nodes.push(child.nodeValue);
-      } else {
-        Nodes(child);
-      }
-    }
-  }
+      element = $(object).get(0);
   if (document.selection) {
     var range = document.body.createTextRange();
     range.moveToElementText(element);
@@ -47,8 +36,8 @@ function SetCursor(object) {
     range.moveStart('character', offset);
     range.select();
   } else {
-    Nodes(element);
     var range = document.createRange(),
+        nodes = Nodes(element),
         count = 0,
         endCount = 0,
         started = false;
@@ -69,5 +58,17 @@ function SetCursor(object) {
     }
     window.getSelection().removeAllRanges().addRange(range);
   }
+}
+function Nodes(node) {
+  var nodes = [];
+  if (node.nodeType == 3) {
+    nodes.push(node);
+  } else {
+    var children = node.childNodes;
+    for (var a = 0; a < children.length; a++) {
+      nodes.push.apply(nodes, Nodes(children[a]));
+    }
+  }
+  return nodes;
 }
 //^([^\S\n]){1,}(?=[\S])
