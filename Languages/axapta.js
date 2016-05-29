@@ -1,4 +1,4 @@
-(function() {
+var axapta = (function() {
   const data = {
     language: 'axapta',
     prepare: [
@@ -91,5 +91,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+axapta.Colorize();
