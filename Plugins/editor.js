@@ -11,7 +11,7 @@ function Keypress(object, key) {
   var count = 0;
   switch (key) {
     case 13://Return
-      count = 1;
+      count = 0;
       break;
     case 40://(
       count = 0;
