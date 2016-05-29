@@ -16,7 +16,7 @@ span#unit{color:rgb(255, 224, 144);}
 ======================================Plugins=====================================
 ================================================================================*/
 /*Editable*/
-code[contenteditable] * {color:rgb(135, 125, 107)!important;}
+/*code[contenteditable] * {color:rgb(135, 125, 107)!important;}*/
 /*Fold*/
 span#block[block]{background-color:rgb(58, 53, 57);}
 /*Number*/
