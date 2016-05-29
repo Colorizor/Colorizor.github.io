@@ -1,4 +1,4 @@
-(function() {
+var asciidoc = (function() {
   const data = {
     language: 'asciidoc',
     prepare: [
@@ -29,5 +29,13 @@
       }
     ]
   };
-  clz.Colorize(data);
+  return {
+    Colorize: function() {
+      clz.Colorize(data);
+    },
+    Editorize: function(object) {
+      clz.Colorize(data, $(object));
+    }
+  };
 })();
+asciidoc.Colorize();
