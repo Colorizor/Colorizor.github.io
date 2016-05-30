@@ -100,7 +100,7 @@ var clz = (function() {
   }
   function Save(object) {
     $(object).html(code);
-    Plugin($(object).parents('pre'))
+    Plugin($(object).parents('pre'));
   }
   //==============================Core
   function Prepare() {
