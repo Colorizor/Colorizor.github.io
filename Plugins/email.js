@@ -5,6 +5,7 @@ var email = (function() {
         var block = $(this).html(),
             normal = '\\b(([\\w\\d\.\_\%\+\-]+)[\@]([\\w\\d\.\-]+)([\.][\\w]{2,}))\\b',
             custom = '[\\\[](.*?)[\\\]][\\\[](?=(.*?)([\\w]+)[\@])(.*?)[\\\]]';
+        block = block.replace(/\<(\/)?a(.*?)\>/gm, '');
         block = block.replace(new RegExp('('+custom+'|'+normal+')', 'gm'), function(match) {
           if (match.match(new RegExp('^'+normal+'$', 'gm')) != null) {
             return '<a id="url" href="mailto:'+match+'">'+match+'</a>';
@@ -22,6 +23,7 @@ var email = (function() {
       var block = $(object).find('code').html(),
           normal = '\\b(([\\w\\d\.\_\%\+\-]+)[\@]([\\w\\d\.\-]+)([\.][\\w]{2,}))\\b',
           custom = '[\\\[](.*?)[\\\]][\\\[](?=(.*?)([\\w]+)[\@])(.*?)[\\\]]';
+      block = block.replace(/\<(\/)?a(.*?)\>/gm, '');
       block = block.replace(new RegExp('('+custom+'|'+normal+')', 'gm'), function(match) {
         if (match.match(new RegExp('^'+normal+'$', 'gm')) != null) {
           return '<a id="url" href="mailto:'+match+'">'+match+'</a>';
