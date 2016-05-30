@@ -14,7 +14,7 @@ var regex = (function() {
             temp = line.replace(comment, '//');
             temp = temp.replace(/[\/][\/](?![igmuy])(.*?)\<\/span\>$/gm, '<span id="comment">$&');
           }
-          return temp.replace(/[\/](?![\/][^gimuy])(?!([\w]+)\>)([\w\d\S]+)?[\/](?!([\w]+)\>)([gimuy]+)?/gm, function(match) {
+          return temp.replace(/[\/](?![\/][^gimuy])(?!([\w]+)(\>|\&gt\;))([\w\d\S]+)?[\/](?!([\w]+)(\>|\&gt\;))([gimuy]+)?/gm, function(match) {
             if (line.match(new RegExp('\<span id\=\"value\"\>(.*?)'+Escape(match)+'(.*?)\<\/span\>', 'gm')) != null) {
               return match;
             } else {
@@ -36,7 +36,7 @@ var regex = (function() {
           temp = line.replace(comment, '//');
           temp = temp.replace(/[\/][\/](?![igmuy])(.*?)\<\/span\>$/gm, '<span id="comment">$&');
         }
-        return temp.replace(/[\/](?![\/][^gimuy])(?!([\w]+)\>)([\w\d\S]+)?[\/](?!([\w]+)\>)([gimuy]+)?/gm, function(match) {
+        return temp.replace(/[\/](?![\/][^gimuy])(?!([\w]+)(\>|\&gt\;))([\w\d\S]+)?[\/](?!([\w]+)(\>|\&gt\;))([gimuy]+)?/gm, function(match) {
           if (line.match(new RegExp('\<span id\=\"value\"\>(.*?)'+Escape(match)+'(.*?)\<\/span\>', 'gm')) != null) {
             return match;
           } else {
